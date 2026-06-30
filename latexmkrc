@@ -1,0 +1,1 @@
+# $pdflatex = "latexdiff main_v3.tex main_v4.tex > main-d.tex; pdflatex %O  main-d"
