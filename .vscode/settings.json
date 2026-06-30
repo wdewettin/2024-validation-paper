@@ -1,0 +1,72 @@
+{
+  "latex-workshop.latex.tools": [
+    {
+      "name": "lualatex",
+      "command": "lualatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-output-directory=%OUTDIR%",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "pdflatex",
+      "command": "pdflatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-output-directory=%OUTDIR%",
+        "%DOC%"
+      ]
+    },
+    {
+      "name": "bibtex",
+      "command": "bibtex",
+      "args": [
+        "%OUTDIR%/%DOCFILE%"
+      ]
+    },
+    {
+      "name": "makeglossaries",
+      "command": "makeglossaries",
+      "args": [
+        "-d",
+        "%OUTDIR%",
+        "%DOCFILE%"
+      ]
+    },
+    {
+      "name": "latexmk (aux in build, pdf in root)",
+      "command": "latexmk",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-lualatex",
+        "-outdir=%OUTDIR%",
+        "-auxdir=%OUTDIR%",
+        "%DOC%"
+      ]
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "QuickPass (Save)",
+      "tools": ["lualatex"]
+    },
+    {
+      "name": "FullBuild",
+      "tools": ["pdflatex", "pdflatex", "lualatex", "pdflatex"]
+    },
+    {
+      "name": "latexmk (aux in build, pdf in root)",
+      "tools": ["latexmk (aux in build, pdf in root)"]
+    }
+  ],
+  "latex-workshop.latex.autoBuild.run": "never",
+  "latex-workshop.latex.recipe.default": "FullBuild", // "latexmk (aux in build, pdf in root)",
+  "latex-workshop.latex.outDir": "%DIR%/build",
+}
