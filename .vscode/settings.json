@@ -1,15 +1,25 @@
 {
   "latex-workshop.latex.tools": [
     {
-      "name": "lualatex",
-      "command": "lualatex",
+      "name": "latexdiff",
+      "command": "cmd",
+      "args": ["/c", "latexdiff main_v20260310.tex main.tex > main-diff.tex"]
+    },
+    {
+      "name": "pdflatex (diff)",
+      "command": "pdflatex",
       "args": [
         "-synctex=1",
         "-interaction=nonstopmode",
         "-file-line-error",
-        "-output-directory=%OUTDIR%",
-        "%DOC%"
+        "-output-directory=build",
+        "main-diff"
       ]
+    },
+    {
+      "name": "bibtex (diff)",
+      "command": "bibtex",
+      "args": ["build/main-diff"]
     },
     {
       "name": "pdflatex",
@@ -29,28 +39,6 @@
         "%OUTDIR%/%DOCFILE%"
       ]
     },
-    {
-      "name": "makeglossaries",
-      "command": "makeglossaries",
-      "args": [
-        "-d",
-        "%OUTDIR%",
-        "%DOCFILE%"
-      ]
-    },
-    {
-      "name": "latexmk (aux in build, pdf in root)",
-      "command": "latexmk",
-      "args": [
-        "-synctex=1",
-        "-interaction=nonstopmode",
-        "-file-line-error",
-        "-lualatex",
-        "-outdir=%OUTDIR%",
-        "-auxdir=%OUTDIR%",
-        "%DOC%"
-      ]
-    }
   ],
   "latex-workshop.latex.recipes": [
     {
@@ -59,14 +47,21 @@
     },
     {
       "name": "FullBuild",
-      "tools": ["pdflatex", "pdflatex", "lualatex", "pdflatex"]
+      "tools": ["pdflatex", "bibtex", "pdflatex", "pdflatex"]
     },
     {
       "name": "latexmk (aux in build, pdf in root)",
       "tools": ["latexmk (aux in build, pdf in root)"]
+    },
+    {
+      "name": "Diff Build (wrt v20260310)",
+      "tools": ["latexdiff", "pdflatex (diff)", "bibtex (diff)", "pdflatex (diff)", "pdflatex (diff)"]
+    },
+    {
+      "name": "Diff (wrt v20260310)",
+      "tools": ["latexdiff"]
     }
   ],
   "latex-workshop.latex.autoBuild.run": "never",
   "latex-workshop.latex.recipe.default": "FullBuild", // "latexmk (aux in build, pdf in root)",
-  "latex-workshop.latex.outDir": "%DIR%/build",
 }
