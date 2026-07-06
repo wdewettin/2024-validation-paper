@@ -1,7 +1,7 @@
 %% Copernicus Publications Manuscript Preparation Template for LaTeX Submissions
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL main_v20260310.tex   Tue Jun 30 12:36:54 2026
-%DIF ADD main.tex             Sun Jul  5 17:24:45 2026
+%DIF ADD main.tex             Mon Jul  6 14:46:38 2026
 %% ---------------------------------
 %% This template should be used for copernicus.cls
 %% The class file and some style files are bundled in the Copernicus Latex Package, which can be downloaded from the different journal webpages.
@@ -225,7 +225,7 @@ In this study, we present \DIFaddbegin \DIFadd{ALARO-1, }\DIFaddend an updated v
 This }\DIFdelend \DIFaddbegin \footnote{\DIFadd{Surface Externalisée.}} \DIFadd{scheme~\mbox{%DIFAUXCMD
 \citep{masson_surfexv72_2013, hamdi_evaluating_2014}}\hskip0pt%DIFAUXCMD
 . 
-SURFEX extends ISBA's vegetation-based approach by including multiple surface types—nature: urban areas, lakes, and seas.
+SURFEX extends ISBA's vegetation-based approach by including multiple surface types: nature, urban areas, lakes, and seas.
 This is necessary to use ALARO-1 for land-use climate studies.
 The }\DIFaddend ALARO model was originally developed for numerical weather prediction (NWP) by the ALADIN \DIFdelbegin \DIFdel{consortium}\DIFdelend \DIFaddbegin \DIFadd{(Aire Limitée Adaptation Dynamique Développement International, translated to International development for limited-area dynamical adaptation) consortium}\DIFaddend \footnote{The ALADIN consortium merged with the HIRLAM \DIFaddbegin \DIFadd{(High Resolution Limited-Area Model) }\DIFaddend consortium in 2020 to form the ACCORD \DIFaddbegin \DIFadd{(A Consortium for COnvection-scale modelling Research and Development) }\DIFaddend consortium.}, which comprised the national (hydro)meteorological services of 16 European and northern African countries~\citep{termonia_aladin_2018}.
 The ALARO model is one of three canonical model configurations (CMCs) within the ALADIN framework, along with the baseline ALADIN model and the AROME\DIFdelbegin \DIFdel{model}\DIFdelend \DIFaddbegin \footnote{\DIFadd{Application of Research to Operations at Mesoscale.}} \DIFadd{model}\footnote{\DIFadd{The name ALARO stands for ALADIN-AROME}}\DIFaddend .
@@ -281,13 +281,14 @@ Finally, Sect. \ref{sect:conclusions} draws the conclusions, summarizing the key
 
 \subsubsection{ALARO1-SFX model}
 
-Historically, the ALARO model has its roots in the global Integrated Forecast System (IFS) of the ECMWF\footnote{European Centre for Medium-Range Weather Forecasts} and the global ARPEGE\footnote{Action de Recherche Petite Echelle Grande Echelle} model of Météo-France.
+Historically, the ALARO model has its roots in the global \DIFdelbegin \DIFdel{Integrated Forecast System (IFS ) }\DIFdelend \DIFaddbegin \DIFadd{IFS }\DIFaddend of the ECMWF\footnote{European Centre for Medium-Range Weather Forecasts} and the global ARPEGE \DIFdelbegin \footnote{\DIFdel{Action de Recherche Petite Echelle Grande Echelle}} %DIFAUXCMD
+\addtocounter{footnote}{-1}%DIFAUXCMD
+\DIFdelend model of Météo-France.
 These global models were adapted to run on a limited area, which resulted in ALADIN.
 The ALADIN model employs the same physical parameterization schemes as the global ARPEGE model.
-ALARO is in turn a further development of ALADIN: it  shares the dynamical core of ALADIN, but it contains different physics parameterizations.
+ALARO is in turn a further development of ALADIN: it shares the dynamical core of ALADIN, but it contains different physics parameterizations.
 
-The dynamical core of ALARO 
-can be run both hydrostatically and non-hydrostatically~\citep{bubnova_integration_1995, termonia_aladin_2018}. 
+The dynamical core of ALARO can be run both hydrostatically and non-hydrostatically~\citep{bubnova_integration_1995, termonia_aladin_2018}. 
 In both configurations, the dynamical equations are spatially discretized using a spectral representation of double-Fourier modes.
 For the time-step algorithm, a semi-implicit semi-Lagrangian scheme is employed. 
 In the vertical dimension, the model uses a hybrid terrain-following pressure coordinate~\citep{simmons_energy_1981, laprise_euler_1992}. 
@@ -299,19 +300,21 @@ The separate variables of each tile are finally aggregated with a weighted avera
 
 \subsubsection{Experimental design}
 
-Firstly, a simulation was run at a resolution of 25 km (see Fig.~\ref{fig:domains_stations}) with the ALARO-1 model using boundary conditions from the ERA-5 reanalysis dataset~\citep{hersbach_era5_2020}. 
-Next, this simulation data was dynamically downscaled to two higher resolutions with a multi-level nesting strategy: each higher-resolution run was coupled hourly to the previous lower-resolution run at the boundaries.
-The output of all simulations was stored at an hourly frequency.
-This downscaling resulted in simulations at 12.5 km and 4 km coupled to, respectively, the 25 km and 12.5 km simulations. 
+Firstly, a simulation \DIFdelbegin \DIFdel{was }\DIFdelend \DIFaddbegin \DIFadd{is }\DIFaddend run at a resolution of 25 km (see Fig.~\ref{fig:domains_stations}) with the ALARO-1 model using boundary conditions from the ERA-5 reanalysis dataset~\citep{hersbach_era5_2020}. 
+Next, this simulation data \DIFdelbegin \DIFdel{was }\DIFdelend \DIFaddbegin \DIFadd{is }\DIFaddend dynamically downscaled to two higher resolutions with a multi-level nesting strategy: each higher-resolution run \DIFdelbegin \DIFdel{was }\DIFdelend \DIFaddbegin \DIFadd{is }\DIFaddend coupled hourly to the previous lower-resolution run at the boundaries.
+The output of all simulations \DIFdelbegin \DIFdel{was }\DIFdelend \DIFaddbegin \DIFadd{is }\DIFaddend stored at an hourly frequency.
+This downscaling \DIFdelbegin \DIFdel{resulted }\DIFdelend \DIFaddbegin \DIFadd{results }\DIFaddend in simulations at 12.5 km and 4 km coupled to, respectively, the 25 km and 12.5 km simulations. 
 Henceforth, we will refer to each simulation as ALARO-$x$km with $x$ the resolution in kilometers. 
-For the lateral boundary coupling, the Davies relaxation scheme was employed~\citep{davies_lateral_1976}, with a coupling zone of 8 points~\citep{termonia_aladin_2018}.
+For the lateral boundary coupling, the Davies relaxation scheme \DIFdelbegin \DIFdel{was }\DIFdelend \DIFaddbegin \DIFadd{is }\DIFaddend employed~\citep{davies_lateral_1976}, with a coupling zone of 8 points~\citep{termonia_aladin_2018}.
+\DIFaddbegin \DIFadd{The coupled prognostic variables are temperature, the horizontal wind components, specific humidity, and surface pressure.
+}\DIFaddend 
 
 All simulations span a period of 32 years from 1 January 1991 to 31 December 2022. 
-The first year was discarded for each simulation to ensure the model, specifically the soil, reached an equilibrium state. 
+The first year \DIFdelbegin \DIFdel{was }\DIFdelend \DIFaddbegin \DIFadd{is }\DIFaddend discarded for each simulation to ensure the model, specifically the soil, \DIFdelbegin \DIFdel{reached }\DIFdelend \DIFaddbegin \DIFadd{reaches }\DIFaddend an equilibrium state. 
 The simulations are continuous, with monthly updates to certain (otherwise) constant fields including the sea surface temperature, the surface roughness length, surface albedo, surface emissivity, and the vegetation parameters. 
-This monthly update methodology was also applied in~\citet{giot_validation_2016} and~\citet{top_evaluation_2021}.
+This monthly update methodology \DIFdelbegin \DIFdel{was }\DIFdelend \DIFaddbegin \DIFadd{is }\DIFaddend also applied in~\citet{giot_validation_2016} and~\citet{top_evaluation_2021}.
 
-The different simulation domains are shown in the top panel of Fig.~\ref{fig:domains_stations}. 
+The different simulation domains are shown in \DIFdelbegin \DIFdel{the top panel of }\DIFdelend Fig.~\ref{fig:domains_stations}\DIFaddbegin \DIFadd{a}\DIFaddend .
 The ALARO-25km and ALARO-12km simulations both cover the EURO-CORDEX domain~\citep{jacob_regional_2020}. 
 The ALARO-4km simulation covers a smaller domain due to computational constraints. 
 This domain is the operational NWP domain of the Royal Meteorological Institute of Belgium. 
@@ -324,12 +327,17 @@ It is centred on Belgium and covers parts of Western Europe.
 \end{figure}
 
 The main technical specifications of the simulations are outlined in Table \ref{tab:technical}. 
-All simulations used the hydrostatical dynamical core and are run with 46 vertical levels.
-Moreover, they all used the same physics parameterization framework, including the 3MT scheme for deep convection, which adapts to the model resolution due to its scale-aware nature.
-One significant difference between the simulations concerns the land-surface scheme. 
-SURFEX was not employed for ALARO-25km: instead, the original ISBA scheme was used. 
+All simulations \DIFdelbegin \DIFdel{used the hydrostatical }\DIFdelend \DIFaddbegin \DIFadd{use the hydrostatic }\DIFaddend dynamical core and are run with 46 vertical levels.
+Moreover, they all use\DIFdelbegin \DIFdel{d}\DIFdelend  the same physics parameterization framework, including the 3MT scheme for deep convection, which adapts to the model resolution due to its scale-aware nature.
+\DIFaddbegin 
 
-The main reason for omitting SURFEX in the 25 km simulation is that urban effects are minimal at this resolution, making its inclusion less relevant. 
+\DIFaddend One significant difference between the simulations concerns the land-surface scheme. 
+SURFEX \DIFdelbegin \DIFdel{was }\DIFdelend \DIFaddbegin \DIFadd{is }\DIFaddend not employed for ALARO-25km: instead, the original ISBA scheme \DIFdelbegin \DIFdel{was used. 
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \DIFadd{is used. 
+}\DIFaddend The main reason for omitting SURFEX in the 25 km simulation is that urban effects are minimal at this resolution, making its inclusion less relevant. 
 This setup also aligns more closely with the one used in previous simulations from~\citet{giot_validation_2016}.
 
 %t
@@ -352,58 +360,67 @@ Land surface scheme & ISBA & SURFEX v8.0 & SURFEX v8.0 \\
 \subsection{Observational data}
 \label{sect:obs}
 
-The simulations were \DIFdelbegin \DIFdel{validated }\DIFdelend \DIFaddbegin \DIFadd{evaluated }\DIFaddend using the CLIMATE-GRID (CG) dataset, a Belgian 5 km gridded observational dataset based on interpolated station data and developed at the Royal Meteorological Institute of Belgium. 
+The simulations \DIFdelbegin \DIFdel{were validated }\DIFdelend \DIFaddbegin \DIFadd{are evaluated }\DIFaddend using the CLIMATE-GRID (CG) dataset\DIFaddbegin \DIFadd{~\mbox{%DIFAUXCMD
+\citep{journee_overview_2019}}\hskip0pt%DIFAUXCMD
+}\DIFaddend , a Belgian 5 km gridded observational dataset based on interpolated station data and developed at the Royal Meteorological Institute of Belgium. 
 The dataset spans the period from 1961 until the present day.
 It includes daily average temperature and daily total precipitation, which are provided as areal averages over each pixel of the 5 km grid. 
 
-For sub-daily observations of precipitation, we employed station measurements from five measurement networks: VMM in Flanders, DGH in Wallonia, IBGE in Brussels, and the HYDRO and AWS networks covering all of Belgium. 
+For sub-daily observations of precipitation, we employ\DIFdelbegin \DIFdel{ed}\DIFdelend  station measurements from five measurement networks: VMM in Flanders, DGH in Wallonia, IBGE in Brussels, and the HYDRO and AWS networks covering all of Belgium. 
 The VMM and DGH networks are managed by the Vlaamse Milieumaatschappij and the Direction de la Gestion Hydrologique of SPW Mobilité et Infrastructures, respectively. 
 The IBGE network, established by the Ministry of the Brussels-Capital Region, has been managed by Brussels Environment since 2007~\citep{dehem2010validation, journee2014validation}. 
 The AWS and HYDRO networks are operated by the Royal Meteorological Institute of Belgium~\citep{van_de_vyver_observed_2021}.
-The station locations are shown in the bottom panel of Fig.~\ref{fig:domains_stations}, while details about each network are provided in table \ref{tab:stations}.
-\DIFdelbegin \DIFdel{Rainfall }\DIFdelend \DIFaddbegin \DIFadd{Precipitation }\DIFaddend data from all networks were aggregated to an hourly resolution to align with the temporal resolution of the simulation output.
+The station locations are shown in \DIFdelbegin \DIFdel{the bottom panel of }\DIFdelend Fig.~\ref{fig:domains_stations}\DIFaddbegin \DIFadd{b}\DIFaddend , while details about each network are provided in \DIFdelbegin \DIFdel{table \ref{tab:stations}.
+Rainfall }\DIFdelend \DIFaddbegin \DIFadd{Table~\ref{tab:stations}.
+Precipitation }\DIFaddend data from all networks \DIFdelbegin \DIFdel{were }\DIFdelend \DIFaddbegin \DIFadd{are }\DIFaddend aggregated to an hourly resolution to align with the temporal resolution of the simulation output.
 
 \subsection{\DIFdelbegin \DIFdel{Validation }\DIFdelend \DIFaddbegin \DIFadd{Evaluation }\DIFaddend metrics and data pre-processing}
 
-The ALARO-1 simulations were evaluated by calculating the mean bias for near-surface air temperature (simply called temperature from here on) and accumulated precipitation depth on annual, seasonal, and monthly timescales. 
+The ALARO-1 simulations \DIFdelbegin \DIFdel{were }\DIFdelend \DIFaddbegin \DIFadd{are }\DIFaddend evaluated by calculating the mean bias for near-surface air temperature (simply called temperature from here on) and accumulated precipitation depth on annual, seasonal, and monthly timescales. 
 For an exact mathematical formulation, we refer to appendix \ref{sect:bias_definition}.
 
-To ensure a consistent comparison, all data were regridded to a common latitude-longitude grid with a spacing of $0.07\degree$ longitude by $0.045\degree$ latitude, which closely aligns with the 5 km resolution of the CG dataset. 
-For precipitation, a conservative remapping was applied to all simulations to preserve the spatially averaged precipitation depth~\citep{jones_first-_1999}. 
-For temperature, the same conservative procedure was used to reproject ALARO-4km. 
-For ALARO-12km and ALARO-25km, another regridding method was employed for temperature.
-Since low-resolution data were interpolated to a higher resolution, a conservative regridding method would effectively function as a nearest-neighbor approach in such cases.
-Therefore, a bilinear interpolation procedure was used instead, as it was more suitable for the smooth nature of temperature fields.
+To ensure a consistent comparison, all data \DIFdelbegin \DIFdel{were }\DIFdelend \DIFaddbegin \DIFadd{are }\DIFaddend regridded to a common latitude-longitude grid with a spacing of $0.07\degree$ longitude by $0.045\degree$ latitude, which closely aligns with the 5 km resolution of the CG dataset. 
+For precipitation, a conservative remapping \DIFdelbegin \DIFdel{was }\DIFdelend \DIFaddbegin \DIFadd{is }\DIFaddend applied to all simulations to preserve the spatially averaged precipitation depth~\citep{jones_first-_1999}. 
+For temperature, the same conservative procedure \DIFdelbegin \DIFdel{was }\DIFdelend \DIFaddbegin \DIFadd{is }\DIFaddend used to reproject ALARO-4km. 
+For ALARO-12km and ALARO-25km, another regridding method \DIFdelbegin \DIFdel{was }\DIFdelend \DIFaddbegin \DIFadd{is }\DIFaddend employed for temperature.
+Since low-resolution data \DIFdelbegin \DIFdel{were }\DIFdelend \DIFaddbegin \DIFadd{are }\DIFaddend interpolated to a higher resolution, a conservative regridding method would effectively function as a nearest-neighbor approach in such cases.
+Therefore, a bilinear interpolation procedure \DIFdelbegin \DIFdel{was }\DIFdelend \DIFaddbegin \DIFadd{is }\DIFaddend used instead, as it \DIFdelbegin \DIFdel{was }\DIFdelend \DIFaddbegin \DIFadd{is }\DIFaddend more suitable for the smooth nature of temperature fields.
 
 \subsection{Definition of extreme precipitation}
 \label{sect:methods extreme precipitation}
 
-Simulations at convection-permitting scales generally add value through the improved representation of convection and, consequently, of precipitation in general. 
-Therefore, this \DIFdelbegin \DIFdel{validation }\DIFdelend \DIFaddbegin \DIFadd{evaluation }\DIFaddend study also focused on the statistics of extreme precipitation over Belgium. 
-Extreme precipitation events were here defined as the annual maximum (AM) value for a given duration at a specific location or grid point. 
+Simulations at convection-permitting scales generally add value through the improved representation of convection and, consequently, of precipitation in general\DIFaddbegin \DIFadd{~\mbox{%DIFAUXCMD
+\citep{prein_review_2015, ban_evaluation_2014, lucas-picher_convection-permitting_2021,berthou_pan-european_2020}}\hskip0pt%DIFAUXCMD
+}\DIFaddend .
+Therefore, this \DIFdelbegin \DIFdel{validation study also focused }\DIFdelend \DIFaddbegin \DIFadd{evaluation study also focuses }\DIFaddend on the statistics of extreme precipitation over Belgium. 
+Extreme precipitation events \DIFdelbegin \DIFdel{were }\DIFdelend \DIFaddbegin \DIFadd{are }\DIFaddend here defined as the annual maximum (AM) value for a given duration at a specific location or grid point. 
 An advantage of this definition is its simplicity: there is no need to determine an arbitrary threshold. 
-AM values were selected for durations of 1, 2, 3, 6, 12, 24, 48, and 72 hours using a rolling-window approach over the hourly precipitation data. 
+AM values \DIFdelbegin \DIFdel{were }\DIFdelend \DIFaddbegin \DIFadd{are }\DIFaddend selected for durations of 1, 2, 3, 6, 12, 24, 48, and 72 hours using a rolling-window approach over the hourly precipitation data. 
 
-The statistics of these AM values were calculated by fitting a generalized extreme value (GEV) distribution, as defined in eqs. (\ref{eq:GEV}) - (\ref{eq:GEV0})~\citep{coles_introduction_2001}. 
+The statistics of these AM values \DIFdelbegin \DIFdel{were }\DIFdelend \DIFaddbegin \DIFadd{are }\DIFaddend calculated by fitting a generalized extreme value (GEV) distribution, as defined in eqs. (\ref{eq:GEV}) - (\ref{eq:GEV0})~\citep{coles_introduction_2001}. 
 A GEV distribution is defined by three parameters: the shape $\xi$, location $\mu$, and scale $\sigma$. 
-These parameters were fitted for each duration separately with the L-moments method as defined by~\cite{hosking_l-moments_1990}. 
-Consequently, these parameters were used to calculate the $T$-year return level of $d$-hourly precipitation intensity $z_d(T)$. 
+These parameters \DIFdelbegin \DIFdel{were }\DIFdelend \DIFaddbegin \DIFadd{are }\DIFaddend fitted for each duration separately with the L-moments method as defined by~\cite{hosking_l-moments_1990}. 
+Consequently, these parameters \DIFdelbegin \DIFdel{were }\DIFdelend \DIFaddbegin \DIFadd{are }\DIFaddend used to calculate the \DIFdelbegin \DIFdel{$T$-year return level of }\DIFdelend \DIFaddbegin \DIFadd{return level $z_d(T)$, i.e.\ the }\DIFaddend $d$-hourly precipitation intensity \DIFdelbegin \DIFdel{$z_d(T)$}\DIFdelend \DIFaddbegin \DIFadd{expected to be exceeded once every $T$ years, where $d$ is the duration and $T$ the return period}\DIFaddend .
 For a mathematical description, we refer to appendix~\ref{sect:gev_definition}.
 
-Next, we applied the regional frequency analysis framework (RFA), as introduced by~\citet{hosking_statistics_1993}. 
+Next, we \DIFdelbegin \DIFdel{applied }\DIFdelend \DIFaddbegin \DIFadd{apply }\DIFaddend the regional frequency analysis framework (RFA), as introduced by~\citet{hosking_statistics_1993}. 
 The idea behind this framework is to aggregate \DIFdelbegin \DIFdel{rainfall }\DIFdelend \DIFaddbegin \DIFadd{precipitation }\DIFaddend data from different locations that share the (presumably) identical underlying distribution. 
 A single fitting procedure is then performed for an entire region instead of fitting a separate distribution in each point, allowing for a more robust fit. 
-Note that the \DIFdelbegin \DIFdel{rainfall }\DIFdelend \DIFaddbegin \DIFadd{precipitation }\DIFaddend data were aggregated and not averaged over a region.
+Note that the \DIFdelbegin \DIFdel{rainfall data were }\DIFdelend \DIFaddbegin \DIFadd{precipitation data are }\DIFaddend aggregated and not averaged over a region.
 Recent literature, such as the work by~\citet{carreau_partitioning_2017} and~\citet{guerreiro_unravelling_2024}, further supports the use of RFA for improving precipitation extreme estimations. 
 
-We subdivided Belgium into three distinct regions based on elevation: Low-Belgium (0--50 m), Middle-Belgium (50--200 m) and High-Belgium (> 200 m), as shown in Fig.~\ref{fig:domains_stations}. Elevation was used as a discriminatory parameter since it correlates strongly with the annual precipitation totals, which themselves are closely linked to precipitation extremes~\citep{van_de_vyver_spatial_2012}. 
+We subdivide\DIFdelbegin \DIFdel{d}\DIFdelend  Belgium into three distinct regions based on elevation: Low-Belgium (0--50 m), Middle-Belgium (50--200 m) and High-Belgium (> 200 m), as shown in Fig.~\ref{fig:domains_stations}\DIFdelbegin \DIFdel{. Elevation was }\DIFdelend \DIFaddbegin \DIFadd{b.
+Elevation is }\DIFaddend used as a discriminatory parameter since it correlates strongly with the annual precipitation totals, which themselves are closely linked to precipitation extremes~\citep{van_de_vyver_spatial_2012}. 
 This subdivision strikes a balance between reducing uncertainties and maintaining relatively homogeneous climatic conditions within each region, as suggested by~\citet{van_de_vyver_spatial_2012}.
 
-The return levels for each region are subsequently presented per return period as a function of the duration to construct Intensity-Duration-Frequency (IDF) curves. 
-In order to gauge the return-level uncertainty, we derived the 95\% confidence interval using $10^4$ bootstraps, obtained by resampling yearly data. 
-For each simulation, the observational return levels were compared with their simulated counterparts by calculating the relative error. 
-The error uncertainty was acquired with a pairwise calculation of the error between all observational and simulated bootstrap samples, respectively. 
-This calculation resulted in a distribution of $10^8$ samples for the relative error.
+\DIFaddbegin \DIFadd{Intensity-Duration-Frequency (IDF) curves jointly characterise the intensity of extreme precipitation as a function of both duration and return period, and are a standard tool for hydrological design and flood-risk assessment~\mbox{%DIFAUXCMD
+\citep{van_de_vyver_practical_2013}}\hskip0pt%DIFAUXCMD
+. 
+}\DIFaddend The return levels for each region are subsequently presented per return period as a function of the duration to construct \DIFdelbegin \DIFdel{Intensity-Duration-Frequency (IDF ) }\DIFdelend \DIFaddbegin \DIFadd{these IDF }\DIFaddend curves.
+In order to gauge the return-level uncertainty, we derive\DIFdelbegin \DIFdel{d}\DIFdelend  the 95\% confidence interval using $10^4$ bootstraps, obtained by resampling yearly data. 
+For each simulation, the observational return levels \DIFdelbegin \DIFdel{were }\DIFdelend \DIFaddbegin \DIFadd{are }\DIFaddend compared with their simulated counterparts by calculating the relative error. 
+The error uncertainty \DIFdelbegin \DIFdel{was }\DIFdelend \DIFaddbegin \DIFadd{is }\DIFaddend acquired with a pairwise calculation of the error between all observational and simulated bootstrap samples, respectively. 
+This calculation \DIFdelbegin \DIFdel{resulted }\DIFdelend \DIFaddbegin \DIFadd{results }\DIFaddend in a distribution of $10^8$ samples for the relative error.
 
 \section{Results}
 \label{sect:results}
@@ -413,7 +430,7 @@ This calculation resulted in a distribution of $10^8$ samples for the relative e
 %f
 \begin{figure*}[t]
 \includegraphics[width=\textwidth]{figures/fig02.pdf}
-\caption{Bias in mean annual near-surface air temperature of each simulation (25 km, 12.5 km, and 4 km resolutions) with respect to the daily gridded observational CLIMATE-GRID dataset over Belgium.}
+\caption{Bias in mean annual near-surface air temperature of each simulation \DIFdelbeginFL \DIFdelFL{(25 km, 12.5 km, and 4 km resolutions) }\DIFdelendFL with respect to the daily gridded observational CLIMATE-GRID dataset over Belgium\DIFaddbeginFL \DIFaddFL{, for the period 1992--2022}\DIFaddendFL . \DIFaddbeginFL \DIFaddFL{(a) ALARO-25km, (b) ALARO-12km, (c) ALARO-4km.}\DIFaddendFL }
 \label{fig:tas_bias}
 \end{figure*}
 
@@ -436,23 +453,25 @@ Additionally, both ALARO-12km and ALARO-4km strongly underestimate the temperatu
 The \DIFdelbegin \DIFdel{minimal }\DIFdelend \DIFaddbegin \DIFadd{largest negative }\DIFaddend bias, which is around -1.5°C, is attained in May. 
 Finally, during the seasons with warming sea surface temperatures (SST), spring and summer, there is a cold bias near the coast, while the opposite is true for autumn and winter (see Fig.~\ref{fig:tas_bias_seasons}). 
 This may be attributed to the monthly replacement of SST, creating a lag effect. 
+\DIFaddbegin \DIFadd{In addition, coastal grid points partly consist of sea: the diagnosed 2\,m temperature is the tile-weighted average over the land and sea fractions, so the (lagged) sea surface temperature is directly reflected in the near-surface temperature of these mixed cells.
+}\DIFaddend 
 
 %f
 \begin{figure*}[t]
 \includegraphics[width=\textwidth]{figures/fig03.pdf}
-\caption{The annual cycle of the temperature bias (left) and relative precipitation bias (right) for each simulation (25 km, 12.5 km, and 4 km resolutions) with respect to the gridded observational CLIMATE-GRID dataset, averaged over Belgium.}
+\caption{The annual cycle of the temperature bias (\DIFdelbeginFL \DIFdelFL{left}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{a}\DIFaddendFL ) and relative precipitation bias (\DIFdelbeginFL \DIFdelFL{right}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{b}\DIFaddendFL ) for each simulation (25 km, 12.5 km, and 4 km resolutions) with respect to the gridded observational CLIMATE-GRID dataset, averaged over Belgium\DIFaddbeginFL \DIFaddFL{, for the period 1992--2022}\DIFaddendFL .}
 \label{fig:bias_monthly}
 \end{figure*}
 
 %f
 \begin{figure*}[t]
 \includegraphics[width=\textwidth]{figures/fig04.pdf}
-\caption{Relative bias in mean annual precipitation of each simulation (25 km, 12.5 km, and 4 km resolutions) with respect to the daily gridded observational CLIMATE-GRID dataset over Belgium.}
+\caption{Relative bias in mean annual precipitation of each simulation \DIFdelbeginFL \DIFdelFL{(25 km, 12.5 km, and 4 km resolutions) }\DIFdelendFL with respect to the daily gridded observational CLIMATE-GRID dataset over Belgium\DIFaddbeginFL \DIFaddFL{, for the period 1992--2022}\DIFaddendFL . \DIFaddbeginFL \DIFaddFL{(a) ALARO-25km, (b) ALARO-12km, (c) ALARO-4km.}\DIFaddendFL }
 \label{fig:pr_bias}
 \end{figure*}
 
-ALARO-1, at all three resolutions, features a wet bias both annually (Fig.~\ref{fig:pr_bias}) and across all months (Fig.~\ref{fig:bias_monthly}) and seasons (Fig.~\ref{fig:pr_bias_seasons}). 
-A notable exception is the dry bias in summer (July and August) in ALARO-12km and ALARO-4km, which coincides with a warm bias in these simulations. 
+ALARO-1, at all three resolutions, features a wet bias both annually (Fig.~\ref{fig:pr_bias}) and across all months (Fig.~\ref{fig:bias_monthly}) and seasons (Fig.~\ref{fig:pr_bias_seasons})\DIFdelbegin \DIFdel{. 
+A notable exception is the dry bias in }\DIFdelend \DIFaddbegin \DIFadd{, except for }\DIFaddend summer (July and August) in ALARO-12km and ALARO-4km, which coincides with a warm bias in these simulations. 
 Similarly to temperature, the bias in annual precipitation is smallest for ALARO-12km. 
 ALARO-4km is slightly wetter, while ALARO-25km features a bias nearly twice as high as ALARO-12km. 
 However, once more, ALARO-4km performs best when evaluating the seasons separately. 
@@ -462,22 +481,24 @@ Similarly to temperature, the precipitation bias in spring is substantially larg
 %f
 \begin{figure*}[t]
 \includegraphics[width=\textwidth]{figures/fig05.pdf}
-\caption{Diurnal cycle of precipitation in Uccle, Belgium, for station measurements (observations) and for each simulation (25 km, 12.5 km, and 4 km resolutions). The dashed lines denote the average values over the considered hours. (a) All hours. (b) Only wet hours (> 0.1 mm h$^{-1}$). (c) Only wet hours (> 0.1 mm h$^{-1}$), summer. (d) Only wet hours (> 0.1 mm h$^{-1}$), winter.}
+\caption{Diurnal cycle of precipitation in Uccle, Belgium, for station measurements (observations) and for each simulation (25 km, 12.5 km, and 4 km resolutions)\DIFaddbeginFL \DIFaddFL{, for the period 1992--2022}\DIFaddendFL . The dashed lines denote the average values over the considered hours. (a) All hours. (b) Only wet hours (> 0.1 mm h$^{-1}$). (c) Only wet hours (> 0.1 mm h$^{-1}$), summer. (d) Only wet hours (> 0.1 mm h$^{-1}$), winter.}
 \label{fig:pr_diurnal_cycle}
 \end{figure*}
 
 Figure~\ref{fig:pr_diurnal_cycle} shows the diurnal cycle of precipitation in Uccle, Belgium.
-The diurnal cycle is first analyzed across all hours. 
-All simulations overestimate \DIFdelbegin \DIFdel{rainfall }\DIFdelend \DIFaddbegin \DIFadd{precipitation }\DIFaddend for all hours. 
+The diurnal cycle is first analyzed across all hours \DIFdelbegin \DIFdel{. 
+}\DIFdelend \DIFaddbegin \DIFadd{(Fig.~\ref{fig:pr_diurnal_cycle}a). 
+}\DIFaddend All simulations overestimate \DIFdelbegin \DIFdel{rainfall }\DIFdelend \DIFaddbegin \DIFadd{precipitation }\DIFaddend for all hours. 
 Apart from the systematic bias, ALARO-4km neatly reproduces the diurnal \DIFdelbegin \DIFdel{rainfall }\DIFdelend \DIFaddbegin \DIFadd{precipitation }\DIFaddend variation. 
 The observed afternoon peak around 16 UTC, for instance, is also present in ALARO-4km albeit with a higher intensity.
 ALARO-12km displays a smaller and slightly delayed peak, while ALARO-25km lacks a clear peak, maintaining roughly uniform precipitation amounts throughout the day. 
-During wet hours (i.e. hours with a precipitation rate > 0.1 mm), on the other hand, there is a dry bias for all models.
-ALARO-4km again aligns most closely with observations, followed by ALARO-12km and ALARO-25km. 
+During wet hours (i.e. hours with a precipitation rate > 0.1 mm), on the other hand, there is a dry bias for all models \DIFdelbegin \DIFdel{.
+}\DIFdelend \DIFaddbegin \DIFadd{(Fig.~\ref{fig:pr_diurnal_cycle}b). 
+}\DIFaddend ALARO-4km again aligns most closely with observations, followed by ALARO-12km and ALARO-25km. 
 The afternoon peak at 16 UTC remains visible for the observations but is less pronounced and slightly delayed for ALARO-4km. 
 The delay is even larger for ALARO-12km and ALARO-25km, with progressively smaller peaks as resolution decreases. 
-In summer, average precipitation values and peak amplitudes are considerably higher, although the simulated peaks occur slightly later and are less intense at lower resolutions. 
-In winter, no clear peak is observed, and the average precipitation intensity is approximately half of the summer values.
+In summer \DIFaddbegin \DIFadd{(Fig.~\ref{fig:pr_diurnal_cycle}c)}\DIFaddend , average precipitation values and peak amplitudes are considerably higher, although the simulated peaks occur slightly later and are less intense at lower resolutions. 
+In winter \DIFaddbegin \DIFadd{(Fig.~\ref{fig:pr_diurnal_cycle}d)}\DIFaddend , no clear peak is observed, and the average precipitation intensity is approximately half of the summer values.
 Overall, these results indicate that although the simulations reproduce the timing of the diurnal cycle reasonably well, they tend to overestimate precipitation frequency — raining too often with too little intensity — especially at coarser resolutions.
 
 \subsection{Extreme precipitation}
@@ -487,7 +508,7 @@ Overall, these results indicate that although the simulations reproduce the timi
 %f
 \begin{figure*}[t]
 \includegraphics[width=\textwidth]{figures/fig06.pdf}
-\caption{Intensity-Duration-Frequency (IDF) curves for three topographic regions over Belgium: Low-Belgium (<50m), Middle-Belgium (50m - 200m), and High-Belgium (>200m). The curves show the return level precipitation intensities for different durations, calculated using the Regional Frequency Analysis (RFA) framework. The colors represent the dataset: stations observations or simulations, while the markers represent the return levels for different return periods (2, 10, and 50 years).}
+\caption{Intensity-Duration-Frequency (IDF) curves for three topographic regions over Belgium\DIFaddbeginFL \DIFaddFL{, using all available years for each dataset (observational record lengths are given in Table~\ref{tab:stations}; simulations span 1992--2022)}\DIFaddendFL : \DIFaddbeginFL \DIFaddFL{(a) }\DIFaddendFL Low-Belgium (<50m), \DIFaddbeginFL \DIFaddFL{(b) }\DIFaddendFL Middle-Belgium (\DIFdelbeginFL \DIFdelFL{50m - 200m}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{50m--200m}\DIFaddendFL ), \DIFdelbeginFL \DIFdelFL{and }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{(c) }\DIFaddendFL High-Belgium (>200m). The \DIFdelbeginFL \DIFdelFL{curves }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{markers }\DIFaddendFL show the \DIFdelbeginFL \DIFdelFL{return level }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{return-level }\DIFaddendFL precipitation intensities \DIFdelbeginFL \DIFdelFL{for different durations}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{as a function of duration on a log-log scale (both axes)}\DIFaddendFL , calculated using the Regional Frequency Analysis (RFA) framework. The colors represent the dataset \DIFdelbeginFL \DIFdelFL{: stations }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{(station }\DIFaddendFL observations or simulations\DIFaddbeginFL \DIFaddFL{)}\DIFaddendFL , while the \DIFdelbeginFL \DIFdelFL{markers represent }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{marker styles denote }\DIFaddendFL the \DIFdelbeginFL \DIFdelFL{return levels for }\DIFdelendFL different return periods (2, 10, and 50 years).}
 \label{fig:IDFs}
 \end{figure*}
 
@@ -495,33 +516,40 @@ The calculated IDF-statistics are presented in Fig.~\ref{fig:IDFs} for each topo
 The difference in observational return levels between the regions is apparent for both sub-daily durations (< 6h) and durations extending beyond one day (>= 24h). 
 In the former case, the values for Middle- and High-Belgium are similar to one another, but those for Low-Belgium are smaller, while in the latter case, the difference between Middle- and Low-Belgium disappears and the return levels over High-Belgium exceed those over the other two regions. 
 
-The observational return levels decrease linearly with \DIFdelbegin \DIFdel{rainfall }\DIFdelend \DIFaddbegin \DIFadd{precipitation }\DIFaddend duration on a log-log scale (see Fig.~\ref{fig:IDFs}).
-For the simulated return levels, a linear relationship can also be discerned, except for short durations (< 6h), where the values start to curve downward, away from the observations. 
-This effect is quantitatively assessed by evaluating the linear regression coefficients and $R^2$-values, as shown in Fig.~\ref{fig:IDFs_linear}.
-The coefficients show that the observational return levels exhibit the steepest slope, followed by the simulations in order of decreasing resolution.
-Furthermore, the fitted linear trend has a higher $R^2$-value for the observations, again followed by ALARO-4km, ALARO-12km and ALARO-25km, respectively.
-Some differences can also be discerned for different return periods: overall, the return levels with a longer return period exhibit a steeper linear fit, but have a smaller $R^2$-value.
+The observational return levels decrease \DIFdelbegin \DIFdel{linearly with rainfall }\DIFdelend \DIFaddbegin \DIFadd{approximately linearly with precipitation }\DIFaddend duration on a log-log scale (\DIFdelbegin \DIFdel{see }\DIFdelend Fig.~\ref{fig:IDFs})\DIFdelbegin \DIFdel{.
+For the }\DIFdelend \DIFaddbegin \DIFadd{, corresponding to the power-law scaling of extreme precipitation.
+The }\DIFaddend simulated return levels \DIFdelbegin \DIFdel{, a linear relationship can also be discerned, except for }\DIFdelend \DIFaddbegin \DIFadd{follow the same linear behaviour for durations of 6\,h and longer, but deviate at }\DIFaddend short durations (< \DIFdelbegin \DIFdel{6h}\DIFdelend \DIFaddbegin \DIFadd{6\,h}\DIFaddend ), where \DIFdelbegin \DIFdel{the values start to }\DIFdelend \DIFaddbegin \DIFadd{they }\DIFaddend curve downward, away from the observations.
+\DIFdelbegin \DIFdel{This effect is quantitatively assessed by evaluating the linear regression coefficients and }\DIFdelend \DIFaddbegin \DIFadd{To quantify this behaviour, a linear regression of the log-transformed return levels against the log-transformed duration was performed for each dataset, region, and return period. 
+The resulting slopes and coefficients of determination (}\DIFaddend $R^2$\DIFdelbegin \DIFdel{-values, as }\DIFdelend \DIFaddbegin \DIFadd{, the fraction of variance in the return levels explained by the linear fit) are }\DIFaddend shown in Fig.~\ref{fig:IDFs_linear}\DIFdelbegin \DIFdel{.
+The coefficients show that the observational return levels exhibit the steepest slope }\DIFdelend \DIFaddbegin \DIFadd{; the fitted lines themselves are not overlaid on Fig.~\ref{fig:IDFs}.
+The slope is steepest for the observations}\DIFaddend , followed by the simulations in order of decreasing resolution \DIFdelbegin \DIFdel{.
+Furthermore, the fitted linear trend has a higher $R^2$-value }\DIFdelend \DIFaddbegin \DIFadd{(ALARO-4km, ALARO-12km, ALARO-25km).
+The linear fit is also best }\DIFaddend for the observations \DIFaddbegin \DIFadd{($R^2$ closest to 1)}\DIFaddend , again followed by ALARO-4km, ALARO-12km\DIFaddbegin \DIFadd{, }\DIFaddend and ALARO-25km, \DIFdelbegin \DIFdel{respectively.
+Some differences can also be discerned for different return periods: overall, the return levels with a longer return period exhibit a steeper linear fit, but have a smaller }\DIFdelend \DIFaddbegin \DIFadd{reflecting the increasing downward curvature at short durations as resolution decreases.
+Comparing return periods, longer return periods yield a steeper (more negative) slope but a lower }\DIFaddend $R^2$\DIFdelbegin \DIFdel{-value}\DIFdelend .
 
 %f
 \begin{figure*}[t]
 \includegraphics[width=\textwidth]{figures/fig07.pdf}
-\caption{Relative error of the return-level intensities for each region (row) and return period (column). Each box plot represents the uncertainty as gauged by the bootstrap procedure with $10^4$ x $10^4$ ($= 10^8$) samples. The whiskers span the width of the 95 \%-confidence interval around the median.}
+\caption{Relative error of the return-level intensities for each region (\DIFdelbeginFL \DIFdelFL{row}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{rows: Low-, Middle-, High-Belgium}\DIFaddendFL ) and return period (\DIFdelbeginFL \DIFdelFL{column}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{columns: 2, 10, 50 years}\DIFaddendFL )\DIFaddbeginFL \DIFaddFL{, using all available years for each dataset (observational record lengths are given in Table~\ref{tab:stations}; simulations span 1992--2022)}\DIFaddendFL . \DIFaddbeginFL \DIFaddFL{Panels (a)--(i) are ordered row-wise. }\DIFaddendFL Each box plot represents the uncertainty \DIFdelbeginFL \DIFdelFL{as }\DIFdelendFL gauged by the bootstrap procedure with \DIFdelbeginFL \DIFdelFL{$10^4$ x $10^4$ }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{$10^4 \times 10^4$ }\DIFaddendFL ($= 10^8$) samples\DIFdelbeginFL \DIFdelFL{. The }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{: the box spans the interquartile range (25th--75th percentile) around the median, and the }\DIFaddendFL whiskers span the \DIFdelbeginFL \DIFdelFL{width of the }\DIFdelendFL 95\%-confidence interval \DIFdelbeginFL \DIFdelFL{around the median}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{(2.5th--97.5th percentile)}\DIFaddendFL .}
 \label{fig:IDFs_boxplots}
 \end{figure*}
 
 Despite its strong wet bias for average \DIFdelbegin \DIFdel{rainfall}\DIFdelend \DIFaddbegin \DIFadd{precipitation}\DIFaddend , ALARO-25km underestimates the sub-daily (< 6h) return levels for all regions and return periods, as shown in Fig.~\ref{fig:IDFs_boxplots}. 
 For the  (multi-)daily (>= 24h) durations, the performance depends on the return period. 
 The least extreme events i.e. those with the shortest return period, are overestimated, while the events with the longest return period generally tend to be underestimated, although the uncertainty \DIFdelbegin \DIFdel{was }\DIFdelend \DIFaddbegin \DIFadd{is }\DIFaddend large. 
-Conversely, ALARO-12km provides smaller return levels than ALARO-25km for sub-daily (< 6h) durations, except for hourly events in Low- and Middle-Belgium. 
-Hence, the sub-daily extreme precipitation intensities are also underestimated by this simulation. 
-For (multi-)daily (>= 24h) durations, this intensity decrease with higher resolution is also present, especially in High-Belgium. 
-Finally, for ALARO-4km the hourly return levels are substantially closer to the observational values for a 2-year return period and markedly closer for longer return periods.
-Generally, the ALARO-4km extremes increase compared to the ALARO-12km simulation, leading to improvements for some durations and regions, but not universally.
+Conversely, ALARO-12km provides smaller return levels than ALARO-25km for sub-daily (< 6h) durations, except for hourly events in Low- and Middle-Belgium \DIFdelbegin \DIFdel{. 
+}\DIFdelend \DIFaddbegin \DIFadd{(Fig.~\ref{fig:IDFs_boxplots}a,d).
+}\DIFaddend Hence, the sub-daily extreme precipitation intensities are also underestimated by this simulation. 
+For (multi-)daily (>= 24h) durations, this intensity decrease with higher resolution is also present, especially in High-Belgium \DIFdelbegin \DIFdel{. 
+}\DIFdelend \DIFaddbegin \DIFadd{(Fig.~\ref{fig:IDFs_boxplots}g--i).
+}\DIFaddend Finally, for ALARO-4km the hourly return levels are substantially closer to the observational values for a 2-year return period and markedly closer for longer return periods.
+Generally, the ALARO-4km extremes increase \DIFaddbegin \DIFadd{in intensity }\DIFaddend compared to the ALARO-12km simulation, leading to improvements for some durations and regions, but not universally.
 
 %f
 \begin{figure*}[t]
 \includegraphics[width=\textwidth]{figures/fig08.pdf}
-\caption{Frequency of annual-maximum hourly precipitation intensities over Belgium for hourly station observations (HYDRO network) and for each simulation (25 km, 12.5 km, and 4 km resolutions). (left) Diurnal cycle: showing the frequency of annual-maximum hourly precipitation intensities for each hour of the day (UTC). (right) Seasonal cycle: showing the frequency of annual-maximum hourly precipitation intensities for each season (winter, spring, summer, autumn).}
+\caption{Frequency of annual-maximum hourly precipitation intensities over Belgium for hourly station observations (HYDRO network) and for each simulation (25 km, 12.5 km, and 4 km resolutions)\DIFaddbeginFL \DIFaddFL{, using all available years for each dataset (observational record lengths are given in Table~\ref{tab:stations}; simulations span 1992--2022)}\DIFaddendFL . (\DIFdelbeginFL \DIFdelFL{left}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{a}\DIFaddendFL ) Diurnal cycle: showing the frequency of annual-maximum hourly precipitation intensities for each hour of the day (UTC). (\DIFdelbeginFL \DIFdelFL{right}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{b}\DIFaddendFL ) Seasonal cycle: showing the frequency of annual-maximum hourly precipitation intensities for each season (winter, spring, summer, autumn).}
 \label{fig:AMcycles}
 \end{figure*}
 
@@ -530,8 +558,9 @@ In the diurnal cycle, the observations clearly show a primary peak in the aftern
 ALARO-4km captures both the timing and magnitude of this peak with high accuracy. 
 ALARO-12km also reproduces a peak, but it occurs slightly later (i.e. 1-2 hours) and with a higher frequency than observed. 
 For ALARO-25km, the peak occurs even later (around 22:00 UTC) and has a lower frequency compared to the observations.
-Furthermore, the observational data reveal a secondary peak in the early morning, which is absent in all simulations.
+\DIFdelbegin \DIFdel{Furthermore, the observational data reveal a secondary peak in the early morning, which is absent in all simulations.
 Although ALARO-25km appears to align with the observed morning peak, this is primarily due to elevated nighttime frequencies in the simulation rather than a distinct early morning peak.
+}\DIFdelend 
 
 \section{Discussion}
 \label{sect:discussion}
@@ -567,7 +596,11 @@ Differences between ALARO-12km and ALARO-4km remain insubstantial across seasons
 These patterns indicate that the inclusion of SURFEX exerts a greater influence on average precipitation than changes in spatial resolution.
 
 Our results for \DIFdelbegin \DIFdel{rainfall }\DIFdelend \DIFaddbegin \DIFadd{precipitation }\DIFaddend (Fig.~\ref{fig:pr_bias}) are now compared to previous continuous simulations from~\citet{giot_validation_2016} (resolutions of 50 and 12.5 km).
-The annual bias from ALARO-25km is slightly larger than the bias over Middle-Europe (ME) from~\citet{giot_validation_2016}, while for ALARO-12km and ALARO-4km it is smaller.
+The annual \DIFdelbegin \DIFdel{bias from }\DIFdelend \DIFaddbegin \DIFadd{precipitation bias of }\DIFaddend ALARO-25km \DIFdelbegin \DIFdel{is slightly }\DIFdelend \DIFaddbegin \DIFadd{(33.7\%) is markedly }\DIFaddend larger than the \DIFdelbegin \DIFdel{bias }\DIFdelend \DIFaddbegin \DIFadd{annual bias of approximately 20\% }\DIFaddend over Middle-Europe (ME) \DIFdelbegin \DIFdel{from~\mbox{%DIFAUXCMD
+\citet{giot_validation_2016} }\hskip0pt%DIFAUXCMD
+, while for }\DIFdelend \DIFaddbegin \DIFadd{reported by~\mbox{%DIFAUXCMD
+\citet{giot_validation_2016} }\hskip0pt%DIFAUXCMD
+(for both their 50 and 12.5\,km simulations), whereas }\DIFaddend ALARO-12km \DIFaddbegin \DIFadd{(15.3\%) }\DIFaddend and ALARO-4km \DIFdelbegin \DIFdel{it is }\DIFdelend \DIFaddbegin \DIFadd{(17.0\%) are somewhat }\DIFaddend smaller.
 On the other hand, the annual precipitation bias over ME in~\citet{berckmans_reinitialised_2017} (at 20 km resolution) was 15$\%$, which agrees almost perfectly with the results from ALARO-12km and ALARO-4km. 
 For summer and winter precipitation, the biases of~\citet{berckmans_reinitialised_2017} and~\citet{giot_validation_2016} are similar to each other and resemble closely those of ALARO-25km. 
 Conversely, the winter, and particularly the summer precipitation totals are much drier in ALARO-12km and ALARO-4km compared to ALARO-25km.
@@ -587,29 +620,52 @@ It was shown in~\citet{de_troch_application_2016} that in summer the timing and 
 However, the timing of the afternoon peak as reproduced by the model was still too early. 
 A similar behaviour is evident in this work, although ALARO-4km captures the timing better (later) than in~\citet{de_troch_application_2016}.
 For winter precipitation, the 4 km simulation from~\citet{de_troch_application_2016} exhibited a weak peak in the early afternoon, which is absent in the observations. 
-Our \DIFdelbegin \DIFdel{ALARO-4m simulations reproduce }\DIFdelend \DIFaddbegin \DIFadd{ALARO-4km simulation reproduces }\DIFaddend this constant diurnal pattern better than those in \citet{de_troch_application_2016}.
+Our \DIFdelbegin \DIFdel{ALARO-4m simulations reproduce }\DIFdelend \DIFaddbegin \DIFadd{ALARO-4km simulation reproduces }\DIFaddend this constant diurnal pattern better than those in\DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\citet{de_troch_application_2016}}\hskip0pt%DIFAUXCMD
+.
+}\DIFdelend \DIFaddbegin \DIFadd{~\mbox{%DIFAUXCMD
+\citet{de_troch_application_2016}}\hskip0pt%DIFAUXCMD
+.
+Since winter precipitation over Belgium is predominantly stratiform, the spurious afternoon peak in their ALARO-0 simulation points to convective triggering when little is expected; its near-absence in ALARO-1 suggests less spurious wintertime triggering, though isolating the responsible change is left for future research.
+}\DIFaddend 
 
-When considering only wet hours (i.e. hours with a precipitation rate > 0.1 mm), the observations show no diurnal variation (regardless of some noise) in winter. 
-All simulations in this paper reproduce this pattern, with the mean precipitation increasing towards the observed value as the resolution increases.
-For wet hours in summer, all simulations contain an afternoon/evening peak, with increasing amplitude for higher resolutions, similar to the study of~\citet{de_troch_application_2016}. 
+When considering only wet hours (i.e. hours with a precipitation rate > 0.1 mm), the observations show no diurnal variation (regardless of some noise) in winter \DIFdelbegin \DIFdel{. 
+}\DIFdelend \DIFaddbegin \DIFadd{(Fig.~\ref{fig:pr_diurnal_cycle}d). 
+}\DIFaddend All simulations in this paper reproduce this pattern, with the mean precipitation increasing towards the observed value as the resolution increases.
+For wet hours in summer \DIFaddbegin \DIFadd{(Fig.~\ref{fig:pr_diurnal_cycle}c)}\DIFaddend , all simulations contain an afternoon/evening peak, with increasing amplitude for higher resolutions, similar to the study of~\citet{de_troch_application_2016}. 
 The timing of the peak does not significantly differ between ALARO-25km and ALARO-12km, and is slightly earlier for ALARO-4km. 
-However, for all simulations, the diurnal peak is later than the observational peak, which is in contrast with results from~\citet{de_troch_application_2016}. 
-Overall, for both all-hour and wet-hour precipitation, the diurnal cycles in ALARO-4km are comparable to those in the work of~\citet{de_troch_application_2016}.
+However, for all simulations, the \DIFdelbegin \DIFdel{diurnal peak is }\DIFdelend \DIFaddbegin \DIFadd{summer wet-hour peak occurs }\DIFaddend later than the \DIFdelbegin \DIFdel{observational peak, which is }\DIFdelend \DIFaddbegin \DIFadd{observed peak, }\DIFaddend in contrast with \DIFdelbegin \DIFdel{results from~\mbox{%DIFAUXCMD
+\citet{de_troch_application_2016} }\hskip0pt%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{the too-early peak reported by~\mbox{%DIFAUXCMD
+\citet{de_troch_application_2016} }\hskip0pt%DIFAUXCMD
+for ALARO-0}\DIFaddend .
+Overall, for both all-hour \DIFaddbegin \DIFadd{(Fig.~\ref{fig:pr_diurnal_cycle}a) }\DIFaddend and wet-hour \DIFaddbegin \DIFadd{(Fig.~\ref{fig:pr_diurnal_cycle}b) }\DIFaddend precipitation, the diurnal cycles in ALARO-4km are comparable to those in the work of~\citet{de_troch_application_2016}.
 
 In our analysis of the mean diurnal precipitation cycle, notable differences emerge when comparing simulations at varying resolutions with observational data, as shown in Fig.~\ref{fig:pr_diurnal_cycle}. 
-Specifically, while the ``all-hour'' precipitation cycle tends to exhibit an overestimation relative to observations, the ``wet-hour'' cycle shows a general underestimation.
-This implies that the precipitation frequency is overestimated. 
-This discrepancy is most pronounced in the ALARO-25km simulation and is minimized in the ALARO-4km simulation, indicating that the coarser resolution more significantly overestimates precipitation amounts due to an overly high \DIFdelbegin \DIFdel{rainfall }\DIFdelend \DIFaddbegin \DIFadd{precipitation }\DIFaddend frequency. 
-These results imply that drizzle contributes substantially to the simulated \DIFdelbegin \DIFdel{rainfall}\DIFdelend \DIFaddbegin \DIFadd{precipitation}\DIFaddend , particularly in the lower-resolution model.
+Specifically, while the ``all-hour'' precipitation cycle tends to exhibit an overestimation relative to observations, the ``wet-hour'' cycle shows a general underestimation\DIFdelbegin \DIFdel{.
+This implies }\DIFdelend \DIFaddbegin \DIFadd{, implying }\DIFaddend that the precipitation frequency is overestimated. 
+This discrepancy is most pronounced in \DIFdelbegin \DIFdel{the }\DIFdelend ALARO-25km \DIFdelbegin \DIFdel{simulation and is minimized in the }\DIFdelend \DIFaddbegin \DIFadd{and minimized in }\DIFaddend ALARO-4km\DIFdelbegin \DIFdel{simulation}\DIFdelend , indicating that the coarser resolution \DIFdelbegin \DIFdel{more significantly }\DIFdelend overestimates precipitation amounts \DIFdelbegin \DIFdel{due to }\DIFdelend \DIFaddbegin \DIFadd{through }\DIFaddend an overly high \DIFdelbegin \DIFdel{rainfall frequency. 
+These results imply that drizzle contributes substantially to the simulated rainfall, particularly in the lower-resolution model. 
 This problem is partially mitigated when using CPMs, but not entirely.
-ALARO-4km still exhibits a drizzle bias, even at scales where convection is (partially) permitted by the scale-aware convection scheme 3MT.
-This finding is consistent with previous works~\citep{kendon_realism_2012, fosser_benefit_2015, berthou_pan-european_2020}.
-Additionally, it has been shown that both the timing and amplitude of the diurnal precipitation peak are best represented at high resolution. 
-This result is well established for CPMs, as documented by numerous studies referenced in the review of~\citet{lucas-picher_convection-permitting_2021}. 
-Most RCMs tend to exhibit a premature diurnal peak, primarily due to the limited memory of atmospheric instabilities. 
-However, this behaviour is notably absent in this study. 
-At lower resolutions, the diurnal peak in ALARO even occurs later than at higher resolutions. 
-This difference may be attributable to the scale-aware character of the 3MT scheme. 
+}\DIFdelend \DIFaddbegin \DIFadd{precipitation frequency, i.e.\ a substantial drizzle contribution. 
+This drizzle bias is a well-known deficiency of regional climate models~\mbox{%DIFAUXCMD
+\citep{fosser_benefit_2015, berthou_pan-european_2020}}\hskip0pt%DIFAUXCMD
+. 
+It arises largely because parameterized convection triggers on weak instability and releases it gradually, producing precipitation that is too frequent and too light. 
+The improvement with resolution reflects the sharper humidity and updraught fields at higher resolution, which reduce the widespread simultaneous triggering dominating the coarser runs; the residual bias in }\DIFaddend ALARO-4km \DIFdelbegin \DIFdel{still exhibits a drizzle bias , even at scales where convection is (partially) permitted by the scale-aware convection scheme 3MT. 
+This finding }\DIFdelend is consistent with \DIFdelbegin \DIFdel{previous works~\mbox{%DIFAUXCMD
+\citep{kendon_realism_2012, fosser_benefit_2015, berthou_pan-european_2020}}\hskip0pt%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{3MT still parameterizing part of the convective spectrum in the grey zone}\DIFaddend . 
+Additionally, \DIFdelbegin \DIFdel{it has been shown that }\DIFdelend both the timing and amplitude of the diurnal precipitation peak are best represented at high resolution\DIFdelbegin \DIFdel{. 
+This result is }\DIFdelend \DIFaddbegin \DIFadd{, as }\DIFaddend well established for CPMs\DIFdelbegin \DIFdel{, as documented by numerous studies referenced in the review of~\mbox{%DIFAUXCMD
+\citet{lucas-picher_convection-permitting_2021}}\hskip0pt%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{~\mbox{%DIFAUXCMD
+\citep{lucas-picher_convection-permitting_2021}}\hskip0pt%DIFAUXCMD
+}\DIFaddend . 
+Most RCMs \DIFdelbegin \DIFdel{tend to }\DIFdelend exhibit a premature diurnal peak, primarily due to the limited memory of atmospheric instabilities\DIFdelbegin \DIFdel{. 
+However, }\DIFdelend \DIFaddbegin \DIFadd{; }\DIFaddend this behaviour is notably absent \DIFdelbegin \DIFdel{in this study. 
+At lower resolutions , the diurnal peak in ALARO }\DIFdelend \DIFaddbegin \DIFadd{here, and at lower resolutions the ALARO peak }\DIFaddend even occurs later than at higher resolutions\DIFdelbegin \DIFdel{. 
+This difference }\DIFdelend \DIFaddbegin \DIFadd{, which }\DIFaddend may be attributable to the scale-aware character of the 3MT scheme.
 
 \subsection{Extreme precipitation}
 
@@ -620,34 +676,41 @@ This corresponds to a power-law relationship on a linear scale and reflects the 
 These phenomena can be effectively captured using simple scaling techniques, which in turn result in a power-law relationship~\citep{gupta_multiscaling_1990, veneziano_multifractality_2002}.
 However, for short \DIFdelbegin \DIFdel{rainfall }\DIFdelend \DIFaddbegin \DIFadd{precipitation }\DIFaddend durations (1--3 hours), simulated return levels deviate from this linear trend, curving downward, whereas observational return levels do not exhibit this pattern.
 This discrepancy arises entirely from model error, as precipitation values from both observations and simulations were first aggregated to an hourly resolution before extracting the annual maxima.
-As shown in Fig.~\ref{fig:IDFs_linear}, the smaller $R^2$-values indicate a less optimal fit for larger spatial scales.
+As shown in Fig.~\ref{fig:IDFs_linear}\DIFaddbegin \DIFadd{b}\DIFaddend , the smaller $R^2$-values indicate a less optimal fit for larger spatial scales.
 The higher (less negative) linear coefficients at these scales may also reflect this underestimation at short durations.
 However, previous studies have also shown that annual-maximum precipitation at larger spatial scales has a higher linear coefficient with respect to duration than at smaller scales~\citep{innocenti_observed_2019}.
 Next, these linear coefficients can be compared to those from a simple-scaling model by~\citet{van_de_vyver_multiscalingbased_2018}.
 In that work, station-specific values in the range of $-0.75$ and $-0.64$ were found for 16 stations over Belgium.
-The observational coefficients depicted in Fig.~\ref{fig:IDFs_linear} correspond to this range, although they are slightly more negative.
+The observational coefficients depicted in Fig.~\ref{fig:IDFs_linear}\DIFaddbegin \DIFadd{a }\DIFaddend correspond to this range, although they are slightly more negative.
 
 At durations of 1 to 3 hours, lower-resolution simulations increasingly underestimate return levels compared to observational values, highlighting the added value of the convection-permitting ALARO-4km simulation. 
 A similar result was found by~\citet{tabari_local_2016}, who also constructed IDF curves for ALARO-0 simulations at different resolutions. 
 In that study, the 4 km and 10 km ALARO-0 simulations accurately captured sub-daily intensities, with a slight underestimation, while ALARO-40km significantly underestimated sub-daily precipitation amounts. 
-For longer durations (>24 hours), ALARO-25km tends to overestimate return levels, particularly for short return periods. 
-\citet{de_troch_application_2016} reported a similar finding, as all ALARO-0 simulations (4 km, 10 km, and 40 km) overestimated the 2-year return level for daily precipitation. 
+For longer durations (>24\DIFdelbegin \DIFdel{hours}\DIFdelend \DIFaddbegin \DIFadd{\,h}\DIFaddend ), ALARO-25km tends to overestimate \DIFaddbegin \DIFadd{the }\DIFaddend return levels, particularly for short return periods \DIFdelbegin \DIFdel{. 
+}\DIFdelend \DIFaddbegin \DIFadd{(Fig.~\ref{fig:IDFs_boxplots}). This is consistent with the overall wet bias of ALARO-25km (Sect.~\ref{sect:results}): at multi-day durations and short return periods, the return levels lie close to the bulk of the distribution, where the excess in accumulated precipitation directly inflates the estimates. 
+At longer return periods the return levels are instead governed by the distribution tail, i.e.\ rare intense convective events that are poorly resolved at 25\,km, which explains the shift towards underestimation there.
+}\DIFaddend \citet{de_troch_application_2016} reported a similar finding, as all ALARO-0 simulations (4 km, 10 km, and 40 km) overestimated the 2-year return level for daily precipitation. 
 Additionally, while~\citet{de_troch_application_2016} observed increasing overestimation for longer return periods in the 4 km ALARO-0 simulation, this effect is notably absent - and even reversed - in ALARO-4km.
 
 Because of the scale-aware design of the 3MT scheme, the statistics of extreme precipitation should, in principle, be independent of model resolution. 
 In previous studies~\citep{de_troch_application_2016, tabari_local_2016}, return levels exhibited a gradual change with resolution, which is broadly consistent with the expected resolution independence. 
 In contrast, the return levels presented in this study display a more abrupt, step-wise change when transitioning from 12 km to 4 km resolution. 
 This behaviour is more similar to that observed in other models without a scale-aware convective scheme, where the step-wise shift is typically attributed to the deactivation of the deep convective parameterization at high resolutions.
+\DIFaddbegin \DIFadd{Why a scale-aware scheme such as 3MT produces a comparable step-wise change remains an open question. 
+Identifying the cause of this behaviour would require dedicated sensitivity experiments (e.g.\ isolating the convective, microphysical, and dynamical contributions across resolutions) and is left to future work.
+}\DIFaddend 
 
-The diurnal cycle of hourly AM precipitation frequencies is well captured by ALARO-4km (see Fig.~\ref{fig:AMcycles}).
+The diurnal cycle of hourly AM precipitation frequencies is well captured by ALARO-4km (see Fig.~\ref{fig:AMcycles}\DIFaddbegin \DIFadd{a}\DIFaddend ).
 Both the frequency peak amplitude and timing are in agreement between ALARO-4km and the observational data.
 The peak occurs later in ALARO-12km and is further delayed in ALARO-25km, while the peak amplitude increases in ALARO-12km but decreases in ALARO-25km.
 This peak delay is also present in $0.11\degree$ EURO-CORDEX simulations~\citep{meredith_present_2021}.
 It should be noted that the relatively large diurnal variation in extreme \DIFdelbegin \DIFdel{rainfall }\DIFdelend \DIFaddbegin \DIFadd{precipitation }\DIFaddend frequency of ALARO-25km is quite remarkable, as most models exhibit almost no diurnal variation at similar resolutions~\citep{meredith_present_2021, thomassen_spatial_2023}.
 The diurnal cycle of extremes from previous ALARO-0 simulations at 12 km and 4 km was shown in~\citet{van_de_vyver_evaluation_2021}. 
 However, they did not find a large difference in the diurnal cycle between both resolutions, in contrast to the simulations of this work. 
+\DIFaddbegin \DIFadd{This stronger resolution sensitivity of ALARO-1 relative to ALARO-0 is part of the step-wise behaviour discussed above (Sect.~\ref{sect:discussion}).
+}\DIFaddend 
 
-Similarly to the diurnal cycle, the seasonal cycle of hourly extreme-precipitation frequency is well captured by our three simulations, as shown in Fig.~\ref{fig:AMcycles}.
+Similarly to the diurnal cycle, the seasonal cycle of hourly extreme-precipitation frequency is well captured by our three simulations, as shown in Fig.~\ref{fig:AMcycles}\DIFaddbegin \DIFadd{b}\DIFaddend .
 The frequency peak in summer due to the convective nature of hourly extreme precipitation is apparent.
 This result corresponds to previous simulations from~\citet{van_de_vyver_evaluation_2021}, who also did not find a difference in the seasonal cycle between 12 km and 4 km ALARO-0 simulations.
 In contrast,~\citet{innocenti_observed_2019} reported the slight outperformance of a 12 km RCM simulation compared to a 4 km convection-permitting WRF simulation in capturing the seasonal cycle of hourly AM occurrences over North America.
@@ -785,20 +848,20 @@ IBGE & 19 (1992 -- 2010) & 14 \\
 \subsection{\DIFdelbegin \DIFdel{Validation }\DIFdelend \DIFaddbegin \DIFadd{Evaluation }\DIFaddend of average climatology}
 \begin{figure*}[h!]
 \includegraphics[width=12cm]{figures/figD1.pdf}
-\caption{Bias in mean seasonal near-surface air temperature of each simulation (25 km, 12.5 km, and 4 km resolutions) with respect to the daily gridded observational CLIMATE-GRID dataset over Belgium.}
+\caption{Bias in mean seasonal near-surface air temperature of each simulation (\DIFdelbeginFL \DIFdelFL{25 km}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{columns: ALARO-25km}\DIFaddendFL , \DIFdelbeginFL \DIFdelFL{12.5 km}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{ALARO-12km}\DIFaddendFL , \DIFdelbeginFL \DIFdelFL{and 4 km resolutions}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{ALARO-4km}\DIFaddendFL ) with respect to the daily gridded observational CLIMATE-GRID dataset over Belgium\DIFaddbeginFL \DIFaddFL{, for the period 1992--2022}\DIFaddendFL . \DIFaddbeginFL \DIFaddFL{Rows: (a) Winter (DJF), (b) Spring (MAM), (c) Summer (JJA), (d) Autumn (SON).}\DIFaddendFL }
 \label{fig:tas_bias_seasons}
 \end{figure*}
 \newpage
 \begin{figure*}[h!]
 \includegraphics[width=12cm]{figures/figD2.pdf}
-\caption{Bias in mean seasonal precipitation of each simulation (25 km, 12.5 km, and 4 km resolutions) with respect to the daily gridded observational CLIMATE-GRID dataset over Belgium.}
+\caption{Bias in mean seasonal precipitation of each simulation (\DIFdelbeginFL \DIFdelFL{25 km}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{columns: ALARO-25km}\DIFaddendFL , \DIFdelbeginFL \DIFdelFL{12.5 km}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{ALARO-12km}\DIFaddendFL , \DIFdelbeginFL \DIFdelFL{and 4 km resolutions}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{ALARO-4km}\DIFaddendFL ) with respect to the daily gridded observational CLIMATE-GRID dataset over Belgium\DIFaddbeginFL \DIFaddFL{, for the period 1992--2022}\DIFaddendFL . \DIFaddbeginFL \DIFaddFL{Rows: (a) Winter (DJF), (b) Spring (MAM), (c) Summer (JJA), (d) Autumn (SON).}\DIFaddendFL }
 \label{fig:pr_bias_seasons}
 \end{figure*}
 \newpage
 \subsection{Extreme precipitation}
 \begin{figure*}[h!]
 \includegraphics[width=\textwidth]{figures/figD3.pdf}
-\caption{Log-log linear regression analysis of the return levels as a function of duration, performed for each dataset (observations and ALARO-simulations), topographic region, and return period separately. (left) The linear regression coefficients. (right) The $R^2$-values. The dashed line denotes a value of 1, which corresponds to a perfect fit.}
+\caption{Log-log linear regression analysis of the return levels as a function of duration, performed for each dataset (observations and ALARO-simulations), topographic region, and return period separately\DIFaddbeginFL \DIFaddFL{, using all available years for each dataset (observational record lengths are given in Table~\ref{tab:stations}; simulations span 1992--2022)}\DIFaddendFL . (\DIFdelbeginFL \DIFdelFL{left}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{a}\DIFaddendFL ) The linear regression coefficients. (\DIFdelbeginFL \DIFdelFL{right}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{b}\DIFaddendFL ) The $R^2$-values. The dashed line denotes a value of 1, which corresponds to a perfect fit.}
 \label{fig:IDFs_linear}
 \end{figure*}
 
