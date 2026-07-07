@@ -518,14 +518,17 @@ For ALARO-25km, the peak occurs even later (around 22:00 UTC) and has a lower fr
 %% Figure: 2 panels, annual-mean difference ALARO-12km minus ALARO-12km-noSFX: (a) near-surface temperature, (b) relative precipitation. Difference maps (not bias maps); lean on Fig.~\ref{fig:tas_bias} / Fig.~\ref{fig:pr_bias} for the "is it an improvement" half, backed by domain-mean numbers stated in text.
 \begin{figure*}[t]
 \includegraphics[width=\textwidth]{figures/fig09.pdf}
-\caption{Annual-mean difference between ALARO-12km and ALARO-12km-noSFX (i.e.\ the effect of introducing SURFEX at fixed 12.5\,km resolution) over Belgium, 1992--2022. (a) Near-surface air temperature difference. (b) Relative precipitation difference. Domain-averaged values are reported above each panel.}
-\label{fig:surfex_diff}
+\caption{Effect of introducing SURFEX at fixed 12.5\,km resolution, from the annual-mean difference between ALARO-12km and ALARO-12km-noSFX over Belgium, 1992--2022. (a) Near-surface air temperature difference and (b) relative precipitation difference, with domain-averaged values reported above each panel. (c) Domain-mean diurnal cycle of precipitation (all hours) for the two configurations; dashed lines denote the daily-mean value of each.}
+\label{fig:surfex_effect}
 \end{figure*}
-Figure~\ref{fig:surfex_diff} shows the annual-mean difference between ALARO-12km and ALARO-12km-noSFX.
+Figure~\ref{fig:surfex_effect} shows the annual-mean difference between ALARO-12km and ALARO-12km-noSFX.
 Because resolution is held fixed, this difference isolates the effect of the SURFEX land-surface scheme.
 The introduction of SURFEX warms the annual mean by 0.82$\degree$C averaged over Belgium and reduces annual precipitation by 12.6\,\%, in both cases reducing the bias relative to CLIMATE-GRID.
 The temperature difference is roughly constant across the domain, except for urban areas where the warming is stronger.
 On the other hand, the precipitation difference exhibits a clear north-south gradient, with the southern part of Belgium experiencing a stronger reduction in precipitation than the northern part.
+Moreover, the diurnal cycle of precipitation over Belgium (Fig.~\ref{fig:surfex_effect}c) isolates how SURFEX acts on the sub-daily distribution. 
+Both configurations share the same single afternoon peak at 16--17\,UTC: introducing SURFEX leaves the timing and shape of the cycle essentially unchanged and instead reduces its amplitude, damping the afternoon peak more strongly than the overnight minimum. 
+The land-surface scheme therefore modulates the intensity of the diurnal precipitation cycle without displacing its peak, indicating that the resolution-dependent shift in peak timing seen in Fig.~\ref{fig:pr_diurnal_cycle} is not an artefact of the land-surface scheme.
 
 %% --- (2) THE WHY: flux partitioning via seasonal diurnal cycles ---
 %% Figure: LE and SH seasonal diurnal cycles, 12km vs 12km-noSFX. Show as diurnal-by-season (NOT annual-mean maps). Optionally Bowen ratio.
@@ -625,9 +628,9 @@ This drizzle bias is a well-known deficiency of regional climate models~\citep{f
 It arises largely because parameterized convection triggers on weak instability and releases it gradually, producing precipitation that is too frequent and too light. 
 The improvement with resolution reflects the sharper humidity and updraught fields at higher resolution, which reduce the widespread simultaneous triggering dominating the coarser runs; the residual bias in ALARO-4km is consistent with 3MT still parameterizing part of the convective spectrum in the grey zone. 
 Additionally, both the timing and amplitude of the diurnal precipitation peak are best represented at high resolution, as well established for CPMs~\citep{lucas-picher_convection-permitting_2021}. 
-Most RCMs exhibit a premature diurnal peak, primarily due to the limited memory of atmospheric instabilities; this behaviour is notably absent here, and at lower resolutions the ALARO peak even occurs later than at higher resolutions, which may be attributable to the scale-aware character of the 3MT scheme. 
-%% NEW: answers R2 L349-350 [c29] - referee notes the later peak could instead be the land-surface scheme. Rebut using noSFX: SURFEX shifts diurnal amplitude but not timing/shape.
-% The ALARO-12km-noSFX experiment supports this interpretation: introducing SURFEX shifts the amplitude of the diurnal precipitation cycle but leaves its shape and the timing of the peak essentially unchanged, indicating that the resolution-dependent peak timing is not driven by the land-surface scheme. %% TODO: confirm this holds in the paper's Uccle diurnal-cycle figure with noSFX added, consistent with thesis Fig. (ch2 pr diurnal cycle).
+Most RCMs exhibit a premature diurnal peak, primarily due to the limited memory of atmospheric instabilities; this behaviour is notably absent here, and at lower resolutions the ALARO peak even occurs later than at higher resolutions. 
+The ALARO-12km-noSFX experiment (Sect.~\ref{sect:surfex_effect}, Fig.~\ref{fig:surfex_effect}c) shows that introducing SURFEX reduces the amplitude of the diurnal cycle but leaves the timing of the peak unchanged, so the resolution-dependent shift in peak timing is not driven by the land-surface scheme. 
+Its origin therefore lies in the model dynamics and the scale-aware convection; isolating the responsible mechanism would require dedicated sensitivity experiments and is left to future work.
 
 \subsection{Extreme precipitation}
 
