@@ -317,6 +317,14 @@ Precipitation data from all networks are aggregated to an hourly resolution to a
 The ALARO-1 simulations are evaluated by calculating the mean bias for near-surface air temperature (simply called temperature from here on) and accumulated precipitation depth on annual, seasonal, and monthly timescales. 
 For an exact mathematical formulation, we refer to appendix \ref{sect:bias_definition}.
 
+To assess whether the biases are statistically distinguishable from zero, we apply a non-parametric bootstrap at each grid point.
+For a given field, the 31 years (1992--2022) are resampled with replacement $10^3$ times.
+The climatological bias (simulation minus observations) is then recomputed for each resample.
+Next, the 95\,\% confidence interval is taken as the 2.5th--97.5th percentiles of the resulting distribution.
+A grid point is deemed significant where this interval excludes zero.
+Each simulation and the CLIMATE-GRID observations are anchored to the same historical years: the simulations are driven by ERA5 reanalysis over the identical 1992--2022 period.
+Therefore, the resampling is paired: the same resampled set of years is used for the simulated and observed fields within each iteration.
+
 To ensure a consistent comparison, all data are regridded to a common latitude-longitude grid with a spacing of $0.07\degree$ longitude by $0.045\degree$ latitude, which closely aligns with the 5 km resolution of the CG dataset. 
 For precipitation, a conservative remapping is applied to all simulations to preserve the spatially averaged precipitation depth~\citep{jones_first-_1999}. 
 For temperature, the same conservative procedure is used to reproject ALARO-4km. 
@@ -364,14 +372,15 @@ This calculation results in a distribution of $10^8$ samples for the relative er
 %f
 \begin{figure*}[t]
 \includegraphics[width=\textwidth]{figures/fig02.pdf}
-\caption{Bias in mean annual near-surface air temperature of each simulation with respect to the daily gridded observational CLIMATE-GRID dataset over Belgium, for the period 1992--2022. (a) ALARO-25km, (b) ALARO-12km, (c) ALARO-4km.}
+\caption{Bias in mean annual near-surface air temperature of each simulation with respect to the daily gridded observational CLIMATE-GRID dataset over Belgium, for the period 1992--2022. (a) ALARO-25km, (b) ALARO-12km, (c) ALARO-4km. Hatching indicates grid points where the bias is not significantly different from zero at the 95\,\% confidence level, based on a paired bootstrap resampling of years.}
 \label{fig:tas_bias}
 \end{figure*}
 
 Figure~\ref{fig:tas_bias} shows that ALARO-1 at all three resolutions exhibits a cold temperature bias with respect to the Belgian CLIMATE-GRID observations. 
 This bias is most pronounced in the eastern, more elevated region. 
 Near the coast, all simulations exhibit a small warm bias. 
-The spatial bias patterns for ALARO-12km and ALARO-4km are very similar. 
+The cold bias is statistically significant across almost the entire domain in ALARO-25km, whereas for ALARO-12km and ALARO-4km large parts of the interior are not significantly different from zero (hatched in Fig.~\ref{fig:tas_bias}), consistent with their much smaller domain-mean biases of $-0.25$ and $-0.32\,\degree$C.
+Furthermore, the spatial bias patterns for ALARO-12km and ALARO-4km are very similar. 
 Certain urban areas can be discerned in these simulations presenting themselves as areas with a warm bias. 
 
 While the bias difference between ALARO-12km and ALARO-4km is small, a large difference is present between ALARO-25km and ALARO-12km. 
@@ -386,30 +395,41 @@ This warm bias partially compensates for the cold bias in other seasons on an an
 Consequently, ALARO-12km exhibits a smaller annual cold bias than ALARO-4km, despite ALARO-4km performing better in more seasons.
 Additionally, both ALARO-12km and ALARO-4km strongly underestimate the temperature in spring, which also corresponds to the largest seasonal cold bias for ALARO-25km. 
 The largest negative bias, which is around -1.5°C, is attained in May. 
-Finally, during the seasons with warming sea surface temperatures (SST), spring and summer, there is a cold bias near the coast, while the opposite is true for autumn and winter (see Fig.~\ref{fig:tas_bias_seasons}). 
+The domain-averaged monthly biases of ALARO-25km are significant year-round except in September, whereas for ALARO-12km and ALARO-4km significance is confined to the seasonal extremes: the spring cold bias (March--May/June), the summer warm bias (August), and a November cold bias (Fig.~\ref{fig:bias_monthly}a).
+
+During the seasons with warming sea surface temperatures (SST), spring and summer, there is a cold bias near the coast, while the opposite is true for autumn and winter (see Fig.~\ref{fig:tas_bias_seasons}). 
 This may be attributed to the monthly replacement of SST, creating a lag effect. 
 In addition, coastal grid points partly consist of sea: the diagnosed 2\,m temperature is the tile-weighted average over the land and sea fractions, so the (lagged) sea surface temperature is directly reflected in the near-surface temperature of these mixed cells.
+
+In terms of significance (Fig.~\ref{fig:tas_bias_seasons}), the cold bias of ALARO-25km is significant across the whole domain in every season. 
+For ALARO-12km and ALARO-4km the bias is largely insignificant, except in spring, where the cold bias is significant domain-wide. 
+In summer, ALARO-12km exhibits a significant warm bias over much of the domain, whereas in ALARO-4km this warm bias is weaker and largely insignificant, consistent with its cooler summer near-surface temperature.
 
 %f
 \begin{figure*}[t]
 \includegraphics[width=\textwidth]{figures/fig03.pdf}
-\caption{The annual cycle of the temperature bias (a) and relative precipitation bias (b) for each simulation (25 km, 12.5 km, and 4 km resolutions) with respect to the gridded observational CLIMATE-GRID dataset, averaged over Belgium, for the period 1992--2022.}
+\caption{The annual cycle of the temperature bias (a) and relative precipitation bias (b) for each simulation (25 km, 12.5 km, and 4 km resolutions) with respect to the gridded observational CLIMATE-GRID dataset, averaged over Belgium, for the period 1992--2022. Square markers denote months where the domain-averaged bias is significantly different from zero at the 95\,\% confidence level (paired bootstrap resampling of years); circular markers denote non-significant months.}
 \label{fig:bias_monthly}
 \end{figure*}
 
 %f
 \begin{figure*}[t]
 \includegraphics[width=\textwidth]{figures/fig04.pdf}
-\caption{Relative bias in mean annual precipitation of each simulation with respect to the daily gridded observational CLIMATE-GRID dataset over Belgium, for the period 1992--2022. (a) ALARO-25km, (b) ALARO-12km, (c) ALARO-4km.}
+\caption{Relative bias in mean annual precipitation of each simulation with respect to the daily gridded observational CLIMATE-GRID dataset over Belgium, for the period 1992--2022. (a) ALARO-25km, (b) ALARO-12km, (c) ALARO-4km. Hatching indicates grid points where the bias is not significantly different from zero at the 95\,\% confidence level, based on a paired bootstrap resampling of years.}
 \label{fig:pr_bias}
 \end{figure*}
 
 ALARO-1, at all three resolutions, features a wet bias both annually (Fig.~\ref{fig:pr_bias}) and across all months (Fig.~\ref{fig:bias_monthly}) and seasons (Fig.~\ref{fig:pr_bias_seasons}), except for summer (July and August) in ALARO-12km and ALARO-4km, which coincides with a warm bias in these simulations. 
 Similarly to temperature, the bias in annual precipitation is smallest for ALARO-12km. 
 ALARO-4km is slightly wetter, while ALARO-25km features a bias nearly twice as high as ALARO-12km. 
+The wet bias is significant over essentially the whole domain for all three simulations (Fig.~\ref{fig:pr_bias}).
+
 However, once more, ALARO-4km performs best when evaluating the seasons separately. 
 ALARO-12km shows a smaller bias only during springtime. 
 Similarly to temperature, the precipitation bias in spring is substantially larger (in absolute values) compared to the other seasons. 
+Regarding significance (Fig.~\ref{fig:pr_bias_seasons}), the wet bias is significant across essentially the whole domain for all three simulations in autumn, winter, and spring. 
+Summer is the exception: ALARO-25km retains a significant wet bias only in the south of the domain, whereas ALARO-12km and ALARO-4km show a significant dry bias in the north.
+Consistent with its smaller domain-mean dry bias, ALARO-4km shows a significant dry bias over a smaller northern area than ALARO-12km, with the central domain no longer significantly biased.
 
 %f
 \begin{figure*}[t]
@@ -787,13 +807,13 @@ IBGE & 19 (1992 -- 2010) & 14 \\
 \subsection{Evaluation of average climatology}
 \begin{figure*}[h!]
 \includegraphics[width=12cm]{figures/figD1.pdf}
-\caption{Bias in mean seasonal near-surface air temperature of each simulation (columns: ALARO-25km, ALARO-12km, ALARO-4km) with respect to the daily gridded observational CLIMATE-GRID dataset over Belgium, for the period 1992--2022. Rows: (a) Winter (DJF), (b) Spring (MAM), (c) Summer (JJA), (d) Autumn (SON).}
+\caption{Bias in mean seasonal near-surface air temperature of each simulation with respect to the daily gridded observational CLIMATE-GRID dataset over Belgium, for the period 1992--2022. Columns: ALARO-25km (a,\,d,\,g,\,j), ALARO-12km (b,\,e,\,h,\,k), ALARO-4km (c,\,f,\,i,\,l). Rows: winter (DJF; a--c), spring (MAM; d--f), summer (JJA; g--i), autumn (SON; j--l). Hatching indicates grid points where the bias is not significantly different from zero at the 95\,\% confidence level, based on a paired bootstrap resampling of years.}
 \label{fig:tas_bias_seasons}
 \end{figure*}
 \newpage
 \begin{figure*}[h!]
 \includegraphics[width=12cm]{figures/figD2.pdf}
-\caption{Bias in mean seasonal precipitation of each simulation (columns: ALARO-25km, ALARO-12km, ALARO-4km) with respect to the daily gridded observational CLIMATE-GRID dataset over Belgium, for the period 1992--2022. Rows: (a) Winter (DJF), (b) Spring (MAM), (c) Summer (JJA), (d) Autumn (SON).}
+\caption{Bias in mean seasonal precipitation of each simulation with respect to the daily gridded observational CLIMATE-GRID dataset over Belgium, for the period 1992--2022. Columns: ALARO-25km (a,\,d,\,g,\,j), ALARO-12km (b,\,e,\,h,\,k), ALARO-4km (c,\,f,\,i,\,l). Rows: winter (DJF; a--c), spring (MAM; d--f), summer (JJA; g--i), autumn (SON; j--l). Hatching indicates grid points where the bias is not significantly different from zero at the 95\,\% confidence level, based on a paired bootstrap resampling of years.}
 \label{fig:pr_bias_seasons}
 \end{figure*}
 \newpage
