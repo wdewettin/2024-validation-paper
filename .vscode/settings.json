@@ -28,7 +28,7 @@
         "-synctex=1",
         "-interaction=nonstopmode",
         "-file-line-error",
-        "-output-directory=%OUTDIR%",
+        "-output-directory=build",
         "%DOC%"
       ]
     },
@@ -36,7 +36,7 @@
       "name": "bibtex",
       "command": "bibtex",
       "args": [
-        "%OUTDIR%/%DOCFILE%"
+        "build/%DOCFILE%"
       ]
     },
   ],
