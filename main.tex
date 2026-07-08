@@ -438,6 +438,27 @@ Consistent with its smaller domain-mean dry bias, ALARO-4km shows a significant 
 \label{fig:pr_diurnal_cycle}
 \end{figure*}
 
+%t
+\begin{table}[t]
+\caption{Decomposition of the mean hourly precipitation in Uccle into contributions from wet and dry hours, for the period 1992--2022. A wet hour is defined as an hour with a precipitation rate > 0.1 mm h$^{-1}$; a dry hour as $\leq$ 0.1 mm h$^{-1}$. $\bar{P}$ is the mean precipitation over all hours; $\bar{P}_{\text{wet}}$ and $\bar{P}_{\text{dry}}$ are the mean intensities during wet and dry hours; $\bar{n}_{\text{wet}}$ and $\bar{n}_{\text{dry}}$ are the corresponding frequencies of occurrence.}
+\begin{tabular}{lcccc}
+\tophline
+Quantity & Observations & ALARO-25km & ALARO-12km & ALARO-4km \\
+\middlehline
+$\bar{P}$ [mm h$^{-1}$]                                   & 0.093 & 0.124 & 0.112 & 0.118 \\
+\middlehline
+$\bar{P}_{\text{wet}}$ [mm h$^{-1}$]                      & 0.791 & 0.692 & 0.722 & 0.768 \\
+$\bar{n}_{\text{wet}}$ [\%]                               & 11.8  & 17.2  & 15.0  & 14.8  \\
+$\bar{P}_{\text{wet}} \times \bar{n}_{\text{wet}}$ [mm h$^{-1}$] & 0.093 & 0.119 & 0.108 & 0.114 \\
+\middlehline
+$\bar{P}_{\text{dry}}$ [mm h$^{-1}$]                      & 0.000 & 0.006 & 0.005 & 0.005 \\
+$\bar{n}_{\text{dry}}$ [\%]                               & 88.2  & 82.8  & 85.0  & 85.2  \\
+$\bar{P}_{\text{dry}} \times \bar{n}_{\text{dry}}$ [mm h$^{-1}$] & 0.000 & 0.005 & 0.004 & 0.004 \\
+\bottomhline
+\end{tabular}
+\belowtable{} \label{tab:wet_dry_hours}
+\end{table}
+
 Figure~\ref{fig:pr_diurnal_cycle} shows the diurnal cycle of precipitation in Uccle, Belgium.
 The diurnal cycle is first analyzed across all hours (Fig.~\ref{fig:pr_diurnal_cycle}a). 
 All simulations overestimate precipitation for all hours. 
@@ -450,7 +471,13 @@ The afternoon peak at 16 UTC remains visible for the observations but is less pr
 The delay is even larger for ALARO-12km and ALARO-25km, with progressively smaller peaks as resolution decreases. 
 In summer (Fig.~\ref{fig:pr_diurnal_cycle}c), average precipitation values and peak amplitudes are considerably higher, although the simulated peaks occur slightly later and are less intense at lower resolutions. 
 In winter (Fig.~\ref{fig:pr_diurnal_cycle}d), no clear peak is observed, and the average precipitation intensity is approximately half of the summer values.
+
 Overall, these results indicate that although the simulations reproduce the timing of the diurnal cycle reasonably well, they tend to overestimate precipitation frequency — raining too often with too little intensity — especially at coarser resolutions.
+To quantify this, we decompose the mean hourly precipitation $\bar{P}$ into the contributions from wet and dry hours (Table~\ref{tab:wet_dry_hours}). 
+As the mean intensity during dry hours is near-zero, $\bar{P}$ is set almost entirely by the wet-hour contribution $\bar{P}_{\text{wet}} \times \bar{n}_{\text{wet}}$. 
+All simulations overestimate the wet-hour frequency $\bar{n}_{\text{wet}}$ (11.8\,\% observed) while underestimating the wet-hour intensity $\bar{P}_{\text{wet}}$ (0.791\,mm\,h$^{-1}$ observed), most severely at 25\,km (17.2\,\% and 0.692\,mm\,h$^{-1}$). 
+Increasing resolution reduces the frequency bias and raises the wet-hour intensity, shifting the simulations from frequent-weak towards less-frequent, more-intense precipitation. 
+This confirms that the mean wet bias arises from a too-high precipitation frequency combined with too-weak wet-hour intensities, rather than from excessive intensity.
 
 \subsection{Extreme precipitation}
 \label{sect:extreme_precipitation}
@@ -622,8 +649,8 @@ However, for all simulations, the summer wet-hour peak occurs later than the obs
 Overall, for both all-hour (Fig.~\ref{fig:pr_diurnal_cycle}a) and wet-hour (Fig.~\ref{fig:pr_diurnal_cycle}b) precipitation, the diurnal cycles in ALARO-4km are comparable to those in the work of~\citet{de_troch_application_2016}.
 
 In our analysis of the mean diurnal precipitation cycle, notable differences emerge when comparing simulations at varying resolutions with observational data, as shown in Fig.~\ref{fig:pr_diurnal_cycle}. 
-Specifically, while the ``all-hour'' precipitation cycle tends to exhibit an overestimation relative to observations, the ``wet-hour'' cycle shows a general underestimation, implying that the precipitation frequency is overestimated. 
-This discrepancy is most pronounced in ALARO-25km and minimized in ALARO-4km, indicating that the coarser resolution overestimates precipitation amounts through an overly high precipitation frequency, i.e.\ a substantial drizzle contribution. 
+Specifically, while the ``all-hour'' precipitation cycle overestimates precipitation relative to observations, the ``wet-hour'' cycle underestimates it, which Table~\ref{tab:wet_dry_hours} attributes to an overestimated wet-hour frequency combined with an underestimated wet-hour intensity. 
+This is most pronounced in ALARO-25km and minimized in ALARO-4km, showing that the coarser resolution overestimates precipitation amounts through an overly high precipitation frequency, i.e.\ a substantial drizzle contribution.
 This drizzle bias is a well-known deficiency of regional climate models~\citep{fosser_benefit_2015, berthou_pan-european_2020}. 
 It arises largely because parameterized convection triggers on weak instability and releases it gradually, producing precipitation that is too frequent and too light. 
 The improvement with resolution reflects the sharper humidity and updraught fields at higher resolution, which reduce the widespread simultaneous triggering dominating the coarser runs; the residual bias in ALARO-4km is consistent with 3MT still parameterizing part of the convective spectrum in the grey zone. 
