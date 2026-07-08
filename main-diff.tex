@@ -1,7 +1,7 @@
 %% Copernicus Publications Manuscript Preparation Template for LaTeX Submissions
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL main_v20260310.tex   Tue Jun 30 12:36:54 2026
-%DIF ADD main.tex             Tue Jul  7 22:20:56 2026
+%DIF ADD main.tex             Wed Jul  8 10:50:37 2026
 %% ---------------------------------
 %% This template should be used for copernicus.cls
 %% The class file and some style files are bundled in the Copernicus Latex Package, which can be downloaded from the different journal webpages.
@@ -523,7 +523,28 @@ Consistent with its smaller domain-mean dry bias, ALARO-4km shows a significant 
 \label{fig:pr_diurnal_cycle}
 \end{figure*}
 
-Figure~\ref{fig:pr_diurnal_cycle} shows the diurnal cycle of precipitation in Uccle, Belgium.
+%DIF > t
+\DIFaddbegin \begin{table}[t]
+\caption{\DIFaddFL{Decomposition of the mean hourly precipitation in Uccle into contributions from wet and dry hours, for the period 1992--2022. A wet hour is defined as an hour with a precipitation rate > 0.1 mm h$^{-1}$; a dry hour as $\leq$ 0.1 mm h$^{-1}$. $\bar{P}$ is the mean precipitation over all hours; $\bar{P}_{\text{wet}}$ and $\bar{P}_{\text{dry}}$ are the mean intensities during wet and dry hours; $\bar{n}_{\text{wet}}$ and $\bar{n}_{\text{dry}}$ are the corresponding frequencies of occurrence.}}
+\begin{tabular}{lcccc}
+\tophline
+\DIFaddFL{Quantity }& \DIFaddFL{Observations }& \DIFaddFL{ALARO-25km }& \DIFaddFL{ALARO-12km }& \DIFaddFL{ALARO-4km }\\
+\middlehline
+\DIFaddFL{$\bar{P}$ }[\DIFaddFL{mm h$^{-1}$}]                                   & \DIFaddFL{0.093 }& \DIFaddFL{0.124 }& \DIFaddFL{0.112 }& \DIFaddFL{0.118 }\\
+\middlehline
+\DIFaddFL{$\bar{P}_{\text{wet}}$ }[\DIFaddFL{mm h$^{-1}$}]                      & \DIFaddFL{0.791 }& \DIFaddFL{0.692 }& \DIFaddFL{0.722 }& \DIFaddFL{0.768 }\\
+\DIFaddFL{$\bar{n}_{\text{wet}}$ }[\DIFaddFL{\%}]                               & \DIFaddFL{11.8  }& \DIFaddFL{17.2  }& \DIFaddFL{15.0  }& \DIFaddFL{14.8  }\\
+\DIFaddFL{$\bar{P}_{\text{wet}} \times \bar{n}_{\text{wet}}$ }[\DIFaddFL{mm h$^{-1}$}] & \DIFaddFL{0.093 }& \DIFaddFL{0.119 }& \DIFaddFL{0.108 }& \DIFaddFL{0.114 }\\
+\middlehline
+\DIFaddFL{$\bar{P}_{\text{dry}}$ }[\DIFaddFL{mm h$^{-1}$}]                      & \DIFaddFL{0.000 }& \DIFaddFL{0.006 }& \DIFaddFL{0.005 }& \DIFaddFL{0.005 }\\
+\DIFaddFL{$\bar{n}_{\text{dry}}$ }[\DIFaddFL{\%}]                               & \DIFaddFL{88.2  }& \DIFaddFL{82.8  }& \DIFaddFL{85.0  }& \DIFaddFL{85.2  }\\
+\DIFaddFL{$\bar{P}_{\text{dry}} \times \bar{n}_{\text{dry}}$ }[\DIFaddFL{mm h$^{-1}$}] & \DIFaddFL{0.000 }& \DIFaddFL{0.005 }& \DIFaddFL{0.004 }& \DIFaddFL{0.004 }\\
+\bottomhline
+\end{tabular}
+\belowtable{} \label{tab:wet_dry_hours}
+\end{table}
+
+\DIFaddend Figure~\ref{fig:pr_diurnal_cycle} shows the diurnal cycle of precipitation in Uccle, Belgium.
 The diurnal cycle is first analyzed across all hours \DIFdelbegin \DIFdel{. 
 }\DIFdelend \DIFaddbegin \DIFadd{(Fig.~\ref{fig:pr_diurnal_cycle}a). 
 }\DIFaddend All simulations overestimate \DIFdelbegin \DIFdel{rainfall }\DIFdelend \DIFaddbegin \DIFadd{precipitation }\DIFaddend for all hours. 
@@ -537,7 +558,15 @@ The afternoon peak at 16 UTC remains visible for the observations but is less pr
 The delay is even larger for ALARO-12km and ALARO-25km, with progressively smaller peaks as resolution decreases. 
 In summer \DIFaddbegin \DIFadd{(Fig.~\ref{fig:pr_diurnal_cycle}c)}\DIFaddend , average precipitation values and peak amplitudes are considerably higher, although the simulated peaks occur slightly later and are less intense at lower resolutions. 
 In winter \DIFaddbegin \DIFadd{(Fig.~\ref{fig:pr_diurnal_cycle}d)}\DIFaddend , no clear peak is observed, and the average precipitation intensity is approximately half of the summer values.
-Overall, these results indicate that although the simulations reproduce the timing of the diurnal cycle reasonably well, they tend to overestimate precipitation frequency — raining too often with too little intensity — especially at coarser resolutions.
+\DIFaddbegin 
+
+\DIFaddend Overall, these results indicate that although the simulations reproduce the timing of the diurnal cycle reasonably well, they tend to overestimate precipitation frequency — raining too often with too little intensity — especially at coarser resolutions.
+\DIFaddbegin \DIFadd{To quantify this, we decompose the mean hourly precipitation $\bar{P}$ into the contributions from wet and dry hours (Table~\ref{tab:wet_dry_hours}). 
+As the mean intensity during dry hours is near-zero, $\bar{P}$ is set almost entirely by the wet-hour contribution $\bar{P}_{\text{wet}} \times \bar{n}_{\text{wet}}$. 
+All simulations overestimate the wet-hour frequency $\bar{n}_{\text{wet}}$ (11.8\,\% observed) while underestimating the wet-hour intensity $\bar{P}_{\text{wet}}$ (0.791\,mm\,h$^{-1}$ observed), most severely at 25\,km (17.2\,\% and 0.692\,mm\,h$^{-1}$). 
+Increasing resolution reduces the frequency bias and raises the wet-hour intensity, shifting the simulations from frequent-weak towards less-frequent, more-intense precipitation. 
+This confirms that the mean wet bias arises from a too-high precipitation frequency combined with too-weak wet-hour intensities, rather than from excessive intensity.
+}\DIFaddend 
 
 \subsection{Extreme precipitation}
 \label{sect:extreme_precipitation}
@@ -568,8 +597,10 @@ Comparing return periods, longer return periods yield a steeper (more negative) 
 
 %f
 \begin{figure*}[t]
-\includegraphics[width=\textwidth]{figures/fig07.pdf}
-\caption{Relative error of the return-level intensities for each region (\DIFdelbeginFL \DIFdelFL{row}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{rows: Low-, Middle-, High-Belgium}\DIFaddendFL ) and return period (\DIFdelbeginFL \DIFdelFL{column}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{columns: 2, 10, 50 years}\DIFaddendFL )\DIFaddbeginFL \DIFaddFL{, using all available years for each dataset (observational record lengths are given in Table~\ref{tab:stations}; simulations span 1992--2022)}\DIFaddendFL . \DIFaddbeginFL \DIFaddFL{Panels (a)--(i) are ordered row-wise. }\DIFaddendFL Each box plot represents the uncertainty \DIFdelbeginFL \DIFdelFL{as }\DIFdelendFL gauged by the bootstrap procedure with \DIFdelbeginFL \DIFdelFL{$10^4$ x $10^4$ }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{$10^4 \times 10^4$ }\DIFaddendFL ($= 10^8$) samples\DIFdelbeginFL \DIFdelFL{. The }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{: the box spans the interquartile range (25th--75th percentile) around the median, and the }\DIFaddendFL whiskers span the \DIFdelbeginFL \DIFdelFL{width of the }\DIFdelendFL 95\%-confidence interval \DIFdelbeginFL \DIFdelFL{around the median}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{(2.5th--97.5th percentile)}\DIFaddendFL .}
+\DIFdelbeginFL %DIFDELCMD < \includegraphics[width=\textwidth]{figures/fig07.pdf}
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \includegraphics[width=0.9\textwidth]{figures/fig07.pdf}
+\DIFaddendFL \caption{Relative error of the return-level intensities for each region (\DIFdelbeginFL \DIFdelFL{row}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{rows: Low-, Middle-, High-Belgium}\DIFaddendFL ) and return period (\DIFdelbeginFL \DIFdelFL{column}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{columns: 2, 10, 50 years}\DIFaddendFL )\DIFaddbeginFL \DIFaddFL{, using all available years for each dataset (observational record lengths are given in Table~\ref{tab:stations}; simulations span 1992--2022)}\DIFaddendFL . \DIFaddbeginFL \DIFaddFL{Panels (a)--(i) are ordered row-wise. }\DIFaddendFL Each box plot represents the uncertainty \DIFdelbeginFL \DIFdelFL{as }\DIFdelendFL gauged by the bootstrap procedure with \DIFdelbeginFL \DIFdelFL{$10^4$ x $10^4$ }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{$10^4 \times 10^4$ }\DIFaddendFL ($= 10^8$) samples\DIFdelbeginFL \DIFdelFL{. The }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{: the box spans the interquartile range (25th--75th percentile) around the median, and the }\DIFaddendFL whiskers span the \DIFdelbeginFL \DIFdelFL{width of the }\DIFdelendFL 95\%-confidence interval \DIFdelbeginFL \DIFdelFL{around the median}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{(2.5th--97.5th percentile)}\DIFaddendFL .}
 \label{fig:IDFs_boxplots}
 \end{figure*}
 
@@ -613,7 +644,6 @@ Although }\DIFdelend \DIFaddbegin
 %DIF > % Figure: 2 panels, annual-mean difference ALARO-12km minus ALARO-12km-noSFX: (a) near-surface temperature, (b) relative precipitation. Difference maps (not bias maps); lean on Fig.~\ref{fig:tas_bias} / Fig.~\ref{fig:pr_bias} for the "is it an improvement" half, backed by domain-mean numbers stated in text.
 \begin{figure*}[t]
 \includegraphics[width=\textwidth]{figures/fig09.pdf}
-\caption{\DIFaddFL{Annual-mean difference between ALARO-12km and ALARO-12km-noSFX (i.e.\ the effect of introducing SURFEX at fixed 12.5\,km resolution) over Belgium, 1992--2022. (a) Near-surface air temperature difference. (b) Relative precipitation difference. Domain-averaged values are reported above each panel.}}
 \caption{\DIFaddFL{Effect of introducing SURFEX at fixed 12.5\,km resolution, from the annual-mean difference between ALARO-12km and ALARO-12km-noSFX over Belgium, 1992--2022. (a) Near-surface air temperature difference and (b) relative precipitation difference, with domain-averaged values reported above each panel. (c) Domain-mean diurnal cycle of precipitation (all hours) for the two configurations; dashed lines denote the daily-mean value of each.}}
 \label{fig:surfex_effect}
 \end{figure*}
@@ -737,12 +767,13 @@ for ALARO-0}\DIFaddend .
 Overall, for both all-hour \DIFaddbegin \DIFadd{(Fig.~\ref{fig:pr_diurnal_cycle}a) }\DIFaddend and wet-hour \DIFaddbegin \DIFadd{(Fig.~\ref{fig:pr_diurnal_cycle}b) }\DIFaddend precipitation, the diurnal cycles in ALARO-4km are comparable to those in the work of~\citet{de_troch_application_2016}.
 
 In our analysis of the mean diurnal precipitation cycle, notable differences emerge when comparing simulations at varying resolutions with observational data, as shown in Fig.~\ref{fig:pr_diurnal_cycle}. 
-Specifically, while the ``all-hour'' precipitation cycle tends to exhibit an overestimation relative to observations, the ``wet-hour'' cycle shows a general underestimation\DIFdelbegin \DIFdel{.
-This implies }\DIFdelend \DIFaddbegin \DIFadd{, implying }\DIFaddend that the precipitation frequency is overestimated. 
-This discrepancy is most pronounced in \DIFdelbegin \DIFdel{the }\DIFdelend ALARO-25km \DIFdelbegin \DIFdel{simulation and is minimized in the }\DIFdelend \DIFaddbegin \DIFadd{and minimized in }\DIFaddend ALARO-4km\DIFdelbegin \DIFdel{simulation}\DIFdelend , indicating that the coarser resolution \DIFdelbegin \DIFdel{more significantly }\DIFdelend overestimates precipitation amounts \DIFdelbegin \DIFdel{due to }\DIFdelend \DIFaddbegin \DIFadd{through }\DIFaddend an overly high \DIFdelbegin \DIFdel{rainfall frequency. 
-These results imply that drizzle contributes substantially to the simulated rainfall, particularly in the lower-resolution model. 
+Specifically, while the ``all-hour'' precipitation cycle \DIFdelbegin \DIFdel{tends to exhibit an overestimation }\DIFdelend \DIFaddbegin \DIFadd{overestimates precipitation }\DIFaddend relative to observations, the ``wet-hour'' cycle \DIFdelbegin \DIFdel{shows a general underestimation.
+This implies that the precipitation frequency is overestimated . 
+This discrepancy }\DIFdelend \DIFaddbegin \DIFadd{underestimates it, which Table~\ref{tab:wet_dry_hours} attributes to an overestimated wet-hour frequency combined with an underestimated wet-hour intensity. 
+This }\DIFaddend is most pronounced in \DIFdelbegin \DIFdel{the }\DIFdelend ALARO-25km \DIFdelbegin \DIFdel{simulation and is minimized in the }\DIFdelend \DIFaddbegin \DIFadd{and minimized in }\DIFaddend ALARO-4km\DIFdelbegin \DIFdel{simulation, indicating }\DIFdelend \DIFaddbegin \DIFadd{, showing }\DIFaddend that the coarser resolution \DIFdelbegin \DIFdel{more significantly }\DIFdelend overestimates precipitation amounts \DIFdelbegin \DIFdel{due to }\DIFdelend \DIFaddbegin \DIFadd{through }\DIFaddend an overly high \DIFdelbegin \DIFdel{rainfall frequency. 
+These results imply that drizzle contributes substantially to the simulated rainfall, particularly in the lower-resolution model.
 This problem is partially mitigated when using CPMs, but not entirely.
-}\DIFdelend \DIFaddbegin \DIFadd{precipitation frequency, i.e.\ a substantial drizzle contribution. 
+}\DIFdelend \DIFaddbegin \DIFadd{precipitation frequency, i.e.\ a substantial drizzle contribution.
 This drizzle bias is a well-known deficiency of regional climate models~\mbox{%DIFAUXCMD
 \citep{fosser_benefit_2015, berthou_pan-european_2020}}\hskip0pt%DIFAUXCMD
 . 
