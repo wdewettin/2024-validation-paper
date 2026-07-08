@@ -719,16 +719,17 @@ In contrast,~\citet{innocenti_observed_2019} reported the slight outperformance 
 
 This study evaluated the performance of the ALARO-1 model, including a scale-aware deep convection parameterization, over Belgium using a multi-level dynamical downscaling framework at three horizontal resolutions: 25 km, 12.5 km, and 4 km.
 The ALARO-1 model was coupled online to the land-surface model SURFEX v8.0 for ALARO-12km and ALARO-4km.
-These simulations, spanning a 32-year period (1991–2022), were compared against both a gridded observational dataset (CLIMATE-GRID) and hourly precipitation values from station measurements.
+These simulations, spanning a 32-year period (1991--2022), were compared against both a gridded observational dataset (CLIMATE-GRID) and hourly precipitation values from station measurements.
 
 The analysis of average climatology demonstrated that across all resolutions the ALARO-1 model exhibits an annual cold bias between -1.14 $\degree$C and -0.25 $\degree$C and an annual wet bias between 15.3 \% and 33.7 \% over Belgium.
 Comparing resolutions, ALARO-12km and ALARO-4km outperformed ALARO-25km, which exhibited larger biases in both temperature and precipitation.
 While ALARO-12km and ALARO-4km provided similar results in terms of average climatology, ALARO-4km captured the diurnal cycle of precipitation better.
+A dedicated sensitivity experiment (ALARO-12km-noSFX) showed that this improvement relative to ALARO-25km is not attributable to the increase in resolution alone: the coupling to SURFEX accounts for a substantial part of the reduction in the temperature and precipitation biases.
 
 A key focus of this study was the representation of extreme precipitation, evaluated through Intensity-Duration-Frequency curves derived from annual maximum precipitation.
 While all simulations followed the expected log-log linear behaviour between return-level precipitation intensity and duration, lower-resolution models underestimated return levels at sub-daily timescales.
 ALARO-4km significantly improved upon this, producing more realistic hourly return levels and better capturing the diurnal timing of hourly extreme precipitation.
-These findings provide clear evidence that increasing model resolution enhances the simulation of extreme precipitation.
+These findings provide clear evidence that increasing model resolution enhances the simulation of extreme precipitation, even though the scale-aware 3MT scheme, which in principle should render these statistics resolution-independent, is active at all resolutions.
 
 Despite these improvements, this study has some limitations. 
 The research domain was limited to Belgium due to computational constraints.
