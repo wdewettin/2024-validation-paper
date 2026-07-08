@@ -179,8 +179,8 @@ However, the diversity of RCMs is decreasing, as seen in the current iteration o
 In this study, we present ALARO-1, an updated version of the ALARO-0 regional climate model originally introduced by~\citet{de_troch_multiscale_2013}, where the surface scheme ISBA\footnote{Interaction Soil Biosphere Atmosphere.}~\citep{noilhan_simple_1989, noilhan_isba_1996} is now replaced by the SURFEX\footnote{Surface Externalisée.} scheme~\citep{masson_surfexv72_2013, hamdi_evaluating_2014}. 
 SURFEX extends ISBA's vegetation-based approach by including multiple surface types: nature, urban areas, lakes, and seas.
 This is necessary to use ALARO-1 for land-use climate studies.
-The ALARO model was originally developed for numerical weather prediction (NWP) by the ALADIN (Aire Limitée Adaptation Dynamique Développement International, translated to International development for limited-area dynamical adaptation) consortium\footnote{The ALADIN consortium merged with the HIRLAM (High Resolution Limited-Area Model) consortium in 2020 to form the ACCORD (A Consortium for COnvection-scale modelling Research and Development) consortium.}, which comprised the national (hydro)meteorological services of 16 European and northern African countries~\citep{termonia_aladin_2018}.
-The ALARO model is one of three canonical model configurations (CMCs) within the ALADIN framework, along with the baseline ALADIN model and the AROME\footnote{Application of Research to Operations at Mesoscale.} model\footnote{The name ALARO stands for ALADIN-AROME}.
+The ALARO model was originally developed for numerical weather prediction (NWP) by the ALADIN\footnote{Aire Limitée Adaptation Dynamique Développement International.} consortium\footnote{The ALADIN consortium merged with the HIRLAM (High Resolution Limited-Area Model) consortium in 2020 to form the ACCORD (A Consortium for COnvection-scale modelling Research and Development) consortium.}, which comprised the national (hydro)meteorological services of 16 European and northern African countries~\citep{termonia_aladin_2018}.
+The ALARO model is one of three canonical model configurations (CMCs) within the ALADIN framework, along with the baseline ALADIN model and the AROME\footnote{Application of Research to Operations at Mesoscale.} model\footnote{The name ALARO stands for ALADIN-AROME.}.
 For a more detailed description, we refer to~\citet{termonia_aladin_2018} and to Sect. \ref{sect:data_methods}.
 
 The key feature of the ALARO physics package is the 3MT (Modular Multiscale Microphysics and Transport) scheme, which handles convection, turbulence, and microphysics~\citep{gerard_evolution_2005, gerard_integrated_2007, gerard_cloud_2009}.
@@ -197,7 +197,7 @@ Scientifically, examining how model representation of the climate evolves with c
 
 In this study, we evaluate long-term climate simulations with the ALARO-1 model at three different resolutions: 25 km, 12.5 km, and 4 km. 
 Previous climate simulations with ALARO-0 have been extensively evaluated, particularly over Belgium \citep{de_troch_multiscale_2013, hamdi_evaluating_2014, giot_validation_2016, tabari_local_2016, berckmans_reinitialised_2017, top_evaluation_2021}. 
-These studies employed ALARO cycle 36, following the versioning system aligned with the cycles of the global IFS\footnote{Integrated Forecasting System} and ARPEGE\footnote{Action de Recherche Petite Echelle Grande Echelle.} models \citep{termonia_aladin_2018}. 
+These studies employed ALARO cycle 36, following the versioning system aligned with the cycles of the global IFS\footnote{Integrated Forecasting System.} and ARPEGE\footnote{Action de Recherche Petite Echelle Grande Echelle.} models \citep{termonia_aladin_2018}. 
 In contrast, this study utilizes a more recent version, ALARO cycle 43t2. 
 Moreover, from cycle 40 onwards, ALARO underwent substantial updates, leading to the development of ALARO-1.
 % This new version marked a step-wise change compared to the original ALARO-0.
@@ -221,7 +221,7 @@ Finally, Sect. \ref{sect:conclusions} draws the conclusions, summarizing the key
 
 \subsubsection{ALARO1-SFX model}
 
-Historically, the ALARO model has its roots in the global IFS of the ECMWF\footnote{European Centre for Medium-Range Weather Forecasts} and the global ARPEGE model of Météo-France.
+Historically, the ALARO model has its roots in the global IFS of the ECMWF\footnote{European Centre for Medium-Range Weather Forecasts.} and the global ARPEGE model of Météo-France\footnote{Action de Recherche Petite Echelle Grande Echelle.}
 These global models were adapted to run on a limited area, which resulted in ALADIN.
 The ALADIN model employs the same physical parameterization schemes as the global ARPEGE model.
 ALARO is in turn a further development of ALADIN: it shares the dynamical core of ALADIN, but it contains different physics parameterizations.
@@ -274,16 +274,16 @@ This setup also aligns more closely with the one used in previous simulations fr
 
 %% NEW: a-posteriori SURFEX-isolation experiment. Answers R1 general [c3]/L146-147 [c9] and R2 L298. Frame as sensitivity experiment, NOT a fourth member of the resolution ladder.
 Because ALARO-25km and ALARO-12km differ in both resolution and land-surface scheme, the 25\,km to 12\,km change conflates two effects. 
-To isolate the impact of coupling ALARO-1 to SURFEX, we performed an additional a-posteriori sensitivity experiment, ALARO-12km-noSFX, identical to ALARO-12km but retaining the original ISBA scheme. 
+To isolate the impact of coupling ALARO-1 to SURFEX, we have performed an additional a-posteriori sensitivity experiment, ALARO-12km-noSFX, identical to ALARO-12km but retaining the original ISBA scheme. 
 Holding resolution fixed at 12.5\,km, any difference between ALARO-12km and ALARO-12km-noSFX is attributable to the land-surface scheme alone. 
-This experiment is analysed separately in Sect.~\ref{sect:surfex_effect}; the resolution ladder (ALARO-25km, ALARO-12km, ALARO-4km) is retained for all other analyses.
+This experiment is analysed separately in Sect.~\ref{sect:surfex_effect}; all other analyses retain the original set of three simulations.
 
 %% TODO (R1 general [c0] + specific 2.1.1 [c7], L209 [c14]): SURFEX configuration paragraph. Document: number of soil layers, ISBA-DIF (yes/no), number of patches on nature tile, runoff formulation, root distribution, snow scheme, water-flux scheme (ECUME vs ECUME6). This is a SEPARATE comment from the confound; do not fold into the isolation experiment above.
 % \paragraph{SURFEX configuration.} ...
 
 %t
 \begin{table}[t]
-\caption{Technical specifications of simulations with the ALARO-1 model. This table outlines the main differences between the simulations, while the common features are described in the text. ALARO-12km-noSFX is an a-posteriori sensitivity experiment used only to isolate the effect of SURFEX (Sect.~\ref{sect:surfex_effect}); it is not part of the resolution ladder.}
+\caption{Technical specifications of simulations with the ALARO-1 model. This table outlines the main differences between the simulations, while the common features are described in the text. ALARO-12km-noSFX is an a-posteriori sensitivity experiment used only to isolate the effect of SURFEX (Sect.~\ref{sect:surfex_effect}).}
 \begin{tabular}{lcccc}
 \tophline
 Simulation & ALARO-25km & ALARO-12km-noSFX & ALARO-12km & ALARO-4km \\
@@ -322,7 +322,7 @@ For a given field, the 31 years (1992--2022) are resampled with replacement $10^
 The climatological bias (simulation minus observations) is then recomputed for each resample.
 Next, the 95\,\% confidence interval is taken as the 2.5th--97.5th percentiles of the resulting distribution.
 A grid point is deemed significant where this interval excludes zero.
-Each simulation and the CLIMATE-GRID observations are anchored to the same historical years: the simulations are driven by ERA5 reanalysis over the identical 1992--2022 period.
+Each simulation and the CLIMATE-GRID observations are anchored to the same historical years: the simulations are all originally driven by ERA5 reanalysis over the identical 1992--2022 period.
 Therefore, the resampling is paired: the same resampled set of years is used for the simulated and observed fields within each iteration.
 
 To ensure a consistent comparison, all data are regridded to a common latitude-longitude grid with a spacing of $0.07\degree$ longitude by $0.045\degree$ latitude, which closely aligns with the 5 km resolution of the CG dataset. 
@@ -367,7 +367,7 @@ This calculation results in a distribution of $10^8$ samples for the relative er
 \section{Results}
 \label{sect:results}
 
-\subsection{Evaluation of average climatology}
+\subsection{Average climatology}
 
 %f
 \begin{figure*}[t]
@@ -472,7 +472,7 @@ The delay is even larger for ALARO-12km and ALARO-25km, with progressively small
 In summer (Fig.~\ref{fig:pr_diurnal_cycle}c), average precipitation values and peak amplitudes are considerably higher, although the simulated peaks occur slightly later and are less intense at lower resolutions. 
 In winter (Fig.~\ref{fig:pr_diurnal_cycle}d), no clear peak is observed, and the average precipitation intensity is approximately half of the summer values.
 
-Overall, these results indicate that although the simulations reproduce the timing of the diurnal cycle reasonably well, they tend to overestimate precipitation frequency — raining too often with too little intensity — especially at coarser resolutions.
+Overall, these results indicate that although the simulations reproduce the timing of the diurnal cycle reasonably well, they overestimate precipitation frequency — raining too often with too little intensity — especially at coarser resolutions.
 To quantify this, we decompose the mean hourly precipitation $\bar{P}$ into the contributions from wet and dry hours (Table~\ref{tab:wet_dry_hours}). 
 As the mean intensity during dry hours is near-zero, $\bar{P}$ is set almost entirely by the wet-hour contribution $\bar{P}_{\text{wet}} \times \bar{n}_{\text{wet}}$. 
 All simulations overestimate the wet-hour frequency $\bar{n}_{\text{wet}}$ (11.8\,\% observed) while underestimating the wet-hour intensity $\bar{P}_{\text{wet}}$ (0.791\,mm\,h$^{-1}$ observed), most severely at 25\,km (17.2\,\% and 0.692\,mm\,h$^{-1}$). 
@@ -548,14 +548,14 @@ For ALARO-25km, the peak occurs even later (around 22:00 UTC) and has a lower fr
 \caption{Effect of introducing SURFEX at fixed 12.5\,km resolution, from the annual-mean difference between ALARO-12km and ALARO-12km-noSFX over Belgium, 1992--2022. (a) Near-surface air temperature difference and (b) relative precipitation difference, with domain-averaged values reported above each panel. (c) Domain-mean diurnal cycle of precipitation (all hours) for the two configurations; dashed lines denote the daily-mean value of each.}
 \label{fig:surfex_effect}
 \end{figure*}
-Figure~\ref{fig:surfex_effect} shows the annual-mean difference between ALARO-12km and ALARO-12km-noSFX.
-Because resolution is held fixed, this difference isolates the effect of the SURFEX land-surface scheme.
+Figure~\ref{fig:surfex_effect} shows the annual-mean difference between ALARO-12km and ALARO-12km-noSFX, which isolates the effect of the SURFEX land-surface scheme, as all other components are identical between the two simulations.
 The introduction of SURFEX warms the annual mean by 0.82$\degree$C averaged over Belgium and reduces annual precipitation by 12.6\,\%, in both cases reducing the bias relative to CLIMATE-GRID.
-The temperature difference is roughly constant across the domain, except for urban areas where the warming is stronger.
+The temperature difference is roughly constant across the domain, except for some urban areas (e.g., Brussels) where the warming is stronger.
 On the other hand, the precipitation difference exhibits a clear north-south gradient, with the southern part of Belgium experiencing a stronger reduction in precipitation than the northern part.
 Moreover, the diurnal cycle of precipitation over Belgium (Fig.~\ref{fig:surfex_effect}c) isolates how SURFEX acts on the sub-daily distribution. 
-Both configurations share the same single afternoon peak at 16--17\,UTC: introducing SURFEX leaves the timing and shape of the cycle essentially unchanged and instead reduces its amplitude, damping the afternoon peak more strongly than the overnight minimum. 
-The land-surface scheme therefore modulates the intensity of the diurnal precipitation cycle without displacing its peak, indicating that the resolution-dependent shift in peak timing seen in Fig.~\ref{fig:pr_diurnal_cycle} is not an artefact of the land-surface scheme.
+Both configurations share the same single afternoon peak at 16--17\,UTC.
+Introducing SURFEX leaves the timing and shape of the cycle essentially unchanged except for a reduction in amplitude, damping the afternoon peak more strongly than the overnight minimum. 
+Therfore, the resolution-dependent shift in peak timing seen in Fig.~\ref{fig:pr_diurnal_cycle} is not an artefact of the land-surface scheme.
 
 %% --- (2) THE WHY: flux partitioning via seasonal diurnal cycles ---
 %% Figure: LE and SH seasonal diurnal cycles, 12km vs 12km-noSFX. Show as diurnal-by-season (NOT annual-mean maps). Optionally Bowen ratio.
@@ -587,7 +587,7 @@ This shift in the partitioning of the surface fluxes is consistent with the obse
 \section{Discussion}
 \label{sect:discussion}
 
-\subsection{Evaluation of average climatology}
+\subsection{Average climatology}
 
 A clear distinction in climatology can be drawn between ALARO-25km on the one hand, and ALARO-12km and ALARO-4km on the other hand, both for near-surface air temperature and accumulated precipitation. 
 The cold bias from ALARO-25km of -1.14 $\degree$C over Belgium is significantly improved by about 1 $\degree$C in the two simulations with the highest resolutions, as shown in Fig.~\ref{fig:tas_bias}. 
@@ -653,7 +653,8 @@ Specifically, while the ``all-hour'' precipitation cycle overestimates precipita
 This is most pronounced in ALARO-25km and minimized in ALARO-4km, showing that the coarser resolution overestimates precipitation amounts through an overly high precipitation frequency, i.e.\ a substantial drizzle contribution.
 This drizzle bias is a well-known deficiency of regional climate models~\citep{fosser_benefit_2015, berthou_pan-european_2020}. 
 It arises largely because parameterized convection triggers on weak instability and releases it gradually, producing precipitation that is too frequent and too light. 
-The improvement with resolution reflects the sharper humidity and updraught fields at higher resolution, which reduce the widespread simultaneous triggering dominating the coarser runs; the residual bias in ALARO-4km is consistent with 3MT still parameterizing part of the convective spectrum in the grey zone. 
+The improvement with resolution reflects the sharper humidity and updraught fields at higher resolution, which reduce the widespread simultaneous triggering dominating the coarser runs.
+The residual bias in ALARO-4km is consistent with 3MT still parameterizing part of the convective spectrum in the grey zone. 
 Additionally, both the timing and amplitude of the diurnal precipitation peak are best represented at high resolution, as well established for CPMs~\citep{lucas-picher_convection-permitting_2021}. 
 Most RCMs exhibit a premature diurnal peak, primarily due to the limited memory of atmospheric instabilities; this behaviour is notably absent here, and at lower resolutions the ALARO peak even occurs later than at higher resolutions. 
 The ALARO-12km-noSFX experiment (Sect.~\ref{sect:surfex_effect}, Fig.~\ref{fig:surfex_effect}c) shows that introducing SURFEX reduces the amplitude of the diurnal cycle but leaves the timing of the peak unchanged, so the resolution-dependent shift in peak timing is not driven by the land-surface scheme. 
@@ -678,7 +679,7 @@ The observational coefficients depicted in Fig.~\ref{fig:IDFs_linear}a correspon
 At durations of 1 to 3 hours, lower-resolution simulations increasingly underestimate return levels compared to observational values, highlighting the added value of the convection-permitting ALARO-4km simulation. 
 A similar result was found by~\citet{tabari_local_2016}, who also constructed IDF curves for ALARO-0 simulations at different resolutions. 
 In that study, the 4 km and 10 km ALARO-0 simulations accurately captured sub-daily intensities, with a slight underestimation, while ALARO-40km significantly underestimated sub-daily precipitation amounts. 
-For longer durations (>24\,h), ALARO-25km tends to overestimate the return levels, particularly for short return periods (Fig.~\ref{fig:IDFs_boxplots}). This is consistent with the overall wet bias of ALARO-25km (Sect.~\ref{sect:results}): at multi-day durations and short return periods, the return levels lie close to the bulk of the distribution, where the excess in accumulated precipitation directly inflates the estimates. 
+For longer durations (>24\,h), ALARO-25km tends to overestimate the return levels, particularly for short return periods (Fig.~\ref{fig:IDFs_boxplots}). This is consistent with the overall wet bias of ALARO-25km (Sect.~\ref{sect:results}): at multi-day durations and short return periods, the return levels lie closer to the bulk of the distribution, where the excess in accumulated precipitation directly inflates the estimates. 
 At longer return periods the return levels are instead governed by the distribution tail, i.e.\ rare intense convective events that are poorly resolved at 25\,km, which explains the shift towards underestimation there.
 \citet{de_troch_application_2016} reported a similar finding, as all ALARO-0 simulations (4 km, 10 km, and 40 km) overestimated the 2-year return level for daily precipitation. 
 Additionally, while~\citet{de_troch_application_2016} observed increasing overestimation for longer return periods in the 4 km ALARO-0 simulation, this effect is notably absent - and even reversed - in ALARO-4km.
@@ -834,7 +835,7 @@ IBGE & 19 (1992 -- 2010) & 14 \\
 \newpage
 
 \section{Additional figures}    
-\subsection{Evaluation of average climatology}
+\subsection{Average climatology}
 \begin{figure*}[h!]
 \includegraphics[width=12cm]{figures/figD1.pdf}
 \caption{Bias in mean seasonal near-surface air temperature of each simulation with respect to the daily gridded observational CLIMATE-GRID dataset over Belgium, for the period 1992--2022. Columns: ALARO-25km (a,\,d,\,g,\,j), ALARO-12km (b,\,e,\,h,\,k), ALARO-4km (c,\,f,\,i,\,l). Rows: winter (DJF; a--c), spring (MAM; d--f), summer (JJA; g--i), autumn (SON; j--l). Hatching indicates grid points where the bias is not significantly different from zero at the 95\,\% confidence level, based on a paired bootstrap resampling of years.}
