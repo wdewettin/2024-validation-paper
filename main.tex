@@ -264,8 +264,12 @@ It is centred on Belgium and covers parts of Western Europe.
 \end{figure}
 
 The main technical specifications of the simulations are outlined in Table \ref{tab:technical}. 
-All simulations use the hydrostatic dynamical core and are run with 46 vertical levels.
-Moreover, they all use the same physics parameterization framework, including the 3MT scheme for deep convection, which adapts to the model resolution due to its scale-aware nature.
+All simulations use the same physics parameterization framework, including the 3MT scheme for deep convection, which adapts to the model resolution due to its scale-aware nature.
+Moreover, they all are run with 46 vertical levels and use the hydrostatic dynamical core.
+Although the 4\,km simulation reaches the convection-permitting range, where non-hydrostatic effects can become relevant, we consider the hydrostatic core appropriate at this resolution.
+For ALARO specifically, \citet{vanginderachterSimulatingModelUncertainty2020} compared both dynamical cores at 4\,km over a domain of intense deep convection and found that the hydrostatic configuration performed better, as the ALARO physics package, including the scale-aware 3MT deep-convection scheme, is tuned to the hydrostatic core.
+Retaining the hydrostatic core is moreover consistent with the operational use of ALARO at $\sim$4\,km.
+Finally, it keeps the dynamical core identical across all three resolutions so that resolution effects are not confounded with a change of core.
 
 One significant difference between the simulations concerns the land-surface scheme. 
 SURFEX is not employed for ALARO-25km: instead, the original ISBA scheme is used. 
