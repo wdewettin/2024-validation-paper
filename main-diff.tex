@@ -1,7 +1,7 @@
 %% Copernicus Publications Manuscript Preparation Template for LaTeX Submissions
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL main_v20260310.tex   Tue Jun 30 12:36:54 2026
-%DIF ADD main.tex             Mon Jul 13 08:40:58 2026
+%DIF ADD main.tex             Mon Jul 13 15:04:29 2026
 %% ---------------------------------
 %% This template should be used for copernicus.cls
 %% The class file and some style files are bundled in the Copernicus Latex Package, which can be downloaded from the different journal webpages.
@@ -405,6 +405,8 @@ Next, the 95\,\% confidence interval is taken as the 2.5th--97.5th percentiles o
 A grid point is deemed significant where this interval excludes zero.
 Each simulation and the CLIMATE-GRID observations are anchored to the same historical years: the simulations are all originally driven by ERA5 reanalysis over the identical 1992--2022 period.
 Therefore, the resampling is paired: the same resampled set of years is used for the simulated and observed fields within each iteration.
+The same paired-bootstrap procedure is applied to the domain-averaged monthly biases, where the bias is first averaged over all grid points before the confidence interval is computed.
+A month is deemed significant where this interval excludes zero.
 }
 
 \DIFadd{To }\DIFaddend ensure a consistent comparison, all data \DIFdelbegin \DIFdel{were }\DIFdelend \DIFaddbegin \DIFadd{are }\DIFaddend regridded to a common latitude-longitude grid with a spacing of $0.07\degree$ longitude by $0.045\degree$ latitude, which closely aligns with the 5 km resolution of the CG dataset. 
@@ -441,10 +443,10 @@ We subdivide\DIFdelbegin \DIFdel{d}\DIFdelend  Belgium into three distinct regio
 Elevation is }\DIFaddend used as a discriminatory parameter since it correlates strongly with the annual precipitation totals, which themselves are closely linked to precipitation extremes~\citep{van_de_vyver_spatial_2012}. 
 This subdivision strikes a balance between reducing uncertainties and maintaining relatively homogeneous climatic conditions within each region, as suggested by~\citet{van_de_vyver_spatial_2012}.
 
-\DIFaddbegin \DIFadd{Intensity-Duration-Frequency (IDF) curves jointly characterise the intensity of extreme precipitation as a function of both duration and return period, and are a standard tool for hydrological design and flood-risk assessment~\mbox{%DIFAUXCMD
+\DIFaddbegin \DIFadd{Intensity-Duration-Frequency (IDF) statistics jointly characterise the intensity of extreme precipitation as a function of both duration and return period, and are a standard tool for hydrological design and flood-risk assessment~\mbox{%DIFAUXCMD
 \citep{van_de_vyver_practical_2013}}\hskip0pt%DIFAUXCMD
 . 
-}\DIFaddend The return levels for each region are subsequently presented per return period as a function of the duration to construct \DIFdelbegin \DIFdel{Intensity-Duration-Frequency (IDF ) }\DIFdelend \DIFaddbegin \DIFadd{these IDF }\DIFaddend curves.
+}\DIFaddend The return levels for each region are subsequently presented per return period as a function of the duration to construct \DIFdelbegin \DIFdel{Intensity-Duration-Frequency (IDF ) curves}\DIFdelend \DIFaddbegin \DIFadd{these IDF statistics}\DIFaddend .
 In order to gauge the return-level uncertainty, we derive\DIFdelbegin \DIFdel{d}\DIFdelend  the 95\% confidence interval using $10^4$ bootstraps, obtained by resampling yearly data. 
 For each simulation, the observational return levels \DIFdelbegin \DIFdel{were }\DIFdelend \DIFaddbegin \DIFadd{are }\DIFaddend compared with their simulated counterparts by calculating the relative error. 
 The error uncertainty \DIFdelbegin \DIFdel{was }\DIFdelend \DIFaddbegin \DIFadd{is }\DIFaddend acquired with a pairwise calculation of the error between all observational and simulated bootstrap samples, respectively. 
@@ -577,11 +579,11 @@ This confirms that the mean wet bias arises from a too-high precipitation freque
 %f
 \begin{figure*}[t]
 \includegraphics[width=\textwidth]{figures/fig06.pdf}
-\caption{Intensity-Duration-Frequency (IDF) curves for three topographic regions over Belgium\DIFaddbeginFL \DIFaddFL{, using all available years for each dataset (observational record lengths are given in Table~\ref{tab:stations}; simulations span 1992--2022)}\DIFaddendFL : \DIFaddbeginFL \DIFaddFL{(a) }\DIFaddendFL Low-Belgium (<50m), \DIFaddbeginFL \DIFaddFL{(b) }\DIFaddendFL Middle-Belgium (\DIFdelbeginFL \DIFdelFL{50m - 200m}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{50m--200m}\DIFaddendFL ), \DIFdelbeginFL \DIFdelFL{and }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{(c) }\DIFaddendFL High-Belgium (>200m). The \DIFdelbeginFL \DIFdelFL{curves }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{markers }\DIFaddendFL show the \DIFdelbeginFL \DIFdelFL{return level }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{return-level }\DIFaddendFL precipitation intensities \DIFdelbeginFL \DIFdelFL{for different durations}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{as a function of duration on a log-log scale (both axes)}\DIFaddendFL , calculated using the Regional Frequency Analysis (RFA) framework. The colors represent the dataset \DIFdelbeginFL \DIFdelFL{: stations }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{(station }\DIFaddendFL observations or simulations\DIFaddbeginFL \DIFaddFL{)}\DIFaddendFL , while the \DIFdelbeginFL \DIFdelFL{markers represent }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{marker styles denote }\DIFaddendFL the \DIFdelbeginFL \DIFdelFL{return levels for }\DIFdelendFL different return periods (2, 10, and 50 years).}
+\caption{Intensity-Duration-Frequency (IDF) \DIFdelbeginFL \DIFdelFL{curves }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{statistics }\DIFaddendFL for three topographic regions over Belgium\DIFaddbeginFL \DIFaddFL{, using all available years for each dataset (observational record lengths are given in Table~\ref{tab:stations}; simulations span 1992--2022)}\DIFaddendFL : \DIFaddbeginFL \DIFaddFL{(a) }\DIFaddendFL Low-Belgium (<50m), \DIFaddbeginFL \DIFaddFL{(b) }\DIFaddendFL Middle-Belgium (\DIFdelbeginFL \DIFdelFL{50m - 200m}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{50m--200m}\DIFaddendFL ), \DIFdelbeginFL \DIFdelFL{and }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{(c) }\DIFaddendFL High-Belgium (>200m). The \DIFdelbeginFL \DIFdelFL{curves }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{markers }\DIFaddendFL show the \DIFdelbeginFL \DIFdelFL{return level }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{return-level }\DIFaddendFL precipitation intensities \DIFdelbeginFL \DIFdelFL{for different durations}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{as a function of duration on a log-log scale (both axes)}\DIFaddendFL , calculated using the Regional Frequency Analysis (RFA) framework. The colors represent the dataset \DIFdelbeginFL \DIFdelFL{: stations }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{(station }\DIFaddendFL observations or simulations\DIFaddbeginFL \DIFaddFL{)}\DIFaddendFL , while the \DIFdelbeginFL \DIFdelFL{markers represent }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{marker styles denote }\DIFaddendFL the \DIFdelbeginFL \DIFdelFL{return levels for }\DIFdelendFL different return periods (2, 10, and 50 years).}
 \label{fig:IDFs}
 \end{figure*}
 
-The calculated IDF-statistics are presented in Fig.~\ref{fig:IDFs} for each topographic region. 
+The calculated \DIFdelbegin \DIFdel{IDF-statistics }\DIFdelend \DIFaddbegin \DIFadd{IDF statistics }\DIFaddend are presented in Fig.~\ref{fig:IDFs} for each topographic region. 
 The difference in observational return levels between the regions is apparent for both sub-daily durations (< 6h) and durations extending beyond one day (>= 24h). 
 In the former case, the values for Middle- and High-Belgium are similar to one another, but those for Low-Belgium are smaller, while in the latter case, the difference between Middle- and Low-Belgium disappears and the return levels over High-Belgium exceed those over the other two regions. 
 
@@ -765,7 +767,7 @@ For wet hours in summer \DIFaddbegin \DIFadd{(Fig.~\ref{fig:pr_diurnal_cycle}c)}
 The timing of the peak does not significantly differ between ALARO-25km and ALARO-12km, and is slightly earlier for ALARO-4km. 
 However, for all simulations, the \DIFdelbegin \DIFdel{diurnal peak is }\DIFdelend \DIFaddbegin \DIFadd{summer wet-hour peak occurs }\DIFaddend later than the \DIFdelbegin \DIFdel{observational peak, which is }\DIFdelend \DIFaddbegin \DIFadd{observed peak, }\DIFaddend in contrast with \DIFdelbegin \DIFdel{results from~\mbox{%DIFAUXCMD
 \citet{de_troch_application_2016} }\hskip0pt%DIFAUXCMD
-}\DIFdelend \DIFaddbegin \DIFadd{the too-early peak reported by~\mbox{%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{the well-captured peak timing reported by~\mbox{%DIFAUXCMD
 \citet{de_troch_application_2016} }\hskip0pt%DIFAUXCMD
 for ALARO-0}\DIFaddend .
 Overall, for both all-hour \DIFaddbegin \DIFadd{(Fig.~\ref{fig:pr_diurnal_cycle}a) }\DIFaddend and wet-hour \DIFaddbegin \DIFadd{(Fig.~\ref{fig:pr_diurnal_cycle}b) }\DIFaddend precipitation, the diurnal cycles in ALARO-4km are comparable to those in the work of~\citet{de_troch_application_2016}.
@@ -803,7 +805,7 @@ Its origin therefore lies in the model dynamics and the }\DIFaddend scale-aware 
 
 \subsection{Extreme precipitation}
 
-IDF curves are presented in Fig.~\ref{fig:IDFs} for durations of 1 to 72 hours across three distinct topographic regions in Belgium.
+IDF \DIFdelbegin \DIFdel{curves }\DIFdelend \DIFaddbegin \DIFadd{statistics }\DIFaddend are presented in Fig.~\ref{fig:IDFs} for durations of 1 to 72 hours across three distinct topographic regions in Belgium.
 The regional differences in return levels, with smaller sub-daily (< 6h) values in Low-Belgium and higher (multi-)daily (>= 24h) values in High-Belgium, are consistent with the findings of~\citet{van_de_vyver_practical_2013}.
 In each case, the return levels scale linearly with duration on a log-log scale, for both observations and simulations.
 This corresponds to a power-law relationship on a linear scale and reflects the underlying scale invariance and multifractal characteristics of extreme precipitation.
@@ -818,7 +820,7 @@ In that work, station-specific values in the range of $-0.75$ and $-0.64$ were f
 The observational coefficients depicted in Fig.~\ref{fig:IDFs_linear}\DIFaddbegin \DIFadd{a }\DIFaddend correspond to this range, although they are slightly more negative.
 
 At durations of 1 to 3 hours, lower-resolution simulations increasingly underestimate return levels compared to observational values, highlighting the added value of the convection-permitting ALARO-4km simulation. 
-A similar result was found by~\citet{tabari_local_2016}, who also constructed IDF curves for ALARO-0 simulations at different resolutions. 
+A similar result was found by~\citet{tabari_local_2016}, who also constructed IDF \DIFdelbegin \DIFdel{curves }\DIFdelend \DIFaddbegin \DIFadd{statistics }\DIFaddend for ALARO-0 simulations at different resolutions. 
 In that study, the 4 km and 10 km ALARO-0 simulations accurately captured sub-daily intensities, with a slight underestimation, while ALARO-40km significantly underestimated sub-daily precipitation amounts. 
 For longer durations (>24\DIFdelbegin \DIFdel{hours}\DIFdelend \DIFaddbegin \DIFadd{\,h}\DIFaddend ), ALARO-25km tends to overestimate \DIFaddbegin \DIFadd{the }\DIFaddend return levels, particularly for short return periods \DIFdelbegin \DIFdel{. 
 }\DIFdelend \DIFaddbegin \DIFadd{(Fig.~\ref{fig:IDFs_boxplots}). This is consistent with the overall wet bias of ALARO-25km (Sect.~\ref{sect:results}): at multi-day durations and short return periods, the return levels lie closer to the bulk of the distribution, where the excess in accumulated precipitation directly inflates the estimates. 
@@ -865,7 +867,7 @@ While ALARO-12km and ALARO-4km provided similar results in terms of average clim
 \DIFaddbegin \DIFadd{A dedicated sensitivity experiment (ALARO-12km-noSFX) showed that this improvement relative to ALARO-25km is not attributable to the increase in resolution alone: the coupling to SURFEX accounts for a substantial part of the reduction in the temperature and precipitation biases.
 }\DIFaddend 
 
-A key focus of this study was the representation of extreme precipitation, evaluated through Intensity-Duration-Frequency curves derived from annual maximum precipitation.
+A key focus of this study was the representation of extreme precipitation, evaluated through Intensity-Duration-Frequency \DIFdelbegin \DIFdel{curves }\DIFdelend \DIFaddbegin \DIFadd{statistics }\DIFaddend derived from annual maximum precipitation.
 While all simulations followed the expected log-log linear behaviour between return-level precipitation intensity and duration, lower-resolution models underestimated return levels at sub-daily timescales.
 ALARO-4km significantly improved upon this, producing more realistic hourly return levels and better capturing the diurnal timing of hourly extreme precipitation.
 These findings provide clear \DIFdelbegin \DIFdel{experimental }\DIFdelend evidence that increasing model resolution enhances the simulation of extreme precipitation\DIFaddbegin \DIFadd{, even though the scale-aware 3MT scheme, which in principle should render these statistics resolution-independent, is active at all resolutions}\DIFaddend .
