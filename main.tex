@@ -278,7 +278,7 @@ This setup also aligns more closely with the one used in previous simulations fr
 
 %% NEW: a-posteriori SURFEX-isolation experiment. Answers R1 general [c3]/L146-147 [c9] and R2 L298. Frame as sensitivity experiment, NOT a fourth member of the resolution ladder.
 Because ALARO-25km and ALARO-12km differ in both resolution and land-surface scheme, the 25\,km to 12\,km change conflates two effects. 
-To isolate the impact of coupling ALARO-1 to SURFEX, we have performed an additional a-posteriori sensitivity experiment, ALARO-12km-noSFX, identical to ALARO-12km but retaining the original ISBA scheme. 
+To isolate the impact of coupling ALARO-1 to SURFEX, we have performed a sensitivity experiment with an additional simulation, ALARO-12km-noSFX, identical to ALARO-12km but retaining the original ISBA scheme. 
 Holding resolution fixed at 12.5\,km, any difference between ALARO-12km and ALARO-12km-noSFX is attributable to the land-surface scheme alone. 
 This experiment is analysed separately in Sect.~\ref{sect:surfex_effect}; all other analyses retain the original set of three simulations.
 
@@ -287,7 +287,7 @@ This experiment is analysed separately in Sect.~\ref{sect:surfex_effect}; all ot
 
 %t
 \begin{table}[t]
-\caption{Technical specifications of simulations with the ALARO-1 model. This table outlines the main differences between the simulations, while the common features are described in the text. ALARO-12km-noSFX is an a-posteriori sensitivity experiment used only to isolate the effect of SURFEX (Sect.~\ref{sect:surfex_effect}).}
+\caption{Technical specifications of simulations with the ALARO-1 model. This table outlines the main differences between the simulations, while the common features are described in the text. ALARO-12km-noSFX is a sensitivity experiment used only to isolate the effect of SURFEX (Sect.~\ref{sect:surfex_effect}).}
 \begin{tabular}{lcccc}
 \tophline
 Simulation & ALARO-25km & ALARO-12km-noSFX & ALARO-12km & ALARO-4km \\
@@ -444,7 +444,7 @@ Consistent with its smaller domain-mean dry bias, ALARO-4km shows a significant 
 
 %t
 \begin{table}[t]
-\caption{Decomposition of the mean hourly precipitation in Uccle into contributions from wet and dry hours, for the period 1992--2022. A wet hour is defined as an hour with a precipitation rate > 0.1 mm h$^{-1}$; a dry hour as $\leq$ 0.1 mm h$^{-1}$. $\bar{P}$ is the mean precipitation over all hours; $\bar{P}_{\text{wet}}$ and $\bar{P}_{\text{dry}}$ are the mean intensities during wet and dry hours; $\bar{n}_{\text{wet}}$ and $\bar{n}_{\text{dry}}$ are the corresponding frequencies of occurrence.}
+\caption{Decomposition of the mean hourly precipitation in Uccle into wet hour intensity and frequency contributions, for the period 1992--2022. A wet hour is defined as an hour with a precipitation rate > 0.1 mm h$^{-1}$. $\bar{P}$ is the mean precipitation over all hours; $\bar{P}_{\text{wet}}$ is the mean intensity during wet hours; $\bar{n}_{\text{wet}}$ is the corresponding frequency of occurrence.}
 \begin{tabular}{lcccc}
 \tophline
 Quantity & Observations & ALARO-25km & ALARO-12km & ALARO-4km \\
@@ -454,13 +454,9 @@ $\bar{P}$ [mm h$^{-1}$]                                   & 0.093 & 0.124 & 0.11
 $\bar{P}_{\text{wet}}$ [mm h$^{-1}$]                      & 0.791 & 0.692 & 0.722 & 0.768 \\
 $\bar{n}_{\text{wet}}$ [\%]                               & 11.8  & 17.2  & 15.0  & 14.8  \\
 $\bar{P}_{\text{wet}} \times \bar{n}_{\text{wet}}$ [mm h$^{-1}$] & 0.093 & 0.119 & 0.108 & 0.114 \\
-\middlehline
-$\bar{P}_{\text{dry}}$ [mm h$^{-1}$]                      & 0.000 & 0.006 & 0.005 & 0.005 \\
-$\bar{n}_{\text{dry}}$ [\%]                               & 88.2  & 82.8  & 85.0  & 85.2  \\
-$\bar{P}_{\text{dry}} \times \bar{n}_{\text{dry}}$ [mm h$^{-1}$] & 0.000 & 0.005 & 0.004 & 0.004 \\
 \bottomhline
 \end{tabular}
-\belowtable{} \label{tab:wet_dry_hours}
+\belowtable{} \label{tab:wet_hours}
 \end{table}
 
 Figure~\ref{fig:pr_diurnal_cycle} shows the diurnal cycle of precipitation in Uccle, Belgium.
@@ -477,8 +473,7 @@ In summer (Fig.~\ref{fig:pr_diurnal_cycle}c), average precipitation values and p
 In winter (Fig.~\ref{fig:pr_diurnal_cycle}d), no clear peak is observed, and the average precipitation intensity is approximately half of the summer values.
 
 Overall, these results indicate that although the simulations reproduce the timing of the diurnal cycle reasonably well, they overestimate precipitation frequency — raining too often with too little intensity — especially at coarser resolutions.
-To quantify this, we decompose the mean hourly precipitation $\bar{P}$ into the contributions from wet and dry hours (Table~\ref{tab:wet_dry_hours}). 
-As the mean intensity during dry hours is near-zero, $\bar{P}$ is set almost entirely by the wet-hour contribution $\bar{P}_{\text{wet}} \times \bar{n}_{\text{wet}}$. 
+To quantify this, we decompose the mean hourly precipitation $\bar{P}$ into the frequency and intensity contributions from wet hours, defined as hours with a precipitation rate > 0.1 mm h$^{-1}$ (Table~\ref{tab:wet_hours}). 
 All simulations overestimate the wet-hour frequency $\bar{n}_{\text{wet}}$ (11.8\,\% observed) while underestimating the wet-hour intensity $\bar{P}_{\text{wet}}$ (0.791\,mm\,h$^{-1}$ observed), most severely at 25\,km (17.2\,\% and 0.692\,mm\,h$^{-1}$). 
 Increasing resolution reduces the frequency bias and raises the wet-hour intensity, shifting the simulations from frequent-weak towards less-frequent, more-intense precipitation. 
 This confirms that the mean wet bias arises from a too-high precipitation frequency combined with too-weak wet-hour intensities, rather than from excessive intensity.
@@ -549,18 +544,18 @@ For ALARO-25km, the peak occurs even later (around 22:00 UTC) and has a lower fr
 %% Figure: 2 panels, annual-mean difference ALARO-12km minus ALARO-12km-noSFX: (a) near-surface temperature, (b) relative precipitation. Difference maps (not bias maps); lean on Fig.~\ref{fig:tas_bias} / Fig.~\ref{fig:pr_bias} for the "is it an improvement" half, backed by domain-mean numbers stated in text.
 \begin{figure*}[t]
 \includegraphics[width=\textwidth]{figures/fig09.pdf}
-\caption{Effect of introducing SURFEX at fixed 12.5\,km resolution, from the annual-mean difference between ALARO-12km and ALARO-12km-noSFX over Belgium, 1992--2022. (a) Near-surface air temperature difference and (b) relative precipitation difference, with domain-averaged values reported above each panel. (c) Domain-mean diurnal cycle of precipitation (all hours) for the two configurations; dashed lines denote the daily-mean value of each.}
+\caption{Effect of introducing SURFEX at fixed 12.5\,km resolution, from the annual-mean difference between ALARO-12km and ALARO-12km-noSFX over Belgium, 1992--2022. (a) Near-surface air temperature difference and (b) relative precipitation difference, with domain-averaged values reported above each panel. Hatching in (a) and (b) indicates grid points where the difference is not significantly different from zero at the 95 \% confidence level, based on a paired bootstrap resampling of years. The difference is significant across the entire domain, so no hatching is visible. (c) Domain-mean diurnal cycle of precipitation (all hours) for the two configurations; dashed lines denote the daily-mean value of each.}
 \label{fig:surfex_effect}
 \end{figure*}
 
 Figure~\ref{fig:surfex_effect} shows the annual-mean difference between ALARO-12km and ALARO-12km-noSFX, which isolates the effect of the SURFEX land-surface scheme, as all other components are identical between the two simulations.
-The introduction of SURFEX warms the annual mean by 0.82$\degree$C averaged over Belgium and reduces annual precipitation by 12.6\,\%, in both cases reducing the bias relative to CLIMATE-GRID.
+Both differences are significant across the entire domain (Fig.~\ref{fig:surfex_effect}a, b).
 The temperature difference is roughly constant across the domain, except for some urban areas (e.g., Brussels) where the warming is stronger.
 On the other hand, the precipitation difference exhibits a clear north-south gradient, with the southern part of Belgium experiencing a stronger reduction in precipitation than the northern part.
 Moreover, the diurnal cycle of precipitation over Belgium (Fig.~\ref{fig:surfex_effect}c) isolates how SURFEX acts on the sub-daily distribution. 
 Both configurations share the same single afternoon peak at 16--17\,UTC.
 Introducing SURFEX leaves the timing and shape of the cycle essentially unchanged except for a reduction in amplitude, damping the afternoon peak more strongly than the overnight minimum. 
-Therfore, the resolution-dependent shift in peak timing seen in Fig.~\ref{fig:pr_diurnal_cycle} is not an artefact of the land-surface scheme.
+Therefore, the resolution-dependent shift in peak timing seen in Fig.~\ref{fig:pr_diurnal_cycle} is not a consequence of the land-surface scheme.
 
 %% --- (2) THE WHY: flux partitioning via seasonal diurnal cycles ---
 %% Figure: LE and SH seasonal diurnal cycles, 12km vs 12km-noSFX. Show as diurnal-by-season (NOT annual-mean maps). Optionally Bowen ratio.
@@ -573,9 +568,9 @@ Therfore, the resolution-dependent shift in peak timing seen in Fig.~\ref{fig:pr
 To identify the mechanism, we examine the surface energy balance (Fig.~\ref{fig:surfex_fluxes}), showing the seasonal diurnal cycle of the latent (a--d) and sensible (e--h) heat fluxes.
 The simulations separate by land-surface scheme rather than resolution: ALARO-12km-noSFX closely tracks ALARO-25km, while the SURFEX simulations (ALARO-12km and ALARO-4km) cluster together.
 Introducing SURFEX reduces the latent heat flux and increases the sensible heat flux, in both cases most strongly in summer, and slightly advances the diurnal peak of each.
-The net surface radiation is essentially identical across all simulations (not shown / Fig.~\ref{fig:surfex_turb_rad}), so the available energy at the surface is unchanged.
+The net surface radiation is essentially identical across all simulations (Fig.~\ref{fig:surfex_turb_rad}), so the available energy at the surface is unchanged.
 The sum of the latent and sensible heat fluxes is correspondingly near-identical in daily-mean magnitude, but its diurnal cycle is advanced in the SURFEX simulation. 
-This phase advance, together with the shift toward sensible heating, points to a reduced surface thermal inertia, consistent with drier soil responding more rapidly to daytime forcing.
+This phase shift, together with the shift toward sensible heating, points to a reduced surface thermal inertia, consistent with drier soil responding more rapidly to daytime forcing.
 This indicates that the flux differences are driven by the surface state rather than by cloud cover or radiation.
 
 As a whole, it is shown that the introduction of SURFEX reduces the latent heat flux and increases the sensible heat flux, especially in summer.
@@ -655,7 +650,7 @@ However, for all simulations, the summer wet-hour peak occurs later than the obs
 Overall, for both all-hour (Fig.~\ref{fig:pr_diurnal_cycle}a) and wet-hour (Fig.~\ref{fig:pr_diurnal_cycle}b) precipitation, the diurnal cycles in ALARO-4km are comparable to those in the work of~\citet{de_troch_application_2016}.
 
 In our analysis of the mean diurnal precipitation cycle, notable differences emerge when comparing simulations at varying resolutions with observational data, as shown in Fig.~\ref{fig:pr_diurnal_cycle}. 
-Specifically, while the ``all-hour'' precipitation cycle overestimates precipitation relative to observations, the ``wet-hour'' cycle underestimates it, which Table~\ref{tab:wet_dry_hours} attributes to an overestimated wet-hour frequency combined with an underestimated wet-hour intensity. 
+Specifically, while the ``all-hour'' precipitation cycle overestimates precipitation relative to observations, the ``wet-hour'' cycle underestimates it, which Table~\ref{tab:wet_hours} attributes to an overestimated wet-hour frequency combined with an underestimated wet-hour intensity. 
 This is most pronounced in ALARO-25km and minimized in ALARO-4km, showing that the coarser resolution overestimates precipitation amounts through an overly high precipitation frequency, i.e.\ a substantial drizzle contribution.
 This drizzle bias is a well-known deficiency of regional climate models~\citep{fosser_benefit_2015, berthou_pan-european_2020}. 
 It arises largely because parameterized convection triggers on weak instability and releases it gradually, producing precipitation that is too frequent and too light. 
