@@ -158,8 +158,12 @@ Models operating at these scales are referred to as convection-permitting models
 CPMs typically turn off their convective parameterization schemes~\citep{coppola_first--its-kind_2020}.
 However, the boundary between convection-permitting and convection-parameterized scales is not well defined.
 In the so-called `grey zone of convection' ($\sim 4$-$10$ km), deep convection is only partially resolved, making it unclear whether parameterization is required~\citep{vergara-temprado_climate_2020}.
+In the grey zone, the explicit and parameterised representations compete with one another, which can result in double counting of convective transport or no counting at all~\citep{grossPhysicsDynamicsCoupling2018}.
+This can lead respectively to convection being triggered too late by the parameterisation, leading to spurious grid-scale storms, or to convection being triggered too early, systematically shifting convective onset too early in the day~\citep{grossPhysicsDynamicsCoupling2018}.
+
 The development of scale-aware convective parameterization schemes addresses this problem.
 Rather than simply switching convection on or off, these schemes adapt to the resolution by adjusting their tuning parameters accordingly.
+Scale awareness can be introduced through a prognostic variable for the convective fraction of a grid cell~\citep{gerard_cloud_2009}, by scaling the convective area fraction and mass flux with the grid-box area~\citep{grellScaleAerosolAware2014,hanUpdatesNCEPGFS2017}, or by adjusting scheme parameters explicitly as a function of the grid spacing~\citep{zhengImprovingHighResolutionWeather2016a}.
 Therefore, models with these parameterization schemes can operate at both coarse and fine resolutions and even in the grey zone.
 
 CPMs have been shown to improve some notable limitations associated with the parameterization of deep convection used in lower resolution models. 
