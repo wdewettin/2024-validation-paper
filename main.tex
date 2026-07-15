@@ -235,6 +235,15 @@ In both configurations, the dynamical equations are spatially discretized using 
 For the time-step algorithm, a semi-implicit semi-Lagrangian scheme is employed. 
 In the vertical dimension, the model uses a hybrid terrain-following pressure coordinate~\citep{simmons_energy_1981, laprise_euler_1992}. 
 
+% TOUCANS references: Duran 2014, 2018, Marquet 2013 (?) Masek 2022 (?) --> I think it is for shallow convection
+% ACRANEB references: slides of Jan Masek: https://www.rclace.eu/media/files/ALARO/alaro1_wd14vi/alaro1wd_JM_radbaseline_may14.pdf, shortwave paper (Masek 2016), longwave paper (Geleyn 2017), other presentation: https://www.rclace.eu/File/ALARO/alaro1_wd19br/alaro1wd_JM_rad_mar19.pdf 
+
+The ALARO-1 physics package combines several parameterizations.
+Radiative transfer is treated by the ACRANEB2 scheme~\citep{masek_single_2016, geleyn_single_2017}, a broadband scheme with a single shortwave and a single longwave spectral interval that retains the full cloud--radiation interaction at every time step through a net-exchanged-rate decomposition.
+Turbulent transport and shallow convection are parameterized by the prognostic-TKE-based TOUCANS scheme~\citep{duran_compact_2014, marquet_general_2013}, which is valid across the full range of atmospheric stability and represents the effect of moisture and phase changes through a modified moist Brunt--V\"ais\"al\"a frequency, removing the need for a separate shallow-convection scheme.
+Deep convection is represented by the scale-aware 3MT scheme~\citep{gerard_cloud_2009}, a mass-flux formulation with prognostic updraught and downdraught properties that abandons the quasi-equilibrium assumption and mimics cloud-resolving behaviour in the convection-permitting limit.
+The associated stratiform cloud and microphysical processes are treated within the same 3MT framework, ensuring a consistent transition between resolved and subgrid condensation as resolution increases.
+
 ALARO-1 can be coupled to the land-surface model SURFEX, which considers four types of land surface: nature, urban areas, lakes and seas.
 For every grid box, a fraction is defined for each of these four types in a tiling approach.
 The interaction with the free atmosphere is then calculated by type-specific schemes: ISBA for nature, TEB for urban areas, WATFLUX for lakes and SEAFLUX for seas.
