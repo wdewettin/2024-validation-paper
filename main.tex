@@ -280,14 +280,17 @@ SURFEX is not employed for ALARO-25km: instead, the original ISBA scheme is used
 The main reason for omitting SURFEX in the 25 km simulation is that urban effects are minimal at this resolution, making its inclusion less relevant. 
 This setup also aligns more closely with the one used in previous simulations from~\citet{giot_validation_2016}.
 
-%% NEW: a-posteriori SURFEX-isolation experiment. Answers R1 general [c3]/L146-147 [c9] and R2 L298. Frame as sensitivity experiment, NOT a fourth member of the resolution ladder.
+The SURFEX land-surface scheme is configured identically in the ALARO-12km and ALARO-4km simulations.
+Natural land surfaces are represented by the ISBA scheme in its force-restore formulation, which discretises the soil into three layers: a thin surface layer, a root-zone layer, and a deeper sub-root reservoir.
+Soil hydraulic and thermal properties are derived from the ECOCLIMAP sand and clay fractions~\citep{massonGlobalDatabaseLand2003} through the \citet{clappEmpiricalEquationsSoil1978} pedotransfer relations.
+The nature tile is treated as a single aggregated patch, and vegetation is prescribed from the ECOCLIMAP climatology without interactive photosynthesis, so that root fractions follow the standard ISBA force-restore profile.
+Snow is represented by the single-layer force-restore scheme of \citet{douvilleNewSnowParameterization1995}.
+Turbulent fluxes over sea and inland water are computed with the direct Charnock method~\citep{charnockWindStressWater1955}.
+
 Because ALARO-25km and ALARO-12km differ in both resolution and land-surface scheme, the 25\,km to 12\,km change conflates two effects. 
 To isolate the impact of coupling ALARO-1 to SURFEX, we have performed a sensitivity experiment with an additional simulation, ALARO-12km-noSFX, identical to ALARO-12km but retaining the original ISBA scheme. 
 Holding resolution fixed at 12.5\,km, any difference between ALARO-12km and ALARO-12km-noSFX is attributable to the land-surface scheme alone. 
 This experiment is analysed separately in Sect.~\ref{sect:surfex_effect}; all other analyses retain the original set of three simulations.
-
-%% TODO (R1 general [c0] + specific 2.1.1 [c7], L209 [c14]): SURFEX configuration paragraph. Document: number of soil layers, ISBA-DIF (yes/no), number of patches on nature tile, runoff formulation, root distribution, snow scheme, water-flux scheme (ECUME vs ECUME6). This is a SEPARATE comment from the confound; do not fold into the isolation experiment above.
-% \paragraph{SURFEX configuration.} ...
 
 %t
 \begin{table}[t]
