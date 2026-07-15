@@ -127,7 +127,7 @@ Regional climate modeling is essential for providing reliable information to und
 
 A scale-selective evaluation setup is introduced, employing a multi-level dynamical downscaling framework to assess the progressive added value of increasing resolution from the mesoscale to convection-permitting scales. The model's performance is evaluated against a gridded observational dataset and precipitation station measurements, focusing on temperature and precipitation biases, diurnal precipitation cycles, and extreme precipitation statistics.
 
-Results indicate that the higher resolutions (12.5 km and 4 km) improve temperature and precipitation biases relative to the 25 km simulation, with the 4 km resolution providing the best representation of hourly extreme precipitation and its diurnal cycle. A dedicated sensitivity experiment isolates the contribution of the SURFEX land-surface scheme from that of resolution, attributing a substantial part of the improvement in near-surface temperature and precipitation to the introduction of SURFEX. However, all simulations exhibit varying degrees of wet and cold biases. The findings underscore the added value of convection-permitting modelling for resolving extreme precipitation events and improving diurnal precipitation cycles. Furthermore, the study provides evidence that increasing model resolution adds value for simulating extreme precipitation even when employing a scale-aware deep convection parameterization.
+Results indicate that the higher resolutions (12.5 km and 4 km) improve temperature and precipitation biases relative to the 25 km simulation, with the 4 km resolution providing the best representation of hourly extreme precipitation and its diurnal cycle. A dedicated sensitivity experiment isolates the contribution of the SURFEX land-surface scheme from that of resolution, attributing a substantial part of the improvement in near-surface temperature and precipitation to the introduction of SURFEX. However, all simulations exhibit varying degrees of wet and cold biases. The findings underscore the added value of convection-permitting modelling for resolving extreme precipitation events and improving diurnal precipitation cycles. Finally, the study provides evidence that increasing model resolution adds value for simulating extreme precipitation.
 \end{abstract}
 
 
@@ -703,12 +703,15 @@ At longer return periods the return levels are instead governed by the distribut
 \citet{de_troch_application_2016} reported a similar finding, as all ALARO-0 simulations (4 km, 10 km, and 40 km) overestimated the 2-year return level for daily precipitation. 
 Additionally, while~\citet{de_troch_application_2016} observed increasing overestimation for longer return periods in the 4 km ALARO-0 simulation, this effect is notably absent - and even reversed - in ALARO-4km.
 
-Because of the scale-aware design of the 3MT scheme, the statistics of extreme precipitation should, in principle, be independent of model resolution. 
-In previous studies~\citep{de_troch_application_2016, tabari_local_2016}, return levels exhibited a gradual change with resolution, which is broadly consistent with the expected resolution independence. 
-In contrast, the return levels presented in this study display a more abrupt, step-wise change when transitioning from 12 km to 4 km resolution. 
+The scale-aware design of the 3MT scheme provides a smooth transition between parameterized and resolved convection, which would lead one to expect a gradual change of the extreme-precipitation statistics with resolution, as found in previous studies~\citep{de_troch_application_2016, tabari_local_2016}.
+In contrast, the return levels presented in this study display a more abrupt, step-wise change when transitioning from 12 km to 4 km resolution.
 This behaviour is more similar to that observed in other models without a scale-aware convective scheme, where the step-wise shift is typically attributed to the deactivation of the deep convective parameterization at high resolutions.
-Why a scale-aware scheme such as 3MT produces a comparable step-wise change remains an open question. 
-Identifying the cause of this behaviour would require dedicated sensitivity experiments (e.g.\ isolating the convective, microphysical, and dynamical contributions across resolutions) and is left to future work.
+For 3MT, however, no such deactivation occurs, and the apparent abruptness may be partly an artefact of comparison: the 25 km to 12 km change is small, so the 12 km to 4 km change stands out as step-wise by contrast.
+We propose two contributing effects.
+First, the difference between ALARO-25km and ALARO-12km conflates resolution with the land-surface scheme: the drying effect of SURFEX (Sect.~\ref{sect:surfex_effect}) reduces precipitation and may partly offset the resolution-driven increase in extreme intensity at 12 km, suppressing the apparent 25 km to 12 km change.
+Second, the step from 12 km to 4 km crosses the grey zone of convection ($\sim 4$--$10$\,km)~\citep{prein_review_2015,vergara-temprado_climate_2020}, where 3MT transitions from a parameterized towards a resolved representation of deep convection.
+This transition is expected to affect the extreme-precipitation statistics most strongly.
+Isolating the contributions of these two effects is left to future work.
 
 The diurnal cycle of hourly AM precipitation frequencies is well captured by ALARO-4km (see Fig.~\ref{fig:AMcycles}a).
 Both the frequency peak amplitude and timing are in agreement between ALARO-4km and the observational data.
@@ -717,7 +720,7 @@ This peak delay is also present in $0.11\degree$ EURO-CORDEX simulations~\citep{
 It should be noted that the relatively large diurnal variation in extreme precipitation frequency of ALARO-25km is quite remarkable, as most models exhibit almost no diurnal variation at similar resolutions~\citep{meredith_present_2021, thomassen_spatial_2023}.
 The diurnal cycle of extremes from previous ALARO-0 simulations at 12 km and 4 km was shown in~\citet{van_de_vyver_evaluation_2021}. 
 However, they did not find a large difference in the diurnal cycle between both resolutions, in contrast to the simulations of this work. 
-This stronger resolution sensitivity of ALARO-1 relative to ALARO-0 is part of the step-wise behaviour discussed above (Sect.~\ref{sect:discussion}).
+As with the peak-timing differences discussed above, this stronger resolution sensitivity of ALARO-1 relative to ALARO-0 most plausibly reflects the broader physics update between the two versions rather than the scale-aware convection scheme common to both, and is left to future work.
 
 Similarly to the diurnal cycle, the seasonal cycle of hourly extreme-precipitation frequency is well captured by our three simulations, as shown in Fig.~\ref{fig:AMcycles}b.
 The frequency peak in summer due to the convective nature of hourly extreme precipitation is apparent.
@@ -742,7 +745,7 @@ A dedicated sensitivity experiment (ALARO-12km-noSFX) showed that this improveme
 A key focus of this study was the representation of extreme precipitation, evaluated through Intensity-Duration-Frequency statistics derived from annual maximum precipitation.
 While all simulations followed the expected log-log linear behaviour between return-level precipitation intensity and duration, lower-resolution models underestimated return levels at sub-daily timescales.
 ALARO-4km significantly improved upon this, producing more realistic hourly return levels and better capturing the diurnal timing of hourly extreme precipitation.
-These findings provide clear evidence that increasing model resolution enhances the simulation of extreme precipitation, even though the scale-aware 3MT scheme, which in principle should render these statistics resolution-independent, is active at all resolutions.
+These findings provide clear evidence that increasing model resolution enhances the simulation of extreme precipitation.
 
 Despite these improvements, this study has some limitations. 
 The research domain was limited to Belgium due to computational constraints.
