@@ -1,7 +1,7 @@
 %% Copernicus Publications Manuscript Preparation Template for LaTeX Submissions
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL main_v20260310.tex   Tue Jun 30 12:36:54 2026
-%DIF ADD main.tex             Wed Jul 15 14:53:07 2026
+%DIF ADD main.tex             Thu Jul 16 22:29:43 2026
 %% ---------------------------------
 %% This template should be used for copernicus.cls
 %% The class file and some style files are bundled in the Copernicus Latex Package, which can be downloaded from the different journal webpages.
@@ -721,7 +721,7 @@ Introducing SURFEX reduces the latent heat flux and increases the sensible heat 
 The net surface radiation is essentially identical across all simulations (Fig.~\ref{fig:surfex_turb_rad}), so the available energy at the surface is unchanged.
 The sum of the latent and sensible heat fluxes is correspondingly near-identical in daily-mean magnitude, but its diurnal cycle is advanced in the SURFEX simulation. 
 This phase shift, together with the shift toward sensible heating, points to a reduced surface thermal inertia, consistent with drier soil responding more rapidly to daytime forcing.
-This indicates that the flux differences are driven by the surface state rather than by cloud cover or radiation.
+This is consistent with the flux differences being driven by the surface state, as the net surface radiation, which sets the total available energy, is essentially unchanged. 
 }\DIFaddend 
 
 \DIFaddbegin \DIFadd{As a whole, it is shown that the introduction of SURFEX reduces the latent heat flux and increases the sensible heat flux, especially in summer.
@@ -809,12 +809,19 @@ When considering only wet hours (i.e. hours with a precipitation rate > 0.1 mm),
 }\DIFaddend All simulations in this paper reproduce this pattern, with the mean precipitation increasing towards the observed value as the resolution increases.
 For wet hours in summer \DIFaddbegin \DIFadd{(Fig.~\ref{fig:pr_diurnal_cycle}c)}\DIFaddend , all simulations contain an afternoon/evening peak, with increasing amplitude for higher resolutions, similar to the study of~\citet{de_troch_application_2016}. 
 The timing of the peak does not significantly differ between ALARO-25km and ALARO-12km, and is slightly earlier for ALARO-4km. 
-However, for all simulations, the \DIFdelbegin \DIFdel{diurnal peak is }\DIFdelend \DIFaddbegin \DIFadd{summer wet-hour peak occurs }\DIFaddend later than the \DIFdelbegin \DIFdel{observational peak, which is }\DIFdelend \DIFaddbegin \DIFadd{observed peak, }\DIFaddend in contrast with \DIFdelbegin \DIFdel{results from~\mbox{%DIFAUXCMD
-\citet{de_troch_application_2016} }\hskip0pt%DIFAUXCMD
+However, for all simulations, the \DIFdelbegin \DIFdel{diurnal peak is }\DIFdelend \DIFaddbegin \DIFadd{summer wet-hour peak occurs }\DIFaddend later than the \DIFdelbegin \DIFdel{observational peak, which is }\DIFdelend \DIFaddbegin \DIFadd{observed peak, }\DIFaddend in contrast with \DIFdelbegin \DIFdel{results from ~\mbox{%DIFAUXCMD
+\citet{de_troch_application_2016}}\hskip0pt%DIFAUXCMD
+. 
 }\DIFdelend \DIFaddbegin \DIFadd{the well-captured peak timing reported by~\mbox{%DIFAUXCMD
 \citet{de_troch_application_2016} }\hskip0pt%DIFAUXCMD
-for ALARO-0}\DIFaddend .
-Overall, for both all-hour \DIFaddbegin \DIFadd{(Fig.~\ref{fig:pr_diurnal_cycle}a) }\DIFaddend and wet-hour \DIFaddbegin \DIFadd{(Fig.~\ref{fig:pr_diurnal_cycle}b) }\DIFaddend precipitation, the diurnal cycles in ALARO-4km are comparable to those in the work of~\citet{de_troch_application_2016}.
+for ALARO-0.
+This contrast reflects the change from ALARO-0 to ALARO-1 and cannot be attributed to the scale-aware 3MT scheme, which is common to both versions, nor to the land-surface scheme, which the ALARO-12km-noSFX experiment shows does not affect the peak timing (Sect.~\ref{sect:surfex_effect}, Fig.~\ref{fig:surfex_effect}c). 
+A further candidate is the difference in experimental setup: the ALARO-0 simulations of \mbox{%DIFAUXCMD
+\citet{de_troch_application_2016} }\hskip0pt%DIFAUXCMD
+were reinitialized daily, whereas ours run continuously.
+Such daily restarts can plausibly influence the phase of the simulated diurnal cycle.
+However, we cannot isolate the responsible factor from the available output.
+}\DIFaddend Overall, for both all-hour \DIFaddbegin \DIFadd{(Fig.~\ref{fig:pr_diurnal_cycle}a) }\DIFaddend and wet-hour \DIFaddbegin \DIFadd{(Fig.~\ref{fig:pr_diurnal_cycle}b) }\DIFaddend precipitation, the diurnal cycles in ALARO-4km are comparable to those in the work of~\citet{de_troch_application_2016}.
 
 In our analysis of the mean diurnal precipitation cycle, notable differences emerge when comparing simulations at varying resolutions with observational data, as shown in Fig.~\ref{fig:pr_diurnal_cycle}. 
 Specifically, while the ``all-hour'' precipitation cycle \DIFdelbegin \DIFdel{tends to exhibit an overestimation }\DIFdelend \DIFaddbegin \DIFadd{overestimates precipitation }\DIFaddend relative to observations, the ``wet-hour'' cycle \DIFdelbegin \DIFdel{shows a general underestimation.
@@ -879,7 +886,7 @@ At durations of 1 to 3 hours, lower-resolution simulations increasingly underest
 A similar result was found by~\citet{tabari_local_2016}, who also constructed IDF \DIFdelbegin \DIFdel{curves }\DIFdelend \DIFaddbegin \DIFadd{statistics }\DIFaddend for ALARO-0 simulations at different resolutions. 
 In that study, the 4 km and 10 km ALARO-0 simulations accurately captured sub-daily intensities, with a slight underestimation, while ALARO-40km significantly underestimated sub-daily precipitation amounts. 
 For longer durations (>24\DIFdelbegin \DIFdel{hours}\DIFdelend \DIFaddbegin \DIFadd{\,h}\DIFaddend ), ALARO-25km tends to overestimate \DIFaddbegin \DIFadd{the }\DIFaddend return levels, particularly for short return periods \DIFdelbegin \DIFdel{. 
-}\DIFdelend \DIFaddbegin \DIFadd{(Fig.~\ref{fig:IDFs_boxplots}).
+}\DIFdelend \DIFaddbegin \DIFadd{(Fig.~\ref{fig:IDFs_boxplots}a--c).
 }\DIFaddend \citet{de_troch_application_2016} reported a similar finding, as all ALARO-0 simulations (4 km, 10 km, and 40 km) overestimated the 2-year return level for daily precipitation. 
 Additionally, while~\citet{de_troch_application_2016} observed increasing overestimation for longer return periods in the 4 km ALARO-0 simulation, this effect is notably absent - and even reversed - in ALARO-4km.
 
@@ -1114,7 +1121,8 @@ SC and PT conceptualized the study. SC, PT, and WD acquired funding. WD conducte
 
 \begin{acknowledgements}
 The authors acknowledge the Flemish Supercomputer Center (VSC) for providing the computational resources and services used to perform the ALARO1-SFX regional climate simulations.
-The authors also thank the Vlaamse Milieumaatschappij (VMM), the Direction de la Gestion Hydrologique (DGH) of SPW Mobilité et Infrastructures, and Brussels Environment for providing precipitation observations over Flanders, Wallonia, and Brussels, respectively.
+The authors also thank the Vlaamse Milieumaatschappij (VMM), the Direction de la Gestion Hydrologique (DGH) of SPW Mobilité et Infrastructures, and Brussels Environment for providing precipitation observations over Flanders, Wallonia, and Brussels, respectively\DIFaddbegin \DIFadd{.
+The authors thank the two anonymous referees and the topic editor for their careful reading and constructive comments, which have substantially improved the manuscript}\DIFaddend .
 Finally, we acknowledge the use of AI-assisted tools, which were used exclusively for language refinement and text rewriting. All scientific content was developed and validated by all authors.
 \end{acknowledgements}
 

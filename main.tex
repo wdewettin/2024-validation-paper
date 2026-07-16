@@ -589,7 +589,7 @@ Introducing SURFEX reduces the latent heat flux and increases the sensible heat 
 The net surface radiation is essentially identical across all simulations (Fig.~\ref{fig:surfex_turb_rad}), so the available energy at the surface is unchanged.
 The sum of the latent and sensible heat fluxes is correspondingly near-identical in daily-mean magnitude, but its diurnal cycle is advanced in the SURFEX simulation. 
 This phase shift, together with the shift toward sensible heating, points to a reduced surface thermal inertia, consistent with drier soil responding more rapidly to daytime forcing.
-This indicates that the flux differences are driven by the surface state rather than by cloud cover or radiation.
+This is consistent with the flux differences being driven by the surface state, as the net surface radiation, which sets the total available energy, is essentially unchanged. 
 
 As a whole, it is shown that the introduction of SURFEX reduces the latent heat flux and increases the sensible heat flux, especially in summer.
 This can be partly attributed to the inclusion of urban elements, which contain no moisture and therefore reduce the latent heat flux.
@@ -665,6 +665,10 @@ All simulations in this paper reproduce this pattern, with the mean precipitatio
 For wet hours in summer (Fig.~\ref{fig:pr_diurnal_cycle}c), all simulations contain an afternoon/evening peak, with increasing amplitude for higher resolutions, similar to the study of~\citet{de_troch_application_2016}. 
 The timing of the peak does not significantly differ between ALARO-25km and ALARO-12km, and is slightly earlier for ALARO-4km. 
 However, for all simulations, the summer wet-hour peak occurs later than the observed peak, in contrast with the well-captured peak timing reported by~\citet{de_troch_application_2016} for ALARO-0.
+This contrast reflects the change from ALARO-0 to ALARO-1 and cannot be attributed to the scale-aware 3MT scheme, which is common to both versions, nor to the land-surface scheme, which the ALARO-12km-noSFX experiment shows does not affect the peak timing (Sect.~\ref{sect:surfex_effect}, Fig.~\ref{fig:surfex_effect}c). 
+A further candidate is the difference in experimental setup: the ALARO-0 simulations of \citet{de_troch_application_2016} were reinitialized daily, whereas ours run continuously.
+Such daily restarts can plausibly influence the phase of the simulated diurnal cycle.
+However, we cannot isolate the responsible factor from the available output.
 Overall, for both all-hour (Fig.~\ref{fig:pr_diurnal_cycle}a) and wet-hour (Fig.~\ref{fig:pr_diurnal_cycle}b) precipitation, the diurnal cycles in ALARO-4km are comparable to those in the work of~\citet{de_troch_application_2016}.
 
 In our analysis of the mean diurnal precipitation cycle, notable differences emerge when comparing simulations at varying resolutions with observational data, as shown in Fig.~\ref{fig:pr_diurnal_cycle}. 
@@ -931,6 +935,7 @@ SC and PT conceptualized the study. SC, PT, and WD acquired funding. WD conducte
 \begin{acknowledgements}
 The authors acknowledge the Flemish Supercomputer Center (VSC) for providing the computational resources and services used to perform the ALARO1-SFX regional climate simulations.
 The authors also thank the Vlaamse Milieumaatschappij (VMM), the Direction de la Gestion Hydrologique (DGH) of SPW Mobilité et Infrastructures, and Brussels Environment for providing precipitation observations over Flanders, Wallonia, and Brussels, respectively.
+The authors thank the two anonymous referees and the topic editor for their careful reading and constructive comments, which have substantially improved the manuscript.
 Finally, we acknowledge the use of AI-assisted tools, which were used exclusively for language refinement and text rewriting. All scientific content was developed and validated by all authors.
 \end{acknowledgements}
 
