@@ -1,7 +1,7 @@
 %% Copernicus Publications Manuscript Preparation Template for LaTeX Submissions
 %DIF LATEXDIFF DIFFERENCE FILE
 %DIF DEL main_v20260310.tex   Tue Jun 30 12:36:54 2026
-%DIF ADD main.tex             Thu Jul 16 22:29:43 2026
+%DIF ADD main.tex             Fri Jul 17 11:21:19 2026
 %% ---------------------------------
 %% This template should be used for copernicus.cls
 %% The class file and some style files are bundled in the Copernicus Latex Package, which can be downloaded from the different journal webpages.
@@ -164,11 +164,11 @@
 \maketitle
 
 \begin{abstract}
-Regional climate modeling is essential for providing reliable information to understand localized impacts and guide adaptation strategies in the context of climate change. This study \DIFdelbegin \DIFdel{validates }\DIFdelend \DIFaddbegin \DIFadd{evaluates }\DIFaddend long-term continuous climate simulations over Belgium performed with the ALARO1-SFX model, a novel version of ALARO-1 that incorporates an advanced surface scheme (SURFEX) and improved physiographic datasets.
+Regional climate model\DIFaddbegin \DIFadd{l}\DIFaddend ing is essential for providing reliable information to understand \DIFdelbegin \DIFdel{localized }\DIFdelend \DIFaddbegin \DIFadd{localised }\DIFaddend impacts and guide adaptation strategies in the context of climate change. This study \DIFdelbegin \DIFdel{validates }\DIFdelend \DIFaddbegin \DIFadd{evaluates }\DIFaddend long-term continuous climate simulations over Belgium performed with the ALARO1-SFX model, a novel version of ALARO-1 that incorporates an advanced surface scheme (SURFEX) and improved physiographic datasets.
 
 A scale-selective \DIFdelbegin \DIFdel{validation }\DIFdelend \DIFaddbegin \DIFadd{evaluation }\DIFaddend setup is introduced, employing a multi-level dynamical downscaling framework to assess the progressive added value of increasing resolution from the mesoscale to convection-permitting scales. The model's performance is evaluated against a gridded observational dataset and precipitation station measurements, focusing on temperature and precipitation biases, diurnal precipitation cycles, and extreme precipitation statistics.
 
-Results indicate that \DIFaddbegin \DIFadd{the }\DIFaddend higher resolutions (12.5 km and 4 km) \DIFdelbegin \DIFdel{, combined with the integration of SURFEX into ALARO1-SFX, }\DIFdelend improve temperature and precipitation biases relative to the 25 km simulation, with the 4 km resolution providing the best representation of hourly extreme precipitation and its diurnal cycle. \DIFaddbegin \DIFadd{A dedicated sensitivity experiment isolates the contribution of the SURFEX land-surface scheme from that of resolution, attributing a substantial part of the improvement in near-surface temperature and precipitation to the introduction of SURFEX. }\DIFaddend However, all simulations exhibit varying degrees of wet and cold biases. The findings underscore the added value of convection-permitting modelling for resolving extreme precipitation events and improving diurnal precipitation cycles. \DIFdelbegin \DIFdel{Furthermore}\DIFdelend \DIFaddbegin \DIFadd{Finally}\DIFaddend , the study provides \DIFdelbegin \DIFdel{experimental }\DIFdelend evidence that increasing model resolution adds value for simulating extreme precipitation\DIFdelbegin \DIFdel{even when employing a scale-aware deep convection parameterization}\DIFdelend .
+Results indicate that \DIFaddbegin \DIFadd{the }\DIFaddend higher resolutions (12.5 km and 4 km) \DIFdelbegin \DIFdel{, combined with the integration of SURFEX into ALARO1-SFX, }\DIFdelend improve temperature and precipitation biases relative to the 25 km simulation, with the 4 km resolution providing the best representation of hourly extreme precipitation and its diurnal cycle. \DIFaddbegin \DIFadd{A dedicated sensitivity experiment isolates the contribution of the SURFEX land-surface scheme from that of resolution, attributing a substantial part of the improvement in near-surface temperature and precipitation to the introduction of SURFEX. }\DIFaddend However, all simulations exhibit varying degrees of wet and cold biases. The findings underscore the added value of convection-permitting modelling for \DIFdelbegin \DIFdel{resolving extreme precipitation events and }\DIFdelend improving diurnal precipitation cycles. Furthermore, the study provides \DIFdelbegin \DIFdel{experimental }\DIFdelend evidence that increasing model resolution \DIFdelbegin \DIFdel{adds value for simulating extreme precipitationeven when employing a scale-aware deep convection parameterization}\DIFdelend \DIFaddbegin \DIFadd{improves the representation of extreme precipitation}\DIFaddend .
 \end{abstract}
 
 
@@ -177,13 +177,13 @@ Results indicate that \DIFaddbegin \DIFadd{the }\DIFaddend higher resolutions (1
 
 \introduction  %% \introduction[modified heading if necessary]
 
-As climate change intensifies, the demand for reliable and local climate information has become increasingly critical for understanding localized impacts and guiding effective adaptation strategies~\citep{IPCC_AR6_ch12}.
+As climate change intensifies, the demand for reliable and local climate information has become increasingly critical for understanding \DIFdelbegin \DIFdel{localized }\DIFdelend \DIFaddbegin \DIFadd{localised }\DIFaddend impacts and guiding effective adaptation strategies~\citep{IPCC_AR6_ch12}.
 To this end, state-of-the-art global circulation models (GCMs) perform simulations within the latest phase of the Coupled Model Intercomparison Project, CMIP6~\citep{eyring_overview_2016}. 
 These models typically run at a horizontal resolution of 50--250 km~\citep{nguyen_selecting_2024, IPCC_AR6_WG1_ANNEX2, IPCC_AR6_ch1}.
 At such resolutions, GCM simulations accurately represent large-scale dynamics and responses to external forcings.
 However, data at these resolutions are often too coarse for many applications, including local impact models.
 Additionally, these models fail to account for certain sub-grid characteristics (e.g., complex topography, land-sea contrasts, or land cover heterogeneities) and mesoscale dynamical processes, such as deep convection~\citep{rummukainen_added_2016, giorgi_thirty_2019, lucas-picher_convection-permitting_2021}.
-These processes are included in GCMs through parameterization schemes.
+These processes are included in GCMs through \DIFdelbegin \DIFdel{parameterization }\DIFdelend \DIFaddbegin \DIFadd{parameterisation }\DIFaddend schemes.
 Global model simulations at higher resolutions would alleviate these problems, but these are rendered unfeasible due to the immense computational cost~\citep{fuhrer_near-global_2018}.
 
 Regional climate models (RCMs) address this computational cost by simulating only a limited area instead of the entire globe but at a higher resolution~\citep{giorgi_thirty_2019}.
@@ -191,34 +191,34 @@ Thereby, however, lateral boundary conditions need to be provided to RCMs by oth
 These boundary conditions can originate from GCM simulations or from (global) reanalysis data, such as the ERA5 dataset~\citep{hersbach_era5_2020}.
 Typically, long-term climate simulations with an RCM employ a resolution of 10--50 km.
 Compared to GCM output, this finer-scale output adds value particularly in regions featuring diverse topography and varying land-cover properties~\citep{rummukainen_added_2016, IPCC_AR6_ch10}.
-Nevertheless, at such scales, deep convective processes are still parameterized and not explicitly resolved. 
+Nevertheless, at such scales, deep convective processes are still \DIFdelbegin \DIFdel{parameterized }\DIFdelend \DIFaddbegin \DIFadd{parameterised }\DIFaddend and not explicitly resolved. 
 This is a well-known source of model uncertainty for precipitation, evident in e.g., excessive light precipitation and a too early peaking diurnal convective cycle~\citep{ban_evaluation_2014,fosser_benefit_2015, hohenegger_towards_2008, kendon_realism_2012,vergara-temprado_climate_2020}.
 However, for climate models with resolutions higher than $\sim 5$ km, these processes are in fact (partially) resolved~\citep{prein_review_2015, lucas-picher_convection-permitting_2021}.
 Models operating at these scales are referred to as convection-permitting models (CPMs).
 
-CPMs typically turn off their convective parameterization schemes~\citep{coppola_first--its-kind_2020}.
-However, the boundary between convection-permitting and convection-parameterized scales is not well defined.
-In the so-called `grey zone of convection' ($\sim 4$-$10$ km), deep convection is only partially resolved, making it unclear whether parameterization is required~\citep{vergara-temprado_climate_2020}.
+CPMs typically turn off their convective \DIFdelbegin \DIFdel{parameterization }\DIFdelend \DIFaddbegin \DIFadd{parameterisation }\DIFaddend schemes~\citep{coppola_first--its-kind_2020}.
+However, the boundary between convection-permitting and \DIFdelbegin \DIFdel{convection-parameterized }\DIFdelend \DIFaddbegin \DIFadd{convection-parameterised }\DIFaddend scales is not well defined.
+In the so-called `grey zone of convection' ($\sim 4$-$10$ km), deep convection is only partially resolved, making it unclear whether \DIFdelbegin \DIFdel{parameterization }\DIFdelend \DIFaddbegin \DIFadd{parameterisation }\DIFaddend is required~\citep{vergara-temprado_climate_2020}.
 \DIFaddbegin \DIFadd{In the grey zone, the explicit and parameterised representations compete with one another, which can result in double counting of convective transport or no counting at all~\mbox{%DIFAUXCMD
 \citep{grossPhysicsDynamicsCoupling2018}}\hskip0pt%DIFAUXCMD
 .
-This can lead respectively to convection being triggered too late by the parameterisation, leading to spurious grid-scale storms, or to convection being triggered too early, systematically shifting convective onset too early in the day~\mbox{%DIFAUXCMD
+This can lead to convection being triggered too late by the parameterisation, leading to spurious grid-scale storms, or to convection being triggered too early, systematically shifting convective onset too early in the day~\mbox{%DIFAUXCMD
 \citep{grossPhysicsDynamicsCoupling2018}}\hskip0pt%DIFAUXCMD
 .
 }
 
-\DIFaddend The development of scale-aware convective parameterization schemes addresses this problem.
+\DIFaddend The development of scale-aware convective \DIFdelbegin \DIFdel{parameterization }\DIFdelend \DIFaddbegin \DIFadd{parameterisation }\DIFaddend schemes addresses this problem.
 Rather than simply switching convection on or off, these schemes adapt to the resolution by adjusting their tuning parameters accordingly.
-\DIFaddbegin \DIFadd{Scale awareness can be introduced through a prognostic variable for the convective fraction of a grid cell~\mbox{%DIFAUXCMD
+\DIFaddbegin \DIFadd{Scale awareness can be introduced through several approaches, for example by introducing a prognostic variable for the convective fraction of a grid cell~\mbox{%DIFAUXCMD
 \citep{gerard_cloud_2009}}\hskip0pt%DIFAUXCMD
-, by scaling the convective area fraction and mass flux with the grid-box area~\mbox{%DIFAUXCMD
+, scaling the convective area fraction and mass flux with the grid-box area~\mbox{%DIFAUXCMD
 \citep{grellScaleAerosolAware2014,hanUpdatesNCEPGFS2017}}\hskip0pt%DIFAUXCMD
-, or by adjusting scheme parameters explicitly as a function of the grid spacing~\mbox{%DIFAUXCMD
+, or adjusting scheme parameters explicitly as a function of the grid spacing~\mbox{%DIFAUXCMD
 \citep{zhengImprovingHighResolutionWeather2016a}}\hskip0pt%DIFAUXCMD
 .
-}\DIFaddend Therefore, models with these parameterization schemes can operate at both coarse and fine resolutions and even in the grey zone.
+}\DIFaddend Therefore, models with these \DIFdelbegin \DIFdel{parameterization }\DIFdelend \DIFaddbegin \DIFadd{parameterisation }\DIFaddend schemes can operate at both coarse and fine resolutions and even in the grey zone.
 
-CPMs have been shown to improve some notable limitations associated with the \DIFdelbegin \DIFdel{low-resolution }\DIFdelend parameterization of deep convection \DIFaddbegin \DIFadd{used in lower resolution models}\DIFaddend . 
+CPMs have been shown to improve some notable limitations associated with the \DIFdelbegin \DIFdel{low-resolution parameterization }\DIFdelend \DIFaddbegin \DIFadd{parameterisation }\DIFaddend of deep convection \DIFaddbegin \DIFadd{used in lower resolution models}\DIFaddend . 
 For instance, they improve the diurnal cycle of precipitation, as demonstrated in studies across Europe, including Belgium~\citep{de_troch_application_2016, brisson_how_2016}, and more widely across the continent~\citep{berthou_pan-european_2020}. 
 Furthermore, while RCMs generally underestimate precipitation extremes at sub-daily durations~\citep{berg_summertime_2019}, these extremes are better represented in long-term CPM simulations, as shown by \citet{coppola_first--its-kind_2020} and \citet{fosser_convection-permitting_2024}, and studies over Belgium \citep{de_troch_multiscale_2013, tabari_local_2016, van_de_vyver_evaluation_2021} and the Alpine-Mediterranean region~\citep{muller_evaluation_2023, muller_climate_2024}. 
 This improvement in extreme precipitation was also noted in the evaluation of an ensemble of kilometre-scale simulations over Europe and the Mediterranean~\citep{pichelli_first_2021, ban_first_2021, ha_precipitation_2024}. 
@@ -228,7 +228,7 @@ Despite these advancements, significant model uncertainties remain, particularly
 These \DIFdelbegin \DIFdel{uncertainties }\DIFdelend \DIFaddbegin \DIFadd{model uncertainties arise from the inherent limitations of the models themselves, and differ amongst models because of different choices in their architectures.
 On short time horizons ($\sim$30 years), these model uncertainties }\DIFaddend are often larger than \DIFdelbegin \DIFdel{projection uncertainties in the short term}\DIFdelend \DIFaddbegin \DIFadd{the uncertainty related to the chosen climate scenario}\DIFaddend ~\citep{lehner_partitioning_2020}.
 While increasing resolution tends to reduce \DIFdelbegin \DIFdel{these }\DIFdelend \DIFaddbegin \DIFadd{model }\DIFaddend uncertainties, as suggested by~\citet{fosser_convection-permitting_2024}, they remain substantial even in CPMs. 
-This is because higher resolution alone is not a panacea; e.g., microphysics processes remain parameterized in CPMs, contributing to significant uncertainties~\citep{prein_review_2015, lucas-picher_convection-permitting_2021}. 
+This is because higher resolution alone is not a panacea; e.g., microphysics processes remain \DIFdelbegin \DIFdel{parameterized }\DIFdelend \DIFaddbegin \DIFadd{parameterised }\DIFaddend in CPMs, contributing to significant uncertainties~\citep{prein_review_2015, lucas-picher_convection-permitting_2021}. 
 Therefore, it is crucial to maintain model diversity to reliably estimate these uncertainties~\citep{IPCC_AR6_ch10}.
 However, the diversity of RCMs is decreasing, as seen in the current iteration of EURO-CORDEX simulations, due to the high community effort required to develop and maintain such models~\citep{jacob_regional_2020, cordex_cmip6_downscaling_plans}.
 
@@ -248,7 +248,7 @@ For a more detailed description, we refer to~\citet{termonia_aladin_2018} and to
 
 The key feature of the ALARO physics package is the 3MT (Modular Multiscale Microphysics and Transport) scheme, which handles convection, turbulence, and microphysics~\citep{gerard_evolution_2005, gerard_integrated_2007, gerard_cloud_2009}.
 The 3MT scheme has a unique scale-aware character, so that it can determine itself which processes are resolved at a specific resolution.
-This provides a smooth multiscale transition from fully-parameterized mesoscale resolutions over the grey zone to fully convection-resolving scales.
+This provides a smooth multiscale transition from \DIFdelbegin \DIFdel{fully-parameterized }\DIFdelend \DIFaddbegin \DIFadd{fully-parameterised }\DIFaddend mesoscale resolutions over the grey zone to fully convection-resolving scales.
 This multi-scale feature of the ALARO model is unique with respect to other convection-permitting models and makes it the ideal candidate for a multi-resolution model \DIFdelbegin \DIFdel{validation }\DIFdelend \DIFaddbegin \DIFadd{evaluation }\DIFaddend from the mesoscale up to the convection-permitting scales.
 Climate simulations will therefore be \DIFdelbegin \DIFdel{validated }\DIFdelend \DIFaddbegin \DIFadd{evaluated }\DIFaddend at three different resolutions in this study. 
 \DIFdelbegin \DIFdel{Validating }\DIFdelend \DIFaddbegin \DIFadd{Specifically, this evaluation focuses on the climatology of near-surface temperature and precipitation, as well as the representation of precipitation extremes and the diurnal precipitation cycle.
@@ -272,7 +272,7 @@ This step is necessary to use ALARO-1 for land use climate studies.
 \DIFdelend In this study, we evaluate\DIFdelbegin \DIFdel{d}\DIFdelend  long-term climate simulations with the ALARO-1 model at three different resolutions: 25 km, 12.5 km, and 4 km. 
 Previous climate simulations with ALARO-0 have been extensively \DIFdelbegin \DIFdel{validated}\DIFdelend \DIFaddbegin \DIFadd{evaluated}\DIFaddend , particularly over Belgium \citep{de_troch_multiscale_2013, hamdi_evaluating_2014, giot_validation_2016, tabari_local_2016, berckmans_reinitialised_2017, top_evaluation_2021}. 
 These studies employed ALARO cycle 36, following the versioning system aligned with the cycles of the global IFS\DIFdelbegin \DIFdel{and ARPEGE }\DIFdelend \DIFaddbegin \footnote{\DIFadd{Integrated Forecasting System.}} \DIFadd{and ARPEGE}\footnote{\DIFadd{Action de Recherche Petite Echelle Grande Echelle.}} \DIFaddend models \citep{termonia_aladin_2018}. 
-In contrast, this study \DIFdelbegin \DIFdel{utilized }\DIFdelend \DIFaddbegin \DIFadd{utilizes }\DIFaddend a more recent version, ALARO cycle 43t2. 
+In contrast, this study \DIFdelbegin \DIFdel{utilized }\DIFdelend \DIFaddbegin \DIFadd{utilises }\DIFaddend a more recent version, ALARO cycle 43t2. 
 Moreover, from cycle 40 onwards, ALARO underwent substantial updates, leading to the development of ALARO-1.
 \DIFdelbegin \DIFdel{This new version marked a step-wise change compared to the original ALARO-0.
 }\DIFdelend %DIF >  This new version marked a step-wise change compared to the original ALARO-0.
@@ -286,7 +286,7 @@ The structure of this paper is as follows. Section \ref{sect:data_methods} provi
 Following this, the observational datasets and verification methods used in this study are described in detail. 
 Section \ref{sect:results} presents the results of the \DIFdelbegin \DIFdel{validation}\DIFdelend \DIFaddbegin \DIFadd{evaluation}\DIFaddend , highlighting the model's performance across different resolutions and comparing it with observational data. 
 In Sect. \ref{sect:discussion}, these results are discussed and placed in a broader context, comparing them with those from previous ALARO-simulations.
-Finally, Sect. \ref{sect:conclusions} draws the conclusions, summarizing the key findings of the study while addressing the limitations and suggesting directions for future research.
+Finally, Sect. \ref{sect:conclusions} draws the conclusions, \DIFdelbegin \DIFdel{summarizing }\DIFdelend \DIFaddbegin \DIFadd{summarising }\DIFaddend the key findings of the study while addressing the limitations and suggesting directions for future research.
 
 
 \section{Data \& methods}
@@ -300,11 +300,11 @@ Historically, the ALARO model has its roots in the global \DIFdelbegin \DIFdel{I
 \addtocounter{footnote}{-1}%DIFAUXCMD
 \DIFdelend model of Météo-France.
 These global models were adapted to run on a limited area, which resulted in ALADIN.
-The ALADIN model employs the same physical parameterization schemes as the global ARPEGE model.
-ALARO is in turn a further development of ALADIN: it shares the dynamical core of ALADIN, but it contains different physics parameterizations.
+The ALADIN model employs the same physical \DIFdelbegin \DIFdel{parameterization }\DIFdelend \DIFaddbegin \DIFadd{parameterisation }\DIFaddend schemes as the global ARPEGE model.
+ALARO is in turn a further development of ALADIN: it shares the dynamical core of ALADIN, but it contains different physics \DIFdelbegin \DIFdel{parameterizations}\DIFdelend \DIFaddbegin \DIFadd{parameterisations}\DIFaddend .
 
 The dynamical core of ALARO can be run both hydrostatically and non-hydrostatically~\citep{bubnova_integration_1995, termonia_aladin_2018}. 
-In both configurations, the dynamical equations are spatially discretized using a spectral representation of double-Fourier modes.
+In both configurations, the dynamical equations are spatially \DIFdelbegin \DIFdel{discretized }\DIFdelend \DIFaddbegin \DIFadd{discretised }\DIFaddend using a spectral representation of double-Fourier modes.
 For the time-step algorithm, a semi-implicit semi-Lagrangian scheme is employed. 
 In the vertical dimension, the model uses a hybrid terrain-following pressure coordinate~\citep{simmons_energy_1981, laprise_euler_1992}. 
 
@@ -312,11 +312,11 @@ In the vertical dimension, the model uses a hybrid terrain-following pressure co
 %DIF >  ACRANEB references: slides of Jan Masek: https://www.rclace.eu/media/files/ALARO/alaro1_wd14vi/alaro1wd_JM_radbaseline_may14.pdf, shortwave paper (Masek 2016), longwave paper (Geleyn 2017), other presentation: https://www.rclace.eu/File/ALARO/alaro1_wd19br/alaro1wd_JM_rad_mar19.pdf 
 \DIFaddbegin 
 
-\DIFadd{The }\DIFaddend ALARO-1 \DIFaddbegin \DIFadd{physics package combines several parameterizations.
+\DIFadd{The }\DIFaddend ALARO-1 \DIFaddbegin \DIFadd{physics package combines several parameterisations.
 Radiative transfer is treated by the ACRANEB2 scheme~\mbox{%DIFAUXCMD
 \citep{masek_single_2016, geleyn_single_2017}}\hskip0pt%DIFAUXCMD
 , a broadband scheme with a single shortwave and a single longwave spectral interval that retains the full cloud--radiation interaction at every time step through a net-exchanged-rate decomposition.
-Turbulent transport and shallow convection are parameterized by the prognostic-TKE-based TOUCANS scheme~\mbox{%DIFAUXCMD
+Turbulent transport and shallow convection are parameterised by the prognostic-TKE-based TOUCANS scheme~\mbox{%DIFAUXCMD
 \citep{duran_compact_2014, marquet_general_2013}}\hskip0pt%DIFAUXCMD
 , which is valid across the full range of atmospheric stability and represents the effect of moisture and phase changes through a modified moist Brunt--V\"ais\"al\"a frequency, removing the need for a separate shallow-convection scheme.
 Deep convection is represented by the scale-aware 3MT scheme~\mbox{%DIFAUXCMD
@@ -336,7 +336,7 @@ Firstly, a simulation \DIFdelbegin \DIFdel{was }\DIFdelend \DIFaddbegin \DIFadd{
 Next, this simulation data \DIFdelbegin \DIFdel{was }\DIFdelend \DIFaddbegin \DIFadd{is }\DIFaddend dynamically downscaled to two higher resolutions with a multi-level nesting strategy: each higher-resolution run \DIFdelbegin \DIFdel{was }\DIFdelend \DIFaddbegin \DIFadd{is }\DIFaddend coupled hourly to the previous lower-resolution run at the boundaries.
 The output of all simulations \DIFdelbegin \DIFdel{was }\DIFdelend \DIFaddbegin \DIFadd{is }\DIFaddend stored at an hourly frequency.
 This downscaling \DIFdelbegin \DIFdel{resulted }\DIFdelend \DIFaddbegin \DIFadd{results }\DIFaddend in simulations at 12.5 km and 4 km coupled to, respectively, the 25 km and 12.5 km simulations. 
-Henceforth, we will refer to each simulation as ALARO-$x$km with $x$ the resolution in kilometers. 
+Henceforth, we will refer to each simulation as ALARO-$x$km with $x$ the resolution in \DIFdelbegin \DIFdel{kilometers}\DIFdelend \DIFaddbegin \DIFadd{kilometres}\DIFaddend . 
 For the lateral boundary coupling, the Davies relaxation scheme \DIFdelbegin \DIFdel{was }\DIFdelend \DIFaddbegin \DIFadd{is }\DIFaddend employed~\citep{davies_lateral_1976}, with a coupling zone of 8 points~\citep{termonia_aladin_2018}.
 \DIFaddbegin \DIFadd{The coupled prognostic variables are temperature, the horizontal wind components, specific humidity, and surface pressure.
 }\DIFaddend 
@@ -360,7 +360,7 @@ It is centred on Belgium and covers parts of Western Europe.
 
 The main technical specifications of the simulations are outlined in Table \ref{tab:technical}. 
 All simulations \DIFdelbegin \DIFdel{used the hydrostatical dynamical core and are run with 46 vertical levels.
-Moreover, they all used the }\DIFdelend \DIFaddbegin \DIFadd{use the }\DIFaddend same physics parameterization framework, including the 3MT scheme for deep convection, which adapts to the model resolution due to its scale-aware nature.
+Moreover, they all used the same physics parameterization }\DIFdelend \DIFaddbegin \DIFadd{use the same physics parameterisation }\DIFaddend framework, including the 3MT scheme for deep convection, which adapts to the model resolution due to its scale-aware nature.
 \DIFaddbegin \DIFadd{Moreover, they all are run with 46 vertical levels and use the hydrostatic dynamical core.
 Although the 4\,km simulation reaches the convection-permitting range, where non-hydrostatic effects can become relevant, we consider the hydrostatic core appropriate at this resolution.
 For ALARO specifically, \mbox{%DIFAUXCMD
@@ -457,7 +457,7 @@ A month is deemed significant where this interval excludes zero.
 For precipitation, a conservative remapping \DIFdelbegin \DIFdel{was }\DIFdelend \DIFaddbegin \DIFadd{is }\DIFaddend applied to all simulations to preserve the spatially averaged precipitation depth~\citep{jones_first-_1999}. 
 For temperature, the same conservative procedure \DIFdelbegin \DIFdel{was }\DIFdelend \DIFaddbegin \DIFadd{is }\DIFaddend used to reproject ALARO-4km. 
 For ALARO-12km and ALARO-25km, another regridding method \DIFdelbegin \DIFdel{was }\DIFdelend \DIFaddbegin \DIFadd{is }\DIFaddend employed for temperature.
-Since low-resolution data \DIFdelbegin \DIFdel{were }\DIFdelend \DIFaddbegin \DIFadd{are }\DIFaddend interpolated to a higher resolution, a conservative regridding method would effectively function as a nearest-neighbor approach in such cases.
+Since low-resolution data \DIFdelbegin \DIFdel{were }\DIFdelend \DIFaddbegin \DIFadd{are }\DIFaddend interpolated to a higher resolution, a conservative regridding method would effectively function as a nearest-neighbo\DIFaddbegin \DIFadd{u}\DIFaddend r approach in such cases.
 Therefore, a bilinear interpolation procedure \DIFdelbegin \DIFdel{was }\DIFdelend \DIFaddbegin \DIFadd{is }\DIFaddend used instead, as it \DIFdelbegin \DIFdel{was }\DIFdelend \DIFaddbegin \DIFadd{is }\DIFaddend more suitable for the smooth nature of temperature fields.
 
 \subsection{Definition of extreme precipitation}
@@ -471,7 +471,7 @@ Extreme precipitation events \DIFdelbegin \DIFdel{were }\DIFdelend \DIFaddbegin 
 An advantage of this definition is its simplicity: there is no need to determine an arbitrary threshold. 
 AM values \DIFdelbegin \DIFdel{were }\DIFdelend \DIFaddbegin \DIFadd{are }\DIFaddend selected for durations of 1, 2, 3, 6, 12, 24, 48, and 72 hours using a rolling-window approach over the hourly precipitation data. 
 
-The statistics of these AM values \DIFdelbegin \DIFdel{were }\DIFdelend \DIFaddbegin \DIFadd{are }\DIFaddend calculated by fitting a generalized extreme value (GEV) distribution, as defined in eqs. (\ref{eq:GEV}) - (\ref{eq:GEV0})~\citep{coles_introduction_2001}. 
+The statistics of these AM values \DIFdelbegin \DIFdel{were }\DIFdelend \DIFaddbegin \DIFadd{are }\DIFaddend calculated by fitting a \DIFdelbegin \DIFdel{generalized }\DIFdelend \DIFaddbegin \DIFadd{generalised }\DIFaddend extreme value (GEV) distribution, as defined in eqs. (\ref{eq:GEV}) - (\ref{eq:GEV0})~\citep{coles_introduction_2001}. 
 A GEV distribution is defined by three parameters: the shape $\xi$, location $\mu$, and scale $\sigma$. 
 These parameters \DIFdelbegin \DIFdel{were }\DIFdelend \DIFaddbegin \DIFadd{are }\DIFaddend fitted for each duration separately with the L-moments method as defined by~\cite{hosking_l-moments_1990}. 
 Consequently, these parameters \DIFdelbegin \DIFdel{were }\DIFdelend \DIFaddbegin \DIFadd{are }\DIFaddend used to calculate the \DIFdelbegin \DIFdel{$T$-year return level of }\DIFdelend \DIFaddbegin \DIFadd{return level $z_d(T)$, i.e.\ the }\DIFaddend $d$-hourly precipitation intensity \DIFdelbegin \DIFdel{$z_d(T)$}\DIFdelend \DIFaddbegin \DIFadd{expected to be exceeded once every $T$ years, where $d$ is the duration and $T$ the return period}\DIFaddend .
@@ -488,7 +488,7 @@ Elevation is }\DIFaddend used as a discriminatory parameter since it correlates 
 This subdivision strikes a balance between reducing uncertainties and maintaining relatively homogeneous climatic conditions within each region, as suggested by~\citet{van_de_vyver_spatial_2012}.
 
 \DIFaddbegin \DIFadd{Intensity-Duration-Frequency (IDF) statistics jointly characterise the intensity of extreme precipitation as a function of both duration and return period, and are a standard tool for hydrological design and flood-risk assessment~\mbox{%DIFAUXCMD
-\citep{van_de_vyver_practical_2013}}\hskip0pt%DIFAUXCMD
+\citep{tabari_local_2016}}\hskip0pt%DIFAUXCMD
 . 
 }\DIFaddend The return levels for each region are subsequently presented per return period as a function of the duration to construct \DIFdelbegin \DIFdel{Intensity-Duration-Frequency (IDF ) curves}\DIFdelend \DIFaddbegin \DIFadd{these IDF statistics}\DIFaddend .
 In order to gauge the return-level uncertainty, we derive\DIFdelbegin \DIFdel{d}\DIFdelend  the 95\% confidence interval using $10^4$ bootstraps, obtained by resampling yearly data. 
@@ -594,7 +594,7 @@ Consistent with its smaller domain-mean dry bias, ALARO-4km shows a significant 
 \end{table}
 
 \DIFaddend Figure~\ref{fig:pr_diurnal_cycle} shows the diurnal cycle of precipitation in Uccle, Belgium.
-The diurnal cycle is first analyzed across all hours \DIFdelbegin \DIFdel{. 
+The diurnal cycle is first \DIFdelbegin \DIFdel{analyzed }\DIFdelend \DIFaddbegin \DIFadd{analysed }\DIFaddend across all hours \DIFdelbegin \DIFdel{. 
 }\DIFdelend \DIFaddbegin \DIFadd{(Fig.~\ref{fig:pr_diurnal_cycle}a). 
 }\DIFaddend All simulations overestimate \DIFdelbegin \DIFdel{rainfall }\DIFdelend \DIFaddbegin \DIFadd{precipitation }\DIFaddend for all hours. 
 Apart from the systematic bias, ALARO-4km neatly reproduces the diurnal \DIFdelbegin \DIFdel{rainfall }\DIFdelend \DIFaddbegin \DIFadd{precipitation }\DIFaddend variation. 
@@ -726,7 +726,7 @@ This is consistent with the flux differences being driven by the surface state, 
 
 \DIFaddbegin \DIFadd{As a whole, it is shown that the introduction of SURFEX reduces the latent heat flux and increases the sensible heat flux, especially in summer.
 This can be partly attributed to the inclusion of urban elements, which contain no moisture and therefore reduce the latent heat flux.
-However, the effect is also present in non-urban areas, indicating that the difference is not solely due to urbanization.
+However, the effect is also present in non-urban areas, indicating that the difference is not solely due to urbanisation.
 Although the differing soil discretisations of the two schemes preclude a direct quantitative comparison of soil moisture, the reduced latent heat flux, drier summers, and associated warming are all consistent with reduced soil moisture in the SURFEX configuration.
 This shift in the partitioning of the surface fluxes is consistent with the observed warming of near-surface air temperature and the reduced precipitation.
 }
@@ -818,7 +818,7 @@ for ALARO-0.
 This contrast reflects the change from ALARO-0 to ALARO-1 and cannot be attributed to the scale-aware 3MT scheme, which is common to both versions, nor to the land-surface scheme, which the ALARO-12km-noSFX experiment shows does not affect the peak timing (Sect.~\ref{sect:surfex_effect}, Fig.~\ref{fig:surfex_effect}c). 
 A further candidate is the difference in experimental setup: the ALARO-0 simulations of \mbox{%DIFAUXCMD
 \citet{de_troch_application_2016} }\hskip0pt%DIFAUXCMD
-were reinitialized daily, whereas ours run continuously.
+were reinitialised daily, whereas ours run continuously.
 Such daily restarts can plausibly influence the phase of the simulated diurnal cycle.
 However, we cannot isolate the responsible factor from the available output.
 }\DIFaddend Overall, for both all-hour \DIFaddbegin \DIFadd{(Fig.~\ref{fig:pr_diurnal_cycle}a) }\DIFaddend and wet-hour \DIFaddbegin \DIFadd{(Fig.~\ref{fig:pr_diurnal_cycle}b) }\DIFaddend precipitation, the diurnal cycles in ALARO-4km are comparable to those in the work of~\citet{de_troch_application_2016}.
@@ -827,7 +827,7 @@ In our analysis of the mean diurnal precipitation cycle, notable differences eme
 Specifically, while the ``all-hour'' precipitation cycle \DIFdelbegin \DIFdel{tends to exhibit an overestimation }\DIFdelend \DIFaddbegin \DIFadd{overestimates precipitation }\DIFaddend relative to observations, the ``wet-hour'' cycle \DIFdelbegin \DIFdel{shows a general underestimation.
 This implies that the precipitation frequency is overestimated . 
 This discrepancy }\DIFdelend \DIFaddbegin \DIFadd{underestimates it, which Table~\ref{tab:wet_hours} attributes to an overestimated wet-hour frequency combined with an underestimated wet-hour intensity. 
-This }\DIFaddend is most pronounced in \DIFdelbegin \DIFdel{the }\DIFdelend ALARO-25km \DIFdelbegin \DIFdel{simulation and is minimized in the }\DIFdelend \DIFaddbegin \DIFadd{and minimized in }\DIFaddend ALARO-4km\DIFdelbegin \DIFdel{simulation, indicating }\DIFdelend \DIFaddbegin \DIFadd{, showing }\DIFaddend that the coarser resolution \DIFdelbegin \DIFdel{more significantly }\DIFdelend overestimates precipitation amounts \DIFdelbegin \DIFdel{due to }\DIFdelend \DIFaddbegin \DIFadd{through }\DIFaddend an overly high \DIFdelbegin \DIFdel{rainfall frequency. 
+This }\DIFaddend is most pronounced in \DIFdelbegin \DIFdel{the }\DIFdelend ALARO-25km \DIFdelbegin \DIFdel{simulation and is minimized in the }\DIFdelend \DIFaddbegin \DIFadd{and minimised in }\DIFaddend ALARO-4km\DIFdelbegin \DIFdel{simulation, indicating }\DIFdelend \DIFaddbegin \DIFadd{, showing }\DIFaddend that the coarser resolution \DIFdelbegin \DIFdel{more significantly }\DIFdelend overestimates precipitation amounts \DIFdelbegin \DIFdel{due to }\DIFdelend \DIFaddbegin \DIFadd{through }\DIFaddend an overly high \DIFdelbegin \DIFdel{rainfall frequency. 
 These results imply that drizzle contributes substantially to the simulated rainfall, particularly in the lower-resolution model.
 This problem is partially mitigated when using CPMs, but not entirely.
 }\DIFdelend \DIFaddbegin \DIFadd{precipitation frequency, i.e.\ a substantial drizzle contribution.
@@ -836,13 +836,13 @@ This problem is partially mitigated when using CPMs, but not entirely.
 \DIFadd{This drizzle bias is a well-known deficiency of regional climate models~\mbox{%DIFAUXCMD
 \citep{fosser_benefit_2015, berthou_pan-european_2020}}\hskip0pt%DIFAUXCMD
 . 
-It arises largely because parameterized convection triggers on weak instability and releases it gradually, producing precipitation that is too frequent and too light. 
+It arises largely because parameterised convection triggers on weak instability and releases it gradually, producing precipitation that is too frequent and too light. 
 The improvement with resolution reflects the sharper humidity and updraught fields at higher resolution, which reduce the widespread simultaneous triggering dominating the coarser runs.
 The residual bias in }\DIFaddend ALARO-4km \DIFdelbegin \DIFdel{still exhibits a drizzle bias , even at scales where convection }\DIFdelend is \DIFdelbegin \DIFdel{(partially) permitted by the scale-aware convection scheme 3MT.
 This finding is }\DIFdelend consistent with \DIFdelbegin \DIFdel{previous works~\mbox{%DIFAUXCMD
 \citep{kendon_realism_2012, fosser_benefit_2015, berthou_pan-european_2020}}\hskip0pt%DIFAUXCMD
 . 
-Additionally, it has been shown that }\DIFdelend \DIFaddbegin \DIFadd{3MT still parameterizing part of the convective spectrum in the grey zone. 
+Additionally, it has been shown that }\DIFdelend \DIFaddbegin \DIFadd{3MT still parameterising part of the convective spectrum in the grey zone. 
 }
 
 \DIFadd{Furthermore, }\DIFaddend both the timing and amplitude of the diurnal precipitation peak are best represented at high resolution\DIFdelbegin \DIFdel{. 
@@ -891,15 +891,15 @@ For longer durations (>24\DIFdelbegin \DIFdel{hours}\DIFdelend \DIFaddbegin \DIF
 Additionally, while~\citet{de_troch_application_2016} observed increasing overestimation for longer return periods in the 4 km ALARO-0 simulation, this effect is notably absent - and even reversed - in ALARO-4km.
 
 \DIFdelbegin \DIFdel{Because of the }\DIFdelend \DIFaddbegin \DIFadd{The }\DIFaddend scale-aware design of the 3MT scheme \DIFdelbegin \DIFdel{, the statistics of extreme precipitation should, in principle, be independent of model resolution. 
-In }\DIFdelend \DIFaddbegin \DIFadd{provides a smooth transition between parameterized and resolved convection, which would lead one to expect a gradual change of the extreme-precipitation statistics with resolution, as found in }\DIFaddend previous studies~\citep{de_troch_application_2016, tabari_local_2016}\DIFdelbegin \DIFdel{, return levels exhibited a gradual change with resolution, which is broadly consistent with the expected resolution independence}\DIFdelend .
+In }\DIFdelend \DIFaddbegin \DIFadd{provides a smooth transition between parameterised and resolved convection, which would lead one to expect a gradual change of the extreme-precipitation statistics with resolution, as found in }\DIFaddend previous studies~\citep{de_troch_application_2016, tabari_local_2016}\DIFdelbegin \DIFdel{, return levels exhibited a gradual change with resolution, which is broadly consistent with the expected resolution independence}\DIFdelend .
 In contrast, the return levels presented in this study display a more abrupt, step-wise change when transitioning from 12 km to 4 km resolution.
-This behaviour is more similar to that observed in other models without a scale-aware convective scheme, where the step-wise shift is typically attributed to the deactivation of the deep convective parameterization at high resolutions.
+This behaviour is more similar to that observed in other models without a scale-aware convective scheme, where the step-wise shift is typically attributed to the deactivation of the deep convective \DIFdelbegin \DIFdel{parameterization }\DIFdelend \DIFaddbegin \DIFadd{parameterisation }\DIFaddend at high resolutions.
 \DIFaddbegin \DIFadd{For 3MT, however, no such deactivation occurs, and the apparent abruptness may be partly an artefact of comparison: the 25 km to 12 km change is small, so the 12 km to 4 km change stands out as step-wise by contrast.
 We propose two contributing effects.
 First, the difference between ALARO-25km and ALARO-12km conflates resolution with the land-surface scheme: the drying effect of SURFEX (Sect.~\ref{sect:surfex_effect}) reduces precipitation and may partly offset the resolution-driven increase in extreme intensity at 12 km, suppressing the apparent 25 km to 12 km change.
 Second, the step from 12 km to 4 km crosses the grey zone of convection ($\sim 4$--$10$\,km)~\mbox{%DIFAUXCMD
 \citep{prein_review_2015,vergara-temprado_climate_2020}}\hskip0pt%DIFAUXCMD
-, where 3MT transitions from a parameterized towards a resolved representation of deep convection.
+, where 3MT transitions from a parameterised towards a resolved representation of deep convection.
 This transition is expected to affect the extreme-precipitation statistics most strongly.
 Isolating the contributions of these two effects is left to future work.
 }\DIFaddend 
@@ -925,7 +925,7 @@ In contrast,~\citet{innocenti_observed_2019} reported the slight outperformance 
 %% The following commands are for the statements about the availability of data sets and/or software code corresponding to the manuscript.
 %% It is strongly recommended to make use of these sections in case data sets and/or software code have been part of your research the article is based on.
 
-This study evaluated the performance of the ALARO-1 model, including a scale-aware deep convection parameterization, over Belgium using a multi-level dynamical downscaling framework at three horizontal resolutions: 25 km, 12.5 km, and 4 km.
+This study evaluated the performance of the ALARO-1 model, including a scale-aware deep convection \DIFdelbegin \DIFdel{parameterization}\DIFdelend \DIFaddbegin \DIFadd{parameterisation}\DIFaddend , over Belgium using a multi-level dynamical downscaling framework at three horizontal resolutions: 25 km, 12.5 km, and 4 km.
 The ALARO-1 model was coupled online to the land-surface model SURFEX v8.0 for ALARO-12km and ALARO-4km.
 These simulations, spanning a 32-year period (\DIFdelbegin \DIFdel{1991–2022}\DIFdelend \DIFaddbegin \DIFadd{1991--2022}\DIFaddend ), were compared against both a gridded observational dataset (CLIMATE-GRID) and hourly precipitation values from station measurements.
 
@@ -954,7 +954,7 @@ Finally, given the high computational cost of convection-permitting simulations,
 \section{Definition of bias}
 \label{sect:bias_definition}
 
-The temperature and precipitation bias are calculated in the following way. Let $X_{kni}$ be the value of variable $X$ at time $k$, with $k = 1, \ldots, K$, in grid point $n$, with $n = 1, \ldots, N$, and in year $i$, with $i = 1$. We define the total value of $X$ over a period $t$ as:
+The temperature and precipitation bias are calculated in the following way. Let $X_{kni}$ be the value of variable $X$ at time $k$, with $k = 1, \ldots, K$, in grid point $n$, with $n = 1, \ldots, N$, and in year $i$, with \DIFdelbegin \DIFdel{$i = 1$}\DIFdelend \DIFaddbegin \DIFadd{$i = 1, \ldots, I$}\DIFaddend . We define the total value of $X$ over a period $t$ as:
 \begin{equation*}
     X^t_{ni} = \sum_{k \in t} X_{kni}
 \end{equation*}
@@ -1100,9 +1100,14 @@ IBGE & 19 (1992 -- 2010) & 14 \\
 
 \newpage
 
-\codeavailability{The Python notebooks used for the analysis will be made publicly available upon acceptance of the manuscript. % are available through \url{https://doi.org/10.5281/zenodo.15791682}~\citep{dewettinck_code_2025}.
+\DIFdelbegin %DIFDELCMD < \codeavailability{The Python notebooks used for the analysis will be made publicly available upon acceptance of the manuscript. % are available through \url{https://doi.org/10.5281/zenodo.15791682}~\citep{dewettinck_code_2025}.
+%DIFDELCMD < The ALARO1-SFX code, along with all its related intellectual property rights, is owned by the members of the ACCORD consortium. Each member of this consortium can license the shared code to academic institutions of their home country for noncommercial research. 
+%DIFDELCMD < Access to the codes of the ACCORD system can be obtained by contacting one of the member institutes mentioned in \citet{termonia_aladin_2018} or by submitting a request in the Contact link below the page of the ACCORD website (\url{https://www.umr-cnrm.fr/accord/}) and the access will be subject to signing a standardized ACCORD license agreement.}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \codeavailability{The Python notebooks used for the analysis will be made publicly available upon acceptance of the manuscript. % are available through \url{https://doi.org/10.5281/zenodo.15791682}~\citep{dewettinck_code_2025}.
 The ALARO1-SFX code, along with all its related intellectual property rights, is owned by the members of the ACCORD consortium. Each member of this consortium can license the shared code to academic institutions of their home country for noncommercial research. 
-Access to the codes of the ACCORD system can be obtained by contacting one of the member institutes mentioned in \citet{termonia_aladin_2018} or by submitting a request in the Contact link below the page of the ACCORD website (\url{https://www.umr-cnrm.fr/accord/}) and the access will be subject to signing a standardized ACCORD license agreement.}
+Access to the codes of the ACCORD system can be obtained by contacting one of the member institutes mentioned in \citet{termonia_aladin_2018} or by submitting a request in the Contact link below the page of the ACCORD website (\url{https://www.umr-cnrm.fr/accord/}) and the access will be subject to signing a standardised ACCORD license agreement.}
+\DIFaddend 
 
 \DIFdelbegin %DIFDELCMD < \dataavailability{
 %DIFDELCMD < The VMM rainfall observations over Flanders are available on \url{https://waterinfo.vlaanderen.be/}. The DHG rainfall observations may be requested from the Service public de Wallonie - Mobilité et Infrastructures, Direction de la Gestion hydrologique, PEREX, Rue Del’Grête, 22, 5020 NAMUR (Daussoulx). The IBGE data may be requested at the Bruxelles Environnement (\url{https://environnement.brussels}). The automatic weather station (AWS) rainfall observations from the Royal Meteorological Institute of Belgium are available on \url{https://opendata.meteo.be/download}. Annual maxima extracted from the HYDRO-network from the Royal Meteorological Institute of Belgium are available on \url{https://doi.org/10.5281/zenodo.4741177}. Further information about the CLIMATE-GRID dataset can be found on \url{https://opendata.meteo.be/geonetwork/srv/eng/catalog.search\#/metadata/RMI_DATASET_GRIDDEDOBS}, although the data are currently not yet publicly available.
@@ -1113,9 +1118,12 @@ The VMM precipitation observations over Flanders are available on \url{https://w
 The simulation data used in this study will be made publicly available in a Zenodo repository upon acceptance of the manuscript. % can be found on \url{https://doi.org/10.5281/zenodo.15296030}~\citep{dewettinck_data_2025}.
 } \DIFaddend %% use this section when having only data sets available
 
-\authorcontribution{
-SC and PT conceptualized the study. SC, PT, and WD acquired funding. WD conducted the investigation and performed the formal analysis. WD, KV and MVG were responsible for software implementation. HVdV, DD, RH, BVS, KVW, SC, and PT supervised the research. WD created the visualizations and prepared the original draft. All authors contributed to the review and editing of the manuscript and approved the final version.
-} %% this section is mandatory
+\DIFdelbegin %DIFDELCMD < \authorcontribution{
+%DIFDELCMD < SC and PT conceptualized the study. SC, PT, and WD acquired funding. WD conducted the investigation and performed the formal analysis. WD, KV and MVG were responsible for software implementation. HVdV, DD, RH, BVS, KVW, SC, and PT supervised the research. WD created the visualizations and prepared the original draft. All authors contributed to the review and editing of the manuscript and approved the final version.
+%DIFDELCMD < } %%%
+\DIFdelend \DIFaddbegin \authorcontribution{
+SC and PT conceptualised the study. SC, PT, and WD acquired funding. WD conducted the investigation and performed the formal analysis. WD, KV and MVG were responsible for software implementation. HVdV, DD, RH, BVS, KVW, SC, and PT supervised the research. WD created the visualisations and prepared the original draft. All authors contributed to the review and editing of the manuscript and approved the final version.
+} \DIFaddend %% this section is mandatory
 
 \competinginterests{The authors declare that they have no conflict of interest.} %% this section is mandatory even if you declare that no competing interests are present
 
