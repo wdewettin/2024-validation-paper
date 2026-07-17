@@ -123,11 +123,11 @@
 \maketitle
 
 \begin{abstract}
-Regional climate modeling is essential for providing reliable information to understand localized impacts and guide adaptation strategies in the context of climate change. This study evaluates long-term continuous climate simulations over Belgium performed with the ALARO1-SFX model, a novel version of ALARO-1 that incorporates an advanced surface scheme (SURFEX) and improved physiographic datasets.
+Regional climate modelling is essential for providing reliable information to understand localized impacts and guide adaptation strategies in the context of climate change. This study evaluates long-term continuous climate simulations over Belgium performed with the ALARO1-SFX model, a novel version of ALARO-1 that incorporates an advanced surface scheme (SURFEX) and improved physiographic datasets.
 
 A scale-selective evaluation setup is introduced, employing a multi-level dynamical downscaling framework to assess the progressive added value of increasing resolution from the mesoscale to convection-permitting scales. The model's performance is evaluated against a gridded observational dataset and precipitation station measurements, focusing on temperature and precipitation biases, diurnal precipitation cycles, and extreme precipitation statistics.
 
-Results indicate that the higher resolutions (12.5 km and 4 km) improve temperature and precipitation biases relative to the 25 km simulation, with the 4 km resolution providing the best representation of hourly extreme precipitation and its diurnal cycle. A dedicated sensitivity experiment isolates the contribution of the SURFEX land-surface scheme from that of resolution, attributing a substantial part of the improvement in near-surface temperature and precipitation to the introduction of SURFEX. However, all simulations exhibit varying degrees of wet and cold biases. The findings underscore the added value of convection-permitting modelling for resolving extreme precipitation events and improving diurnal precipitation cycles. Finally, the study provides evidence that increasing model resolution adds value for simulating extreme precipitation.
+Results indicate that the higher resolutions (12.5 km and 4 km) improve temperature and precipitation biases relative to the 25 km simulation, with the 4 km resolution providing the best representation of hourly extreme precipitation and its diurnal cycle. A dedicated sensitivity experiment isolates the contribution of the SURFEX land-surface scheme from that of resolution, attributing a substantial part of the improvement in near-surface temperature and precipitation to the introduction of SURFEX. However, all simulations exhibit varying degrees of wet and cold biases. The findings underscore the added value of convection-permitting modelling for improving diurnal precipitation cycles. Furthermore, the study provides evidence that increasing model resolution improves the representation of extreme precipitation.
 \end{abstract}
 
 
@@ -159,11 +159,11 @@ CPMs typically turn off their convective parameterization schemes~\citep{coppola
 However, the boundary between convection-permitting and convection-parameterized scales is not well defined.
 In the so-called `grey zone of convection' ($\sim 4$-$10$ km), deep convection is only partially resolved, making it unclear whether parameterization is required~\citep{vergara-temprado_climate_2020}.
 In the grey zone, the explicit and parameterised representations compete with one another, which can result in double counting of convective transport or no counting at all~\citep{grossPhysicsDynamicsCoupling2018}.
-This can lead respectively to convection being triggered too late by the parameterisation, leading to spurious grid-scale storms, or to convection being triggered too early, systematically shifting convective onset too early in the day~\citep{grossPhysicsDynamicsCoupling2018}.
+This can lead to convection being triggered too late by the parameterisation, leading to spurious grid-scale storms, or to convection being triggered too early, systematically shifting convective onset too early in the day~\citep{grossPhysicsDynamicsCoupling2018}.
 
 The development of scale-aware convective parameterization schemes addresses this problem.
 Rather than simply switching convection on or off, these schemes adapt to the resolution by adjusting their tuning parameters accordingly.
-Scale awareness can be introduced through a prognostic variable for the convective fraction of a grid cell~\citep{gerard_cloud_2009}, by scaling the convective area fraction and mass flux with the grid-box area~\citep{grellScaleAerosolAware2014,hanUpdatesNCEPGFS2017}, or by adjusting scheme parameters explicitly as a function of the grid spacing~\citep{zhengImprovingHighResolutionWeather2016a}.
+Scale awareness can be introduced through several approaches, for example by introducing a prognostic variable for the convective fraction of a grid cell~\citep{gerard_cloud_2009}, scaling the convective area fraction and mass flux with the grid-box area~\citep{grellScaleAerosolAware2014,hanUpdatesNCEPGFS2017}, or adjusting scheme parameters explicitly as a function of the grid spacing~\citep{zhengImprovingHighResolutionWeather2016a}.
 Therefore, models with these parameterization schemes can operate at both coarse and fine resolutions and even in the grey zone.
 
 CPMs have been shown to improve some notable limitations associated with the parameterization of deep convection used in lower resolution models. 
@@ -379,7 +379,7 @@ We subdivide Belgium into three distinct regions based on elevation: Low-Belgium
 Elevation is used as a discriminatory parameter since it correlates strongly with the annual precipitation totals, which themselves are closely linked to precipitation extremes~\citep{van_de_vyver_spatial_2012}. 
 This subdivision strikes a balance between reducing uncertainties and maintaining relatively homogeneous climatic conditions within each region, as suggested by~\citet{van_de_vyver_spatial_2012}.
 
-Intensity-Duration-Frequency (IDF) statistics jointly characterise the intensity of extreme precipitation as a function of both duration and return period, and are a standard tool for hydrological design and flood-risk assessment~\citep{van_de_vyver_practical_2013}. 
+Intensity-Duration-Frequency (IDF) statistics jointly characterise the intensity of extreme precipitation as a function of both duration and return period, and are a standard tool for hydrological design and flood-risk assessment~\citep{tabari_local_2016}. 
 The return levels for each region are subsequently presented per return period as a function of the duration to construct these IDF statistics.
 In order to gauge the return-level uncertainty, we derive the 95\% confidence interval using $10^4$ bootstraps, obtained by resampling yearly data. 
 For each simulation, the observational return levels are compared with their simulated counterparts by calculating the relative error. 
@@ -771,7 +771,7 @@ Finally, given the high computational cost of convection-permitting simulations,
 \section{Definition of bias}
 \label{sect:bias_definition}
 
-The temperature and precipitation bias are calculated in the following way. Let $X_{kni}$ be the value of variable $X$ at time $k$, with $k = 1, \ldots, K$, in grid point $n$, with $n = 1, \ldots, N$, and in year $i$, with $i = 1$. We define the total value of $X$ over a period $t$ as:
+The temperature and precipitation bias are calculated in the following way. Let $X_{kni}$ be the value of variable $X$ at time $k$, with $k = 1, \ldots, K$, in grid point $n$, with $n = 1, \ldots, N$, and in year $i$, with $i = 1, \ldots, I$. We define the total value of $X$ over a period $t$ as:
 \begin{equation*}
     X^t_{ni} = \sum_{k \in t} X_{kni}
 \end{equation*}
